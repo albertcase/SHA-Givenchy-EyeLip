@@ -35,18 +35,23 @@
 
 </section>
 <script type="text/javascript">
-	var name=$("#name").val();
-	var tel=$("#tel").val();
 
 	$(".share_btn").on("click",function(){
+		var name=$("#name").val();
+		var tel=$("#tel").val();
+
 		if(name==""){
 			$("#name").attr("placeholder","(必填)");
+			return false;
 		}
-		else if(tel==""){
+		if(tel==""){
 			$("#tel").attr("placeholder","(必填)");
+			return false;
 		}
 		else if(!tel.match(/13[0-9]{9}|14[0-9]{9}|15[0-9]{9}|18[0-9]{9}/)){
-			$("#tel").attr("placeholder","请输入正确的电话");
+			$("#tel").val("");
+			$("#tel").attr("placeholder","请输入您的电话");
+			return false;
 		}
 
 	});

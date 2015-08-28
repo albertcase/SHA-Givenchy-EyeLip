@@ -1,6 +1,64 @@
 {% extends 'GivenchyEyelipBundle::index.html.twig' %} 
 {% block content %}
 
+<section id="info">
+	
+	<a href="javascript:;" class="logo">
+		<img src="/images/logo.png" width="100%" />
+	</a>
+	<div class="form">
+		<ul>
+			<li>
+				<img src="/images/info/name.png" width="100%" class="f_name"/>
+			</li>
+			<li>
+				<input type="text" name="name" id="name" placeholder="(必填)" />
+			</li>	
+			<li>
+				<img src="/images/info/tel.png" width="100%" class="f_tel"/>
+			</li>
+			<li>
+				<input type="tel" name="tel" id="tel" placeholder="(必填)"/>
+			</li>
+			<img src="/images/info/share_btn.png" width="100%" class="share_btn"/>	
+		</ul>
+
+		<img src="/images/info/tips.png" width="100%" class="tips_txt"/>
+	</div>
+
+	<div class="tipsMask">
+		<img src="/images/info/arrow.png" width="100%" class="tips_arr"/>
+		<img src="/images/info/share_title.png" width="100%" class="share_title"/>
+	</div>	
+
+		
+
+</section>
+<script type="text/javascript">
+
+	$(".share_btn").on("click",function(){
+		var name=$("#name").val();
+		var tel=$("#tel").val();
+
+		if(name==""){
+			$("#name").attr("placeholder","(必填)");
+			return false;
+		}
+		if(tel==""){
+			$("#tel").attr("placeholder","(必填)");
+			return false;
+		}
+		else if(!tel.match(/13[0-9]{9}|14[0-9]{9}|15[0-9]{9}|18[0-9]{9}/)){
+			$("#tel").val("");
+			$("#tel").attr("placeholder","请输入您的电话");
+			return false;
+		}
+
+	});
+
+</script>
+
+
 
 
 {% endblock %}

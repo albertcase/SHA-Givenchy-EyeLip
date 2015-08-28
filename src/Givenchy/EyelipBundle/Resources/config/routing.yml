@@ -1,0 +1,35 @@
+givenchy_eyelip_homepage:
+    path:     /index
+    defaults: { _controller: GivenchyEyelipBundle:Page:index }
+
+givenchy_eyelip_photolist:
+    path:     /photolist
+    defaults: { _controller: GivenchyEyelipBundle:Page:photolist }
+
+givenchy_eyelip_upload:
+    path:     /upload
+    defaults: { _controller: GivenchyEyelipBundle:Page:upload }
+
+givenchy_eyelip_result:
+    path:     /result
+    defaults: { _controller: GivenchyEyelipBundle:Page:result }
+
+givenchy_eyelip_info:
+    path:     /info
+    defaults: { _controller: GivenchyEyelipBundle:Page:info }
+
+givenchy_eyelip_finish:
+    path:     /finish
+    defaults: { _controller: GivenchyEyelipBundle:Page:finish }
+
+givenchy_eyelip_check:
+    path:     /check
+    defaults: { _controller: GivenchyEyelipBundle:Page:check }
+
+givenchy_eyelip_user:
+    path:     /user
+    defaults: { _controller: GivenchyEyelipBundle:Page:user }
+
+givenchy_eyelip_lottery:
+    path:     /lottery
+    defaults: { _controller: GivenchyEyelipBundle:Page:lottery }

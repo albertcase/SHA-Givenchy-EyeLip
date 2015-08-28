@@ -18,7 +18,7 @@ class php {
 
   file {
     '/etc/php5/fpm/php.ini':
-      content  => "puppet:///modules/php/php-${env}.ini",
+      source  => "puppet:///modules/php/php-${env}.ini",
       require => Package['php5-fpm'],
       notify  => Service['php5-fpm'];
     '/etc/php5/fpm/conf.d/apc.ini':

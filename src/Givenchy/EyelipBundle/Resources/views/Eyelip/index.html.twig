@@ -1,1 +1,170 @@
-index
+{% extends 'GivenchyEyelipBundle::index.html.twig' %} 
+{% block content %}
+
+
+<div id="pupbg">
+	
+<!-- rule -->
+<div class="pupcon" id="rule">
+	<div class="rule_con">
+		<div class="rule_content single">
+			<img src="/images/rule.png" width="100%" />
+		</div>
+		<div class="rule_footer">
+			<a href="javascript:;" class="close">
+				<img src="/images/close.png" width="100%" />
+			</a>
+		</div>
+	</div>
+</div>
+
+<!-- rule -->
+<div class="pupcon" id="proInfo" style="display:inline-block;">
+	<div class="proInfo_con">
+		<img src="/images/pro/p1/pro.png" width="86%" />
+	</div>
+	<div class="rule_footer">
+		<a href="javascript:;" class="close">
+			<img src="/images/close.png" width="100%" />
+		</a>
+	</div>
+</div>
+
+
+</div>
+
+
+
+
+
+<article class="dreambox">
+	<section class="page" id="index">
+		<div class="con">
+
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+
+			<div class="video">
+				<a href="javascript:;"></a>
+				<img src="/images/holder.jpg" width="100%" />
+			</div>
+
+			<div class="slogan">
+				<img src="/images/slogan.png" width="100%" />
+			</div>
+
+			<div class="footer">
+				<a href="javascript:;" class="search-btn">
+					<img src="/images/search-btn.png" width="100%" />
+				</a>
+			</div>
+
+		</div>
+	</section>
+
+	<section class="page" id="product" style="display:inline-block;">
+		<div class="con">
+
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+
+			<div class="product">
+				<!-- Swiper -->
+			    <div class="swiper-container">
+			        <div class="swiper-wrapper">
+
+			        	<!-- product_list -->
+
+			        </div>
+			        <!-- Add Arrows -->
+			        <div class="swiper-button-next">
+			        	<img src="/images/arr-r.png" width="100%" />
+			        </div>
+			        <div class="swiper-button-prev">
+			        	<img src="/images/arr-l.png" width="100%" />
+			        </div>
+			    </div>
+			</div>
+
+
+			<div class="footer">
+				<a href="javascript:;" class="search-btn">
+					<img src="/images/search-btn.png" width="100%" />
+				</a>
+			</div>
+
+		</div>
+	</section>
+
+	<img src="/images/index_bg.jpg" width="100%" />
+</article>
+
+<script type="text/javascript">
+	var pro_data = [
+		{
+			"title": "个性女王",
+			"info": "几何感线条配搭神秘海蓝，结构感更强裸色唇妆突显眼妆重点，极富个性"
+		},
+		{
+			"title": "个性女王",
+			"info": "金属烟熏和色彩碰撞，来增加眼妆的深邃魅力点缀艳丽的玫瑰色，来增加活跃派对感"
+		},
+		{
+			"title": "个性女王",
+			"info": "摇滚女孩，rock范儿通过色彩突显内心叛逆，色调是黑，灰，金"
+		},
+		{
+			"title": "精致职业",
+			"info": "灰色增加眼部深邃感，强调干练眼神没有太多颜色叠加，灰色小烟熏唇色作为与眼部对比，重点突出嘴唇"
+		},
+		{
+			"title": "精致职业",
+			"info": "精致色彩眼线突显职业眼神，紫色眼线与藕荷色眼影叠加，墨绿色作为下眼线点缀，摩登职业风格"
+		},
+		{
+			"title": "精致职业",
+			"info": "烟熏感眼妆，金色与灰色碰撞，金属感妆容职场先锋，勇于突破，敢于创新的"
+		},
+		{
+			"title": "日常必备",
+			"info": "粉色裸色，简单实用最简单的画法，更具亲和力"
+		},
+		{
+			"title": "日常必备",
+			"info": "灰绿色与橘色眼影搭配最适合亚洲人肤色而唇色更突显白皙肌肤，休闲度假风"
+		}
+	] 
+
+
+
+	function productlist(){
+		var plHtml = $.map(pro_data,function(v,k){
+			return '<div class="swiper-slide"><dl class="prolist"><dt><img src="/images/pro/p'+parseInt(k+1)+'/people.jpg" width="100%" /><p>发现妆容秘籍</p></dt><dd><h2>'+v.title+'</h2><p>'+v.info+'</p></dd></dl></div>';
+		})
+		$(".swiper-wrapper").html(plHtml);
+
+		var swiper = new Swiper('.swiper-container', {
+		    nextButton: '.swiper-button-next',
+		    prevButton: '.swiper-button-prev',
+		    effect : 'coverflow',
+		    slidesPerView: 1,
+			centeredSlides: true,
+		    coverflow: {
+	            rotate: 100,
+	            stretch: 30,
+	            depth: 20,
+	            modifier: 1,
+	            slideShadows : false
+	        }
+		});
+	}
+
+	productlist();
+
+
+</script>
+
+
+{% endblock %}

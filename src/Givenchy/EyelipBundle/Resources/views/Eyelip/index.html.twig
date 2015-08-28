@@ -10,23 +10,26 @@
 		<div class="rule_content single">
 			<img src="/images/rule.png" width="100%" />
 		</div>
+
+		<div class="footer">
+			<a href="javascript:;" class="do-btn">
+				<img src="/images/do_btn.png" width="100%" />
+			</a>
+		</div>
+
+	</div>
+</div>
+
+<!-- 产品详细 -->
+<div class="pupcon" id="proInfo">
+	<div class="proInfo_con">
+		<img src="" id="proUrl" width="86%" />
+
 		<div class="rule_footer">
 			<a href="javascript:;" class="close">
 				<img src="/images/close.png" width="100%" />
 			</a>
 		</div>
-	</div>
-</div>
-
-<!-- rule -->
-<div class="pupcon" id="proInfo" style="display:inline-block;">
-	<div class="proInfo_con">
-		<img src="/images/pro/p1/pro.png" width="86%" />
-	</div>
-	<div class="rule_footer">
-		<a href="javascript:;" class="close">
-			<img src="/images/close.png" width="100%" />
-		</a>
 	</div>
 </div>
 
@@ -38,6 +41,8 @@
 
 
 <article class="dreambox">
+
+	<!-- 首页 -->
 	<section class="page" id="index">
 		<div class="con">
 
@@ -61,9 +66,11 @@
 			</div>
 
 		</div>
+		<img src="/images/index_bg.jpg" width="100%" />
 	</section>
-
-	<section class="page" id="product" style="display:inline-block;">
+	
+	<!-- 产品页 -->
+	<section class="page" id="product">
 		<div class="con">
 
 			<a href="javascript:;" class="logo">
@@ -96,9 +103,44 @@
 			</div>
 
 		</div>
+		<img src="/images/index_bg.jpg" width="100%" />
 	</section>
 
-	<img src="/images/index_bg.jpg" width="100%" />
+	<!-- 过度页面 -->
+	<section class="page" id="transition" style="display:inline-block;">
+		<div class="con">
+
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+			
+			<div class="transition_con">
+				<div class="lipstick">
+					<div class="lipstick_mask">
+						<img src="/images/cg_mask.png" width="100%" />
+					</div>
+					<img src="/images/cg_bg.png" width="100%" />
+				</div>
+
+				<div class="holder_arr">
+					<img src="/images/holder_arr.png" />
+					<img src="/images/holder_arr.png" />
+					<img src="/images/holder_arr.png" />
+					<img src="/images/holder_arr.png" />
+					<img src="/images/holder_arr.png" />
+					<img src="/images/holder_arr.png" />
+				</div>
+
+				<div class="holder_text">
+					<img src="/images/holder_text.png" width="60%" />
+				</div>
+
+			</div>
+
+		</div>
+		<img src="/images/index_bg2.jpg" width="100%" />
+	</section>
+
 </article>
 
 <script type="text/javascript">
@@ -141,7 +183,7 @@
 
 	function productlist(){
 		var plHtml = $.map(pro_data,function(v,k){
-			return '<div class="swiper-slide"><dl class="prolist"><dt><img src="/images/pro/p'+parseInt(k+1)+'/people.jpg" width="100%" /><p>发现妆容秘籍</p></dt><dd><h2>'+v.title+'</h2><p>'+v.info+'</p></dd></dl></div>';
+			return '<div class="swiper-slide"><dl class="prolist"><dt><img src="/images/pro/p'+parseInt(k+1)+'/people.jpg" data-pro="/images/pro/p'+parseInt(k+1)+'/pro.png" width="100%" /><p>发现妆容秘籍</p></dt><dd><h2>'+v.title+'</h2><p>'+v.info+'</p></dd></dl></div>';
 		})
 		$(".swiper-wrapper").html(plHtml);
 
@@ -162,6 +204,39 @@
 	}
 
 	productlist();
+
+
+     
+	$.fn.extend({          
+	    pupOpen:function() {  
+	    	$(".pupcon").hide();        
+	        $("#pupbg").fadeIn();
+	        $(this).show();     
+	    },
+	    pupClose:function() {  
+	    	$("#pupbg").hide();  
+	    	$(".pupcon").hide();         
+	    },
+	    pupInfo:function(infoImg){
+	    	var proUrl = $(this).attr("data-pro");
+	    	$(infoImg).attr("src", proUrl);
+	    }     
+	});  
+
+	$(".prolist dt").click(function(){
+		$("#proInfo").pupOpen(); 
+		$(this).find("img").pupInfo("#proUrl");
+	})
+
+	$(".close").click(function(){
+		$(document).pupClose(); 
+	})
+
+	$(".transition_con").click(function(){
+		$("#rule").pupOpen(); 
+	})
+
+	
 
 
 </script>

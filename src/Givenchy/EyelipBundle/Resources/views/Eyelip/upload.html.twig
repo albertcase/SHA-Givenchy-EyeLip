@@ -67,7 +67,17 @@
 
 	
 
-document.querySelector('input').addEventListener('change', function () {
+
+
+// Select all links
+var links = document.querySelectorAll("input");
+
+// For each link element
+[].forEach.call(links, function(el) {
+
+  // Add event listener
+  el.addEventListener("change", function(event) {
+    event.preventDefault();
     var that = this;
     lrz(that.files[0], {
         width: 1024
@@ -88,11 +98,16 @@ document.querySelector('input').addEventListener('change', function () {
             };
 
             img.src = rst.base64;
-            $(img).css("width","100%")
+            $(img).css("width","100%");
+            $("#showImg img").attr("src",rst.base64);
 
             return rst;
         });
+
+  }, false);
+
 });
+
 
 function toFixed2 (num) {
     return parseFloat(+num.toFixed(2));

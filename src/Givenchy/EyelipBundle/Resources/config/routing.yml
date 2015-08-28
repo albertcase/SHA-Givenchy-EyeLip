@@ -33,3 +33,7 @@ givenchy_eyelip_user:
 givenchy_eyelip_lottery:
     path:     /lottery
     defaults: { _controller: GivenchyEyelipBundle:Page:lottery }
+
+givenchy_eyelip_test:
+    path:     /test
+    defaults: { _controller: GivenchyEyelipBundle:Default:test }

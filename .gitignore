@@ -13,4 +13,7 @@
 /build/
 /bin/
 /composer.phar
-
+/video_server/cache/*
+/video_server/demo/*
+/video_server/templates/*
+/video_server/generate/*

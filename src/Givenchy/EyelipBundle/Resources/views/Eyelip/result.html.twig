@@ -1,1 +1,81 @@
-result
+{% extends 'GivenchyEyelipBundle::index.html.twig' %} 
+{% block content %}
+<div id="wechat_tips">
+	<img src="/images/wechat_tips.png" />
+</div>
+
+<article class="dreambox">
+	
+	<!-- 自己的 -->
+	<section class="page" id="myself">
+		<div class="con">
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+
+			<div class="myVideo">
+				<a href="javascript:;" id="play" class="play_ico"></a>
+	        	<video src="http://ossweb-img.qq.com/images/wefire/act/a20150826kris/wb.mp4">
+					您的浏览器不支持 video 标签。
+				</video>
+	        	<img src="/images/f5.jpg" width="100%" />
+			</div>
+
+			<div class="writeFooter resultFooter">
+				<a href="javascript:;" class="heart disable">
+					<img src="/images/heart.png" />
+				</a>
+				<p>"<em>0</em>"</p>
+			</div>
+
+		</div>
+		<img src="/images/index_bg.jpg" width="100%" />
+	</section>
+
+	<!-- 朋友的 -->
+	<section class="page" id="friend" style="display:inline-block;">
+		<div class="con">
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+
+			<div class="myVideo">
+				<a href="javascript:;" id="play" class="play_ico"></a>
+	        	<video src="http://ossweb-img.qq.com/images/wefire/act/a20150826kris/wb.mp4">
+					您的浏览器不支持 video 标签。
+				</video>
+	        	<img src="/images/f5.jpg" width="100%" />
+			</div>
+
+			<div class="writeFooter resultFooter">
+				<a href="javascript:;" class="heart">
+					<img src="/images/heart.png" />
+				</a>
+				<p class="islike">"<em>0</em>"</p>
+				<a href="javascript:;" class="btn enjoy_btn">
+					<img src="/images/enjoy_btn.png" width="100%" />
+				</a>
+			</div>
+
+		</div>
+		<img src="/images/index_bg.jpg" width="100%" />
+	</section>
+
+</article>
+
+<script type="text/javascript">
+	
+	$(".heart").click(function(){
+		if($(this).hasClass("disable"))return false;
+		var islikenum = parseInt($(".islike em").html());
+		alert("点赞成功");
+		$(this).addClass("disable");
+		$(".islike em").html(islikenum+1);
+	})
+
+</script>
+
+
+
+
+{% endblock %}

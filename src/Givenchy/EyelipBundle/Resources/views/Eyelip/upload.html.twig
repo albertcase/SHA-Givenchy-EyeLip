@@ -14,11 +14,12 @@
 			<div class="uploadCon">
 				<div class="photoShow">
 					<div id="showImg">
-						<img src="/images/place.jpg" width="100%" />
+						<img src="/images/placeholder.png" width="100%" />
 					</div>
 					<a href="javascript:;" class="photoClose">
 						<img src="/images/close.png" width="100%" />
 					</a>
+					<img src="/images/place.jpg" width="100%" class="place" />
 				</div>
 				<ul class="upload_list">
 					<li><input capture="camera" type="file" /><img src="/images/upload_place.png" width="100%" /></li>
@@ -38,35 +39,112 @@
 		<img src="/images/index_bg.jpg" width="100%" />
 	</section>
 
+	<!-- 选择风格 -->
+	<section class="page" id="choseStyle">
+		<div class="con">
+
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+				
+			<div class="choseStyle_con">
+				
+				<!-- Swiper -->
+			    <div class="swiper-container">
+			        <div class="swiper-wrapper">
+			            <div class="swiper-slide">
+			            	<a href="javascript:;" id="play" class="play_ico"></a>
+			            	<video src="http://ossweb-img.qq.com/images/wefire/act/a20150826kris/wb.mp4">
+								您的浏览器不支持 video 标签。
+							</video>
+			            	<img src="/images/place.jpg" width="100%" />
+			            	<p>魅影</p>
+			            </div>
+			            <div class="swiper-slide">
+			            	<a href="javascript:;" id="play" class="play_ico"></a>
+			            	<video src="http://ossweb-img.qq.com/images/wefire/act/a20150826kris/wb.mp4">
+								您的浏览器不支持 video 标签。
+							</video>
+							<img src="/images/place.jpg" width="100%" />
+							<p>小清新</p>
+			            </div>
+			            <div class="swiper-slide">
+			            	<a href="javascript:;" id="play" class="play_ico"></a>
+			            	<video src="http://ossweb-img.qq.com/images/wefire/act/a20150826kris/wb.mp4">
+								您的浏览器不支持 video 标签。
+							</video>
+			            	<img src="/images/place.jpg" width="100%" />
+			            	<p>温馨</p>
+			            </div>
+			        </div>
+			        <!-- Add Arrows -->
+			        <div class="swiper-button-next">
+			        	<img src="/images/arr-r.png" width="70%" />
+			        </div>
+			        <div class="swiper-button-prev">
+			        	<img src="/images/arr-l.png" width="70%" />
+			        </div>
+			    </div>
+
+			    <div class="styleTitle">
+			    	<img src="/images/style_title.png" />
+			    </div>
+
+
+			</div>	
+
+			<div class="footer">
+				<a href="{{ url('givenchy_eyelip_finish') }}" class="btn chose_btn">
+					<img src="/images/commission_btn.png" width="100%" />
+				</a>
+			</div>
+			
+		</div>
+		<img src="/images/index_bg.jpg" width="100%" />
+	</section>
+
 
 </article>
 
 <script type="text/javascript">
 
-  
-	$.fn.extend({          
-	    pupOpen:function() {  
-	    	$(".pupcon").hide();        
-	        $("#pupbg").fadeIn();
-	        $(this).show();     
-	    },
-	    pupClose:function() {  
-	    	$("#pupbg").hide();  
-	    	$(".pupcon").hide();         
-	    },
-	    pupInfo:function(infoImg){
-	    	var proUrl = $(this).attr("data-pro");
-	    	$(infoImg).attr("src", proUrl);
-	    }     
-	});  
+$(".photoClose").click(function(){
+	if($("#showImg img").attr("src") == "")return false;
+	$("#showImg img").attr("src","").hide();
+	$(".upload_list li.hover").find(".photoImg").remove();
+	$(".upload_list li.hover").removeClass("hasimg hover");
+	$(this).fadeOut();
+})
 
-	$(".prolist dt").click(function(){
-		$("#proInfo").pupOpen(); 
-		$(this).find("img").pupInfo("#proUrl");
-	})
+$(".upload_list li").click(function(event){
+
+	if($(this).hasClass("hover") && !$(this).hasClass("hasimg")) return false;
+	var curUrl = $(this).find(".photoImg img").attr("src");
+	$(".upload_list li").removeClass("hover");
+	$(this).addClass("hover");
+	if(!$(this).hasClass("hasimg")){
+
+	}else{
+		$("#showImg img").attr("src", curUrl).show();
+		$(".photoClose").show();
+	}
+	event.stopPropagation();
+
+})
 
 	
-
+function hasClass(ele,cls) {
+    return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
+}
+function addClass(ele,cls) {
+    if (!this.hasClass(ele,cls)) ele.className += ""+cls;
+}
+function removeClass(ele,cls) {
+    if (hasClass(ele,cls)) {
+    var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
+        ele.className=ele.className.replace(reg,' ');
+    }
+}
 
 
 // Select all links
@@ -94,12 +172,15 @@ var links = document.querySelectorAll("input");
             div.appendChild(img);
 
             img.onload = function () {
+            	$(".upload_list li").removeClass("hover");
+            	addClass(that.parentNode,"hasimg hover");
                 that.parentNode.appendChild(div);
             };
 
             img.src = rst.base64;
             $(img).css("width","100%");
-            $("#showImg img").attr("src",rst.base64);
+            $("#showImg img").attr("src",rst.base64).fadeIn();
+            $(".photoClose").fadeIn();
 
             return rst;
         });
@@ -112,6 +193,37 @@ var links = document.querySelectorAll("input");
 function toFixed2 (num) {
     return parseFloat(+num.toFixed(2));
 }
+
+
+
+
+
+/* 选择风格 */
+var swiper = new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    initialSlide :1,
+    coverflow: {
+        rotate: 30,
+        stretch: -6,
+        depth: 30,
+        modifier: 1,
+        slideShadows : false
+    }
+});
+
+$(".upload_btn").click(function(){
+	var plength = $(".photoImg").length;
+	if(plength > 0){
+		changePage("choseStyle");
+	}else{
+		alert("点击上传1-3你的照片");
+	}
+})
+
 
 
 </script>

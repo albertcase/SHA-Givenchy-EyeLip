@@ -1,7 +1,6 @@
 {% extends 'GivenchyEyelipBundle::index.html.twig' %} 
 {% block content %}
 
-
 <div id="pupbg">
 	
 <!-- rule -->
@@ -12,7 +11,7 @@
 		</div>
 
 		<div class="footer">
-			<a href="javascript:;" class="do-btn">
+			<a href="{{ url('givenchy_eyelip_upload') }}" class="do-btn">
 				<img src="/images/do_btn.png" width="100%" />
 			</a>
 		</div>
@@ -37,36 +36,82 @@
 </div>
 
 
-
+<div id="loading">
+	<div class="loading_logo">
+		<img src="/images/loading_logo.png" width="100%" />
+	</div>
+	<div class="loading_num">
+		loading...
+	</div>
+	<div id="caseVerte">  
+	  <div class="case">
+	  	<img src="/images/l-1.png" width="100%" />
+	  </div>
+	  <div class="case">
+	  	<img src="/images/l-2.png" width="100%" />
+	  </div>
+	  <div class="case">
+	  	<img src="/images/l-3.png" width="100%" />
+	  </div>
+	  <div class="case">
+	  	<img src="/images/l-4.png" width="100%" />
+	  </div>
+	  <div class="case">
+	  	<img src="/images/l-5.png" width="100%" />
+	  </div>
+	  <div class="case">
+	  	<img src="/images/l-6.png" width="100%" />
+	  </div>
+	  <div class="case">
+	  	<img src="/images/l-7.png" width="100%" />
+	  </div>
+	  <div class="case">
+	  	<img src="/images/l-8.png" width="100%" />
+	  </div>
+	  <div class="case">
+	  	<img src="/images/l-9.png" width="100%" />
+	  </div>
+	  <div class="case">
+	  	<img src="/images/l-10.png" width="100%" />
+	  </div>
+	  <div class="case">
+	  	<img src="/images/l-11.png" width="100%" />
+	  </div>
+	  <div class="case">
+	  	<img src="/images/l-12.png" width="100%" />
+	  </div>
+	</div>
+</div>
 
 
 <article class="dreambox">
 
 	<!-- 首页 -->
-	<section class="page" id="index">
+	<section class="page" id="index" style="display:inline-block;">
 		<div class="con">
 
 			<a href="javascript:;" class="logo">
-				<img src="/images/logo.png" width="100%" />
+				<img src="" sourcesrc="/images/logo.png" width="100%" />
 			</a>
 
-			<div class="video">
-				<a href="javascript:;"></a>
-				<img src="/images/holder.jpg" width="100%" />
+			<div class="slogan">
+				<img src="" sourcesrc="/images/slogan.png" width="100%" />
 			</div>
 
-			<div class="slogan">
-				<img src="/images/slogan.png" width="100%" />
+			<div class="video">
+				<!-- <a href="javascript:;"></a> -->
+				<div id="WxMomentVideo" class="video_con"></div>	
+				<img src="" sourcesrc="/images/holder.jpg" width="100%" />
 			</div>
 
 			<div class="footer">
 				<a href="javascript:;" class="search-btn">
-					<img src="/images/search-btn.png" width="100%" />
+					<img src="" sourcesrc="/images/search-btn.png" width="100%" />
 				</a>
 			</div>
 
 		</div>
-		<img src="/images/index_bg.jpg" width="100%" />
+		<img src="" sourcesrc="/images/index_bg.jpg" width="100%" />
 	</section>
 	
 	<!-- 产品页 -->
@@ -74,7 +119,7 @@
 		<div class="con">
 
 			<a href="javascript:;" class="logo">
-				<img src="/images/logo.png" width="100%" />
+				<img src="" sourcesrc="/images/logo.png" width="100%" />
 			</a>
 
 			<div class="product">
@@ -87,58 +132,58 @@
 			        </div>
 			        <!-- Add Arrows -->
 			        <div class="swiper-button-next">
-			        	<img src="/images/arr-r.png" width="100%" />
+			        	<img src="" sourcesrc="/images/arr-r.png" width="100%" />
 			        </div>
 			        <div class="swiper-button-prev">
-			        	<img src="/images/arr-l.png" width="100%" />
+			        	<img src="" sourcesrc="/images/arr-l.png" width="100%" />
 			        </div>
 			    </div>
 			</div>
 
 
 			<div class="footer">
-				<a href="javascript:;" class="search-btn">
-					<img src="/images/search-btn.png" width="100%" />
+				<a href="javascript:;" class="open-btn">
+					<img src="" sourcesrc="/images/open_btn.png" width="100%" />
 				</a>
 			</div>
 
 		</div>
-		<img src="/images/index_bg.jpg" width="100%" />
+		<img src="" sourcesrc="/images/index_bg.jpg" width="100%" />
 	</section>
 
 	<!-- 过度页面 -->
-	<section class="page" id="transition" style="display:inline-block;">
+	<section class="page" id="transition">
 		<div class="con">
 
 			<a href="javascript:;" class="logo">
-				<img src="/images/logo.png" width="100%" />
+				<img src="" sourcesrc="/images/logo.png" width="100%" />
 			</a>
 			
 			<div class="transition_con">
 				<div class="lipstick">
 					<div class="lipstick_mask">
-						<img src="/images/cg_mask.png" width="100%" />
+						<img src="" sourcesrc="/images/cg_mask.png" width="100%" />
 					</div>
-					<img src="/images/cg_bg.png" width="100%" />
+					<img src="" sourcesrc="/images/cg_bg.png" width="100%" />
 				</div>
 
 				<div class="holder_arr">
-					<img src="/images/holder_arr.png" />
-					<img src="/images/holder_arr.png" />
-					<img src="/images/holder_arr.png" />
-					<img src="/images/holder_arr.png" />
-					<img src="/images/holder_arr.png" />
-					<img src="/images/holder_arr.png" />
+					<img src="" sourcesrc="/images/holder_arr.png" />
+					<img src="" sourcesrc="/images/holder_arr.png" />
+					<img src="" sourcesrc="/images/holder_arr.png" />
+					<img src="" sourcesrc="/images/holder_arr.png" />
+					<img src="" sourcesrc="/images/holder_arr.png" />
+					<img src="" sourcesrc="/images/holder_arr.png" />
 				</div>
 
 				<div class="holder_text">
-					<img src="/images/holder_text.png" width="60%" />
+					<img src="" sourcesrc="/images/holder_text.png" width="60%" />
 				</div>
 
 			</div>
 
 		</div>
-		<img src="/images/index_bg2.jpg" width="100%" />
+		<img src="" sourcesrc="/images/index_bg2.jpg" width="100%" />
 	</section>
 
 </article>
@@ -146,36 +191,36 @@
 <script type="text/javascript">
 	var pro_data = [
 		{
-			"title": "个性女王",
-			"info": "几何感线条配搭神秘海蓝，结构感更强裸色唇妆突显眼妆重点，极富个性"
+			"title": "悠扬海上夜曲",
+			"info": "海蓝眼影，几何线条，增添眼部结构感；<br />自然裸色，弱化唇妆，凸显眼妆个性感。"
 		},
 		{
-			"title": "个性女王",
-			"info": "金属烟熏和色彩碰撞，来增加眼妆的深邃魅力点缀艳丽的玫瑰色，来增加活跃派对感"
+			"title": "炫魅派对之吻",
+			"info": "玩转色彩，深邃炫目，感受电眼魅力；<br />明丽玫瑰，活泼爽快，营造派对气氛。"
 		},
 		{
-			"title": "个性女王",
-			"info": "摇滚女孩，rock范儿通过色彩突显内心叛逆，色调是黑，灰，金"
+			"title": "铿锵摇滚玫瑰",
+			"info": "飞扬眼妆，灰黑酷劲，秀出真我个性；<br />经典裸唇，贴近本色，尽显眼妆张力。"
 		},
 		{
-			"title": "精致职业",
-			"info": "灰色增加眼部深邃感，强调干练眼神没有太多颜色叠加，灰色小烟熏唇色作为与眼部对比，重点突出嘴唇"
+			"title": "精致通勤女郎",
+			"info": "沉静灰色，知性气质，双眼深邃有神；<br />经典魅红，增加亮色，提升自信气场。"
 		},
 		{
-			"title": "精致职业",
-			"info": "精致色彩眼线突显职业眼神，紫色眼线与藕荷色眼影叠加，墨绿色作为下眼线点缀，摩登职业风格"
+			"title": "俏皮小猫公主",
+			"info": "紫色眼线，藕荷眼影，墨绿点缀，明亮眼眸；<br />玫瑰粉红，对比眼妆，摩登职业，优雅干练。"
 		},
 		{
-			"title": "精致职业",
-			"info": "烟熏感眼妆，金色与灰色碰撞，金属感妆容职场先锋，勇于突破，敢于创新的"
+			"title": "职场个性先锋",
+			"info": "金灰碰撞，烟熏眼妆，凸显深邃眼神；<br />朱砂红唇，点亮肤色，倍感干练自信。"
 		},
 		{
-			"title": "日常必备",
-			"info": "粉色裸色，简单实用最简单的画法，更具亲和力"
+			"title": "浪漫珊瑚女神",
+			"info": "柔和咖啡，淡雅香槟，打造明亮双眸；<br />珊瑚唇色，轻松上妆，散发亲和魅力。"
 		},
 		{
-			"title": "日常必备",
-			"info": "灰绿色与橘色眼影搭配最适合亚洲人肤色而唇色更突显白皙肌肤，休闲度假风"
+			"title": "清新假日阳光",
+			"info": "灰绿配暖橘眼影，适合亚洲肤色；<br />甜心粉红色唇妆，更显肌肤白皙。"
 		}
 	] 
 
@@ -201,42 +246,170 @@
 	            slideShadows : false
 	        }
 		});
+
+		$(".prolist dt").click(function(){
+			$("#proInfo").pupOpen(); 
+			$(this).find("img").pupInfo("#proUrl");
+		})
 	}
 
-	productlist();
-
-
-     
-	$.fn.extend({          
-	    pupOpen:function() {  
-	    	$(".pupcon").hide();        
-	        $("#pupbg").fadeIn();
-	        $(this).show();     
-	    },
-	    pupClose:function() {  
-	    	$("#pupbg").hide();  
-	    	$(".pupcon").hide();         
-	    },
-	    pupInfo:function(infoImg){
-	    	var proUrl = $(this).attr("data-pro");
-	    	$(infoImg).attr("src", proUrl);
-	    }     
-	});  
-
-	$(".prolist dt").click(function(){
-		$("#proInfo").pupOpen(); 
-		$(this).find("img").pupInfo("#proUrl");
+	
+	$(".search-btn").click(function(){
+		changePage('product', productlist);
 	})
+     
 
 	$(".close").click(function(){
 		$(document).pupClose(); 
 	})
 
-	$(".transition_con").click(function(){
-		$("#rule").pupOpen(); 
+	$(".open-btn").click(function(){
+		changePage('transition');
 	})
-
 	
+	touch.on('.transition_con', 'swiperight', function(ev){
+
+	    TweenMax.fromTo(document.querySelector('.lipstick_mask'), 2, {
+	        x:0,
+	        blurFilter:{blurX:50, blurY:10},
+	        opacity:0
+	    }, {
+	    	x:220,
+	    	opacity:1,
+	        ease: Elastic.easeOut,
+	        easeParams: [0.6, 0.9],
+	        force3D: false,
+	        onComplete:function(){
+	       		
+	        }
+	    });	
+	    $("#rule").pupOpen(); 
+
+	});
+
+	var allImgArr = [
+		"/images/placeholder.png",
+		"/images/l-1.png",
+		"/images/l-2.png",
+		"/images/l-3.png",
+		"/images/l-4.png",
+		"/images/l-5.png",
+		"/images/l-6.png",
+		"/images/l-7.png",
+		"/images/l-8.png",
+		"/images/l-9.png",
+		"/images/l-10.png",
+		"/images/l-11.png",
+		"/images/l-12.png",
+		"/images/arr-l.png",
+		"/images/arr-r.png",
+		"/images/arr-white.png",
+		"/images/cg_bg.png",
+		"/images/cg_mask.png",
+		"/images/close.png",
+		"/images/commission_btn.png",
+		"/images/confirm_btn.png",
+		"/images/confirm_submit.png",
+		"/images/do_btn.png",
+		"/images/enjoy_btn.png",
+		"/images/exchange_btn.png",
+		"/images/exchange_rule.png",
+		"/images/f5.jpg",
+		"/images/heart-red.png",
+		"/images/heart.png",
+		"/images/hengping.png",
+		"/images/holder_arr.png",
+		"/images/holder_text.png",
+		"/images/holder.jpg",
+		"/images/index_bg.jpg",
+		"/images/index_bg2.jpg",
+		"/images/infoText.png",
+		"/images/loading_logo.png",
+		"/images/logo.png",
+		"/images/open_btn.png",
+		"/images/place.jpg",
+		"/images/play.png",
+		"/images/receive_rulecon.png",
+		"/images/rule.png",
+		"/images/search-btn.png",
+		"/images/skip.png",
+		"/images/slogan.png",
+		"/images/upload_btn.png",
+		"/images/upload_place.png",
+		"/images/wechat_tips.png",
+		"/images/writeBtn.png",
+
+		"/images/info/arrow.png",
+		"/images/info/name.png",
+		"/images/info/share_btn.png",
+		"/images/info/share_title.png",
+		"/images/info/tel.png",
+		"/images/info/tips.png",
+
+		"/images/pro/p1/people.jpg",
+		"/images/pro/p1/pro.png",
+
+		"/images/pro/p2/people.jpg",
+		"/images/pro/p2/pro.png",
+
+		"/images/pro/p3/people.jpg",
+		"/images/pro/p3/pro.png",
+
+		"/images/pro/p4/people.jpg",
+		"/images/pro/p4/pro.png",
+
+		"/images/pro/p5/people.jpg",
+		"/images/pro/p5/pro.png",
+
+		"/images/pro/p6/people.jpg",
+		"/images/pro/p6/pro.png",
+
+		"/images/pro/p7/people.jpg",
+		"/images/pro/p7/pro.png",
+
+		"/images/pro/p8/people.jpg",
+		"/images/pro/p8/pro.png"
+	]
+
+
+	loadingFun(allImgArr, loadingend);
+
+	function loadingend(){
+		$(".dreambox img").each(function(){ 
+			$(this).attr("src",$(this).attr("sourcesrc"));
+		})
+		$("#loading").hide();
+	}
+
+
+
+
+	var video = new WxMoment.Video({
+		vid: "y0017r6gqnw",
+		pic: "/images/holder.jpg",
+		isHtml5UseFakeFullScreen: false,
+		width: '100%',//视频尺寸设置100%表示根据父容器长宽自适应
+        height: '100%',
+        isHtml5ControlAlwaysShow: false,
+        oninited: function () {
+            //播放器在视频载入完毕触发
+        },
+		onplay: function(){
+
+		},
+		onplaying: function(){
+			//播放器真正开始播放视频第一帧画面时
+			this.onfullscreen();
+		},
+		onpause:function(){
+			//播放器触发暂停时，目前只针对HTML5播放器有效
+		},
+		onallended:function(){
+			//播放器播放完毕时
+		}
+	});
+
+
 
 
 </script>

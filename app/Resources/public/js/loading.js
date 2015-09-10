@@ -1,10 +1,6 @@
 
 var loadingFun = function(imgSrcArr,finshReturnFun){
-
-		$("#dreambox img").each(function(){ 
-			imgSrcArr.push($(this).attr("sourcesrc")) 
-		})
-
+	
 		function LoadFn ( arr , fn , fn2){
 				var loader = new PxLoader();
 				for( var i = 0 ; i < arr.length; i ++)
@@ -26,18 +22,12 @@ var loadingFun = function(imgSrcArr,finshReturnFun){
 
 
 		LoadFn(imgSrcArr , function (){
-			$("#dreambox img").each(function(){ 
-				$(this).attr("src",$(this).attr("sourcesrc"));
-			})
-			$(".loading").hide();
-			$("#dreambox").animate({"opacity" : 1});	
-			wechatFun();
 			if(finshReturnFun){
 				finshReturnFun();
 			}
 		    console.log("加载完成!");
 		} , function ( p ){
-			$('.loading_con p').html(p+"%");
+			$('.loading_num').html(p+"%");
 		});
 
 };

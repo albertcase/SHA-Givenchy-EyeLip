@@ -21,6 +21,11 @@ class nginx {
       creates => '/etc/nginx/sites-enabled/www.conf',
       cwd     => '/etc/nginx/sites-enabled',
       user    => 'root';
+    'enable-site-video-conf':
+      command => 'rm -rf * && ln -s ../sites-available/video.conf',
+      creates => '/etc/nginx/sites-enabled/video.conf',
+      cwd     => '/etc/nginx/sites-enabled',
+      user    => 'root';
   }
 
   file {
@@ -29,6 +34,11 @@ class nginx {
       owner   => 'root',
       group   => 'root',
       notify  => Exec['enable-site-www-conf'];
+    '/etc/nginx/sites-available/video.conf':
+      content  => template("nginx/video-${env}.erb"),
+      owner   => 'root',
+      group   => 'root',
+      notify  => Exec['enable-site-video-conf'];
     '/etc/nginx/nginx.conf':
       content  => template("nginx/nginx-${env}.erb"),
       owner   => 'root',

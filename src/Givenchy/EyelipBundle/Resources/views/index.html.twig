@@ -5,6 +5,7 @@
 	'%kernel.root_dir%/Resources/public/css/reset.css'
     '@GivenchyEyelipBundle/Resources/public/css/swiper.min.css'
     '@GivenchyEyelipBundle/Resources/public/css/style.css'
+    '@GivenchyEyelipBundle/Resources/public/css/video-js.css'
 %}
 <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
 {% endstylesheets %}
@@ -14,16 +15,19 @@
     '%kernel.root_dir%/Resources/public/js/jquery.js'
     '%kernel.root_dir%/Resources/public/js/jweixin.js'
     '%kernel.root_dir%/Resources/public/js/PxLoader.js'
+    '%kernel.root_dir%/Resources/public/js/tweenMax.min.js'
+    '%kernel.root_dir%/Resources/public/js/loading.js'
     '@GivenchyEyelipBundle/Resources/public/js/main.js'
     '@GivenchyEyelipBundle/Resources/public/js/swiper.min.js'
-    '@GivenchyEyelipBundle/Resources/public/js/lrz.bundle.js'
+    '@GivenchyEyelipBundle/Resources/public/js/lrz.all.bundle.js'
     '@GivenchyEyelipBundle/Resources/public/js/upload.js'
+    '@GivenchyEyelipBundle/Resources/public/js/video-js.js'
+    '@GivenchyEyelipBundle/Resources/public/js/touch.js'
 %}
-
 
 <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}
-
+<script src="http://cdnjs.gtimg.com/cdnjs/libs/wxmoment/0.0.2-beta1/wxmoment.min.js"></script>
 <!-- 横屏代码 -->
 <div id="orientLayer" class="mod-orient-layer">
     <div class="mod-orient-layer__content">
@@ -33,6 +37,30 @@
 </div>
 
 <script type="text/javascript">
+    
+    $.fn.extend({          
+        pupOpen:function() {  
+            $(".pupcon").hide();        
+            $("#pupbg").fadeIn();
+            $(this).show();     
+        },
+        pupClose:function() {  
+            $("#pupbg").hide();  
+            $(".pupcon").hide();         
+        },
+        pupInfo:function(infoImg){
+            var proUrl = $(this).attr("data-pro");
+            $(infoImg).attr("src", proUrl);
+        }     
+    });  
+
+    function changePage(curpage, cpfun){
+        $(".page").hide();
+        $("#"+curpage).fadeIn();
+        if(cpfun){
+            cpfun()
+        };
+    }
     
     /* 横屏 js */
 

@@ -1,1 +1,76 @@
-finish
+{% extends 'GivenchyEyelipBundle::index.html.twig' %} 
+{% block content %}
+
+<article class="dreambox">
+
+<section class="page" id="preview">
+        <div class="con">
+            <div class="fin_video">
+                <a href="javascript:;" class="play_ico"></a>
+                <img src="/images/f5.jpg" width="100%" />
+                <a href="javascript:;" class="skin_link">
+                    <img src="/images/skip.png" width="100%" />
+                </a>
+            </div>
+        </div>
+</section>
+
+
+
+<!-- 自己的 -->
+<section class="page" id="previewPage">
+    <div class="con">
+        <a href="javascript:;" class="logo">
+            <img src="/images/logo.png" width="100%" />
+        </a>
+
+        <div class="myVideo">
+            <a href="javascript:;" id="play" class="play_ico"></a>
+            <video src="http://ossweb-img.qq.com/images/wefire/act/a20150826kris/wb.mp4">
+                您的浏览器不支持 video 标签。
+            </video>
+            <img src="/images/f5.jpg" width="100%" />
+        </div>
+
+        <div class="writeFooter resultFooter">
+            <a href="javascript:;" class="btn enjoy_btn">
+                <img src="/images/writeBtn.png" width="100%" />
+            </a>
+            <p class="islike">
+                <img src="/images/infoText.png" width="100%" />
+            </p>
+            
+        </div>
+
+    </div>
+    <img src="/images/index_bg.jpg" width="100%" />
+</section>
+
+</article>
+
+<script type="text/javascript">
+changePage('preview');
+
+$(".skin_link").click(function(){
+    changePage('previewPage');
+})
+
+
+$(".play_ico").click(function(){
+    playVideo("http://ossweb-img.qq.com/images/wefire/act/a20150826kris/wb.mp4");
+})
+
+
+function playVideo(vUrl){
+    var videoHtml = '<div class="video-js vjs-default-skin vjs-playing vjs-fullscreen"><video id="myvideo" class="vjs-tech" src="'+vUrl+'" ></video></div>';
+    $(".dreambox").append(videoHtml);
+    var myv = document.getElementById("myvideo"); 
+    myv.play();
+}
+
+
+
+</script>
+
+
+{% endblock %}

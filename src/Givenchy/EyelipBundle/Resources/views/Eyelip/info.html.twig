@@ -1,59 +1,90 @@
 {% extends 'GivenchyEyelipBundle::index.html.twig' %} 
 {% block content %}
+<div id="wechat_tips">
+	<img src="/images/wechat_tips.png" />
+</div>
 
-<section id="info">
+<article class="dreambox">
 	
-	<a href="javascript:;" class="logo">
-		<img src="/images/logo.png" width="100%" />
-	</a>
-	<div class="form">
-		<ul>
-			<li>
-				<img src="/images/info/name.png" width="100%" class="f_name"/>
-			</li>
-			<li>
-				<input type="text" name="name" id="name" placeholder="(必填)" />
-			</li>	
-			<li>
-				<img src="/images/info/tel.png" width="100%" class="f_tel"/>
-			</li>
-			<li>
-				<input type="tel" name="tel" id="tel" placeholder="(必填)"/>
-			</li>
-			<img src="/images/info/share_btn.png" width="100%" class="share_btn"/>	
-		</ul>
+	<section class="page" id="writeLink">
+		<div class="con">
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
 
-		<img src="/images/info/tips.png" width="100%" class="tips_txt"/>
-	</div>
+			<div class="myVideo">
+				<a href="javascript:;" id="play" class="play_ico"></a>
+	        	<video src="http://ossweb-img.qq.com/images/wefire/act/a20150826kris/wb.mp4">
+					您的浏览器不支持 video 标签。
+				</video>
+	        	<img src="/images/f5.jpg" width="100%" />
+			</div>
 
-	<div class="tipsMask">
-		<img src="/images/info/arrow.png" width="100%" class="tips_arr"/>
-		<img src="/images/info/share_title.png" width="100%" class="share_title"/>
-	</div>	
+			<div class="writeFooter">
+				<a href="javascript:;" class="btn">
+					<img src="/images/writeBtn.png" width="100%" />
+				</a>
+				<p><img src="/images/infoText.png" /></p>
+			</div>
 
-		
+		</div>
+		<img src="/images/index_bg.jpg" width="100%" />
+	</section>
+	<!-- 表单 -->
+	<section class="page" id="info" style="display:inline-block;">
+		<div class="con">
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+			<div class="form">
+				<ul>
+					<li>
+						<img src="/images/info/name.png" width="100%" class="f_name"/>
+					</li>
+					<li>
+						<input type="text" name="name" id="name" placeholder="(必填)" />
+					</li>	
+					<li>
+						<img src="/images/info/tel.png" width="100%" class="f_tel"/>
+					</li>
+					<li>
+						<input type="tel" name="tel" maxlength="11" id="tel" placeholder="(必填)"/>
+					</li>
+					<img src="/images/info/share_btn.png" width="100%" class="share_btn"/>	
+				</ul>
 
-</section>
+				<img src="/images/info/tips.png" width="100%" class="tips_txt"/>
+			</div>
+
+			<div class="tipsMask">
+				<img src="/images/info/arrow.png" width="100%" class="tips_arr"/>
+				<img src="/images/info/share_title.png" width="100%" class="share_title"/>
+			</div>	
+		</div>	
+		<img src="/images/index_bg.jpg" width="100%" />
+	</section>
+</article>
+
 <script type="text/javascript">
 
-	$(".share_btn").on("click",function(){
+	function checkForm(){
 		var name=$("#name").val();
 		var tel=$("#tel").val();
 
 		if(name==""){
-			$("#name").attr("placeholder","(必填)");
+			alert("请填写姓名，姓名为必填项！");
 			return false;
-		}
-		if(tel==""){
-			$("#tel").attr("placeholder","(必填)");
+		}else if(!tel.match(/13[0-9]{9}|14[0-9]{9}|15[0-9]{9}|18[0-9]{9}/)){
+			alert("请输入您的电话，电话为必填项！");
 			return false;
+		}else{
+			$("#wechat_tips").fadeIn();
 		}
-		else if(!tel.match(/13[0-9]{9}|14[0-9]{9}|15[0-9]{9}|18[0-9]{9}/)){
-			$("#tel").val("");
-			$("#tel").attr("placeholder","请输入您的电话");
-			return false;
-		}
+	}
 
+
+	$(".share_btn").on("click",function(){
+		checkForm();
 	});
 
 </script>

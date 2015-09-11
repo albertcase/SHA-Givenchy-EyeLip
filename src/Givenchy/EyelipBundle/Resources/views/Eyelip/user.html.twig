@@ -1,1 +1,538 @@
-user
+{% extends 'GivenchyEyelipBundle::index.html.twig' %} 
+{% block content %}
+
+<div id="pupbg">
+	
+<!-- rule -->
+<div class="pupcon" id="rule">
+	<div class="rule_con">
+		<div class="rule_content single">
+			<img src="/images/secondrule.png" width="100%" />
+		</div>
+
+		<div class="rule_footer">
+			<a href="javascript:;" class="close">
+				<img src="/images/close.png" width="100%" />
+			</a>
+		</div>
+
+	</div>
+</div>
+
+
+<!-- congratulations -->
+<div class="pupcon" id="congratulations">
+	<div class="rule_con">
+		<div class="rule_content single">
+			<img src="/images/congratulations.png" width="62%" />
+		</div>
+
+		<div class="rule_footer">
+			<a href="javascript:;" class="close">
+				<img src="/images/close.png" width="100%" />
+			</a>
+		</div>
+
+	</div>
+</div>
+
+
+<!-- sorry -->
+<div class="pupcon" id="sorry">
+	<div class="rule_con">
+		<div class="rule_content single">
+			<img src="/images/sorry.png" width="62%" />
+		</div>
+
+		<div class="rule_footer">
+			<a href="javascript:;" class="close">
+				<img src="/images/close.png" width="100%" />
+			</a>
+		</div>
+
+	</div>
+</div>
+
+</div>
+
+
+
+
+<article class="dreambox second_part">
+
+	<!-- a -->
+	<section class="page" id="exchangeA">
+		<div class="con">
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+
+			<div class="footer">
+				<p class="exchangeText">魅惑双眸，性感朱唇</p>
+				<a href="javascript:;" class="click_exchange_btn">
+					<img src="/images/click_exchange_btn.png" width="100%" />
+				</a>
+			</div>
+		</div>
+		<img src="/images/index_bg2.jpg" width="100%" />
+	</section>
+
+	<!-- b -->
+	<section class="page" id="exchange_form_1">
+		<div class="con">
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+			<div class="form">
+				<ul>
+					<li>
+						<img src="/images/info/name.png" width="100%" class="f_name"/>
+					</li>
+					<li>
+						<input type="text" name="name" id="name" placeholder="(必填)" />
+					</li>	
+					<li>
+						<img src="/images/info/tel.png" width="100%" class="f_tel"/>
+					</li>
+					<li>
+						<input type="tel" name="tel" maxlength="11" id="tel" placeholder="(必填)"/>
+					</li>
+					<img src="/images/confirm_btn.png" class="confirm_btn"/>	
+				</ul>
+
+				<img src="/images/ft-1.png" width="100%" class="tips_txt2"/>
+			</div>
+
+			<div class="tipsMask">
+				<img src="/images/info/arrow.png" width="100%" class="tips_arr"/>
+				<img src="/images/info/share_title.png" width="100%" class="share_title"/>
+			</div>	
+		</div>	
+		<img src="/images/index_bg.jpg" width="100%" />
+	</section>
+
+	<!-- prize -->
+	<section class="page" id="prize">
+		<div class="con">
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+
+			<div class="prizeCon">
+				<div class="prizetitle">
+					<img src="/images/prize_title.png" width="100%" />
+				</div>
+				<div class="prizelist">
+					
+					<!-- Swiper -->
+				    <div class="swiper-container">
+				        <div class="swiper-wrapper prizelist_con">
+
+				        	<!-- prize_list -->
+
+				        </div>
+				        <!-- Add Arrows -->
+				        <div class="swiper-button-next">
+				        	<img src="/images/arr-r.png" width="100%" />
+				        </div>
+				        <div class="swiper-button-prev">
+				        	<img src="/images/arr-l.png" width="100%" />
+				        </div>
+				    </div>
+
+				</div>
+			</div>
+
+			<div class="footer">
+				<a href="javascript:;" class="confirm_submit_btn">
+					<img src="/images/confirm_submit.png" width="100%" />
+				</a>
+			</div>
+		</div>
+		<img src="/images/index_bg.jpg" width="100%" />
+	</section>
+
+	<!-- form2 -->
+	<section class="page" id="exchange_form_2">
+		<div class="con">
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+			<div class="form">
+				<ul>
+					<li>
+						<img src="/images/info/province.png" width="100%" class="f_name"/>
+					</li>
+					<li>
+						<select name="province">
+							<option value="(必填)">(必填)</option>
+						</select>
+					</li>	
+					<li>
+						<img src="/images/info/city.png" width="100%" class="f_tel"/>
+					</li>
+					<li>
+						<select name="city" disabled="disabled">
+							<option value="(必填)">(必填)</option>
+						</select>
+					</li>
+					<li>
+						<img src="/images/info/store.png" width="100%" class="f_tel"/>
+					</li>
+					<li>
+						<select name="store" disabled="disabled">
+							<option value="(必填)">(必填)</option>
+						</select>
+					</li>
+					<img src="/images/confirm_btn.png" class="confirm_btn2"/>	
+				</ul>
+
+			</div>
+
+			<div class="tipsMask">
+				<img src="/images/info/arrow.png" width="100%" class="tips_arr"/>
+				<img src="/images/info/share_title.png" width="100%" class="share_title"/>
+			</div>	
+		</div>	
+		<img src="/images/index_bg.jpg" width="100%" />
+	</section>
+
+	<!-- heartShow -->
+	<section class="page" id="heartShow">
+		<div class="con">
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+
+			<div class="heartShow_con">
+				<p>您一共获得了</p>
+				<span><em>202</em>颗</span>
+
+				<a href="javascript:;" class="heartIcon">
+					<img src="/images/heart-red.png" width="100%" />
+				</a>
+			</div>
+
+			<div class="footer">
+				<a href="javascript:;" class="click_exchange_rule_btn">
+					<img src="/images/exchange_rule.png" width="100%" />
+				</a>
+
+				<a href="javascript:;" class="exchange_btn">
+					<img src="/images/exchange_btn.png" width="100%" />
+				</a>
+			</div>
+		</div>
+		<img src="/images/index_bg.jpg" width="100%" />
+	</section>
+
+	<!-- 报错－1 -->
+	<section class="page" id="error-1">
+		<div class="con">
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+			
+			<div class="error_con">
+				<img src="/images/error-1-text.png" width="100%" />
+			</div>
+
+			<div class="heartShow_con">
+				<p>您一共获得了</p>
+				<span><em>202</em>颗</span>
+
+				<a href="javascript:;" class="heartIcon">
+					<img src="/images/heart.png" width="100%" />
+				</a>
+			</div>
+
+		</div>
+		<img src="/images/index_bg.jpg" width="100%" />
+	</section>
+
+	<!-- 报错－2 -->
+	<section class="page" id="error-2">
+		<div class="con">
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+			
+			<div class="error_con">
+				<img src="/images/error-2-text.png" width="100%" />
+			</div>
+
+			<div class="heartShow_con">
+				<p>您一共获得了</p>
+				<span><em>202</em>颗</span>
+
+				<a href="javascript:;" class="heartIcon">
+					<img src="/images/heart.png" width="100%" />
+				</a>
+			</div>
+
+		</div>
+		<img src="/images/index_bg.jpg" width="100%" />
+	</section>
+
+</article>
+
+
+
+<script type="text/javascript">
+	changePage('exchangeA');
+
+	$(".click_exchange_btn").click(function(){
+		changePage('exchange_form_1');
+	})
+
+	var test = /^1[3|4|5|7|8][0-9]\d{8}$/;
+
+	$(".confirm_btn").click(function(){
+		var _name = $("input[name=name]").val();
+		var _tel = $("input[name=tel]").val();
+
+		if(_name == ""){
+			alert("请输入您的姓名");
+		}else if(!test.test(_tel)){
+			alert("手机号码输入有误");
+		}else{
+			changePage('heartShow');
+		}
+	})
+
+	$(".click_exchange_rule_btn").click(function(){
+		$("#rule").pupOpen(); 
+	})
+
+	$(".exchange_btn").click(function(){
+		changePage('prize');
+		prizelistFun(3);
+	})
+
+	$(".confirm_submit_btn").click(function(){
+		changePage('exchange_form_2');
+	})
+
+	var prizeData = [
+		{
+			"pimg":"/images/prize-1.jpg",
+			"pname":"高定恒颜遮瑕修颜笔"
+		},
+		{
+			"pimg":"/images/prize-2.jpg",
+			"pname":"高定香榭丝缎唇膏"
+		},
+		{
+			"pimg":"/images/prize-3.jpg",
+			"pname":"高定魅彩四色眼影"
+		}
+	]
+
+	var cityData = {
+			"province": [
+				"北京",
+				"河北",
+				"辽宁",
+				"吉林",
+				"内蒙古",
+				"天津",
+				"山西",
+				"新疆",
+				"山东",
+				"上海",
+				"浙江",
+				"安徽",
+				"江苏",
+				"湖南",
+				"黑龙江",
+				"湖北",
+				"江西",
+				"福建",
+				"广东",
+				"广西",
+				"重庆",
+				"四川",
+				"贵州",
+				"云南",
+				"河南",
+				"陕西",
+				"甘肃",
+				"青海"
+			],
+			"city":{
+				"北京":["北京市"],
+				"河北":["石家庄","保定市"],
+				"辽宁":["鞍山市","大连市","沈阳市"],
+				"吉林":["长春市","吉林市"],
+				"内蒙古":["鄂尔多斯市","包头市","呼和浩特市"],
+				"天津":["天津市"],
+				"山西":["太原市"],
+				"新疆":["乌鲁木齐"],
+				"河北":["邯郸市"],
+				"山东":["淄博市","青岛市","济南市"],
+				"上海":["上海市"],
+				"浙江":["宁波市","杭州市"," 温州市"],
+				"安徽":["合肥市"],
+				"江苏":["南京市","无锡市","苏州市"],
+				"湖南":["长沙市"],
+				"湖北":["武汉市","十堰市","宜昌市"],
+				"黑龙江":["哈尔滨"],
+				"江西":["南昌市"],
+				"福建":["厦门市","福州市"],
+				"广东":["广州市","深圳市"],
+				"广西":["南宁市"],
+				"重庆":["重庆市"],
+				"四川":["成都市"],
+				"贵州":["贵阳市"],
+				"云南":["昆明市"],
+				"河南":["郑州市","洛阳市"],
+				"陕西":["西安市"],
+				"甘肃":["兰州市"],
+				"青海":["西宁市"]
+			},
+			"store":{
+				"北京市":["北京新光天地","北京燕莎","北京庄胜崇光SOGO店","北京太阳宫百盛","北京汉光百货","北京百盛","北京当代","北京双安","北京长安","北京王府井百货大楼"],
+				"石家庄":["石家庄北国","石家庄先天下"],
+				"保定市":["保定先天下"],
+				"鞍山市":["鞍山百货"],
+				"大连市":["大连友谊商城"],
+				"沈阳市":["沈阳盾安","沈阳卓展"],
+				"长春市":["长春欧亚","长春卓展"],
+				"吉林市":["吉林国贸"],
+				"鄂尔多斯市":["鄂尔多斯"],
+				"包头市":["包头百货"],
+				"呼和浩特市":["呼和浩特维多利"],
+				"天津市":["天津海信","天津金元宝","天津伊势丹","天津友谊"],
+				"太原市":["太原百盛","太原天美"],
+				"乌鲁木齐":["新疆天山百货","新疆天山百货美美店","新疆世纪金花店"],
+				"邯郸市":["邯郸新世纪"],
+				"淄博市":["淄博银座","烟台振华百货"],
+				"青岛市":["青岛百盛","青岛海信"],
+				"济南市":["济南银座"],
+				"上海市":["上海南方友谊商城","上海久光","上海新世界"],
+				"宁波市":["宁波天一银泰"],
+				"杭州市":["杭州武林银泰","杭州西湖银泰"],
+				"温州市":["温州时代广场"],
+				"合肥市":["合肥商之都","合肥百大"],
+				"南京市":["南京大洋","南京中央"],
+				"无锡市":["无锡商业大厦"],
+				"苏州市":["苏州泰华"],
+				"长沙市":["长沙王府井","长沙东塘友谊"],
+				"武汉市":["武汉群光","武商广场（武汉广场）","武汉中商（中南广场）"],
+				"十堰市":["十堰人民大厦"],
+				"宜昌市":["宜昌国贸"],
+				"哈尔滨":["哈尔滨远大","哈尔滨百盛"],
+				"南昌市":["南昌百盛"],
+				"厦门市":["厦门巴春"],
+				"福州市":["福州大洋"],
+				"广州市":["广州 广百"],
+				"深圳市":["深圳茂业","深圳芮欧"],
+				"南宁市":["南宁梦之岛"],
+				"重庆市":["重庆世纪新都","重庆凯瑞"],
+				"成都市":["成都王府井2","成都连卡佛"],
+				"贵阳市":["贵阳星力"],
+				"昆明市":["昆明金格"],
+				"郑州市":["郑州丹尼斯花园路","郑州正道","郑州新玛特（金博大）"],
+				"洛阳市":["洛阳王府井"],
+				"西安市":["西安金花","西安金花高新店"],
+				"兰州市":["兰州国芳"],
+				"西宁市":["西宁王府井"]
+			}
+		}
+
+	function prizelistFun(prizeGrade){
+		var prizelistHtml = $.map(prizeData,function(v,k){
+				if(k <= prizeGrade){
+					return '<div class="swiper-slide" data-id="'+k+'"><dl><dt><img src="'+v.pimg+'" width="100%" /></dt><dd>'+v.pname+'</dd></dl></div>';
+				}
+			})
+
+			$(".swiper-wrapper").html(prizelistHtml);
+
+			var swiper = new Swiper('.swiper-container', {
+			    nextButton: '.swiper-button-next',
+			    prevButton: '.swiper-button-prev',
+			    effect : 'coverflow',
+			    slidesPerView: 1,
+				centeredSlides: true,
+			    coverflow: {
+		            rotate: 100,
+		            stretch: 30,
+		            depth: 20,
+		            modifier: 1,
+		            slideShadows : false
+		        }
+			});
+	}
+
+	
+
+	//$("#rule").pupOpen(); 
+
+	var provinceHtml = $.map(cityData.province,function(v){
+		return '<option value="'+v+'">'+v+'</option>';
+	});
+
+	$("select[name=province]").append(provinceHtml);
+
+
+	function getCityHtml(curprovince){
+		var cityVal = cityData.city;
+		var cityHtml = $.map(cityVal[curprovince],function(v){
+			return '<option value="'+v+'">'+v+'</option>';
+		});
+
+		$("select[name=city]").append(cityHtml);
+	}
+
+	function getStore(curestore){
+		var storeVal = cityData.store;
+		var storeHtml = $.map(storeVal[curestore],function(v){
+			return '<option value="'+v+'">'+v+'</option>';
+		});
+
+		$("select[name=store]").append(storeHtml);
+	}
+
+	
+
+	$("select[name=province]").change(function(){
+		var cprovince = $("select[name=province]").val();
+		$("select[name=city]").removeAttr("disabled");
+		getCityHtml(cprovince);
+	})
+
+	$("select[name=city]").change(function(){
+		var ccity = $("select[name=city]").val();
+		$("select[name=store]").removeAttr("disabled");
+		getStore(ccity);
+	})
+
+
+	$(".close").click(function(){
+        $(document).pupClose(); 
+    })
+
+
+
+	$(".confirm_btn2").click(function(){
+		var province_val = $("select[name=province]").val();
+		var city_val = $("select[name=city]").val();
+		var store_val = $("select[name=store]").val();
+		if(province_val == "(必填)"){
+			alert("请选择您所在的省份");
+		}else if(city_val == "(必填)"){
+			alert("请选择您所在的城市");
+		}else if(store_val == "(必填)"){
+			alert("请选择您所在城市的专柜");
+		}else{
+			$("#congratulations").pupOpen(); 
+		};
+	})
+
+
+</script>
+
+
+
+{% endblock %}

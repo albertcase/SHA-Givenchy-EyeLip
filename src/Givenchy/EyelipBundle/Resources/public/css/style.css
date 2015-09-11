@@ -3,6 +3,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: "黑体";
 }
 
 
@@ -37,6 +38,168 @@
     color:    #999;
 }
 
+/* loading */
+
+#loading{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,1);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 20;
+    text-align: center;
+}
+
+.loading_logo{
+    width: 70%;
+    display: inline-block;
+    margin: 40% 0 0 0;
+}
+
+.loading_num{
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    margin: 10% 0 0 0;
+    color: #fff;
+    font-size: 14px;
+}
+
+#caseVerte {
+  width : 100%;
+  position: absolute;
+  left: 0;
+  bottom: -6%;
+}
+
+#caseVerte .case{
+    width: 6%;
+    float: left;
+    display: inline-block;
+    margin: 0 1.1%;
+    overflow: hidden;
+}
+
+
+
+/****DEBUT CASE 1****/
+#caseVerte .case:nth-child(1n+0) {
+  animation : case1 1.2s infinite;
+  -webkit-animation : case1 1.2s infinite;
+}
+
+@-webkit-keyframes case1 {
+  0% {margin-top: -9%;}
+  50% {margin-top: 0;}
+  100% {margin-top: -9%;}
+}
+
+@keyframes case1 {
+  0% {margin-top: -9%;}
+  50% {margin-top: 0;}
+  100% {margin-top: -9%;}
+}
+/****FIN CASE 1****/
+
+
+/****DEBUT CASE 2****/
+#caseVerte .case:nth-child(2n+0) {
+  animation : case2 1.4s infinite;
+  -webkit-animation : case2 1.4s infinite;
+}
+
+@-webkit-keyframes case2 {
+  0% {margin-top: -9%;}
+  50% {margin-top: 0;}
+  100% {margin-top: -9%;}
+}
+
+@keyframes case2 {
+  0% {margin-top: -9%;}
+  50% {margin-top: 0;}
+  100% {margin-top: -9%;}
+}
+/****FIN CASE 2****/
+
+/****DEBUT CASE 3****/
+#caseVerte .case:nth-child(3n+0) {
+  animation : case3 1.6s infinite;
+  -webkit-animation : case3 1.6s infinite;
+}
+
+
+@-webkit-keyframes case3 {
+  0% {margin-top: -9%;}
+  50% {margin-top: 0;}
+  100% {margin-top: -9%;}
+}
+
+@keyframes case3 {
+  0% {margin-top: -9%;}
+  50% {margin-top: 0;}
+  100% {margin-top: -9%;}
+}
+/****FIN CASE 3****/
+
+/****DEBUT CASE 4****/
+#caseVerte .case:nth-child(4n+0) {
+  animation : case4 1.8s infinite;
+  -webkit-animation : case4 1.8s infinite;
+}
+
+@-webkit-keyframes case4 {
+  0% {margin-top: -9%;}
+  50% {margin-top: 0;}
+  100% {margin-top: -9%;}
+}
+
+@keyframes case4 {
+  0% {margin-top: -9%;}
+  50% {margin-top: 0;}
+  100% {margin-top: -9%;}
+}
+/****FIN CASE 4****/
+
+/****DEBUT CASE 5****/
+#caseVerte .case:nth-child(5n+0) {
+  animation : case5 2s infinite;
+  -webkit-animation : case5 2s infinite;
+}
+
+
+@-webkit-keyframes case5 {
+  0% {margin-top: -9%;}
+  50% {margin-top: 0;}
+  100% {margin-top: -9%;}
+}
+
+@keyframes case5 {
+  0% {margin-top: -9%;}
+  50% {margin-top: 0;}
+  100% {margin-top: -9%;}
+}
+/****FIN CASE 5****/
+
+/****DEBUT CASE 6****/
+#caseVerte .case:nth-child(6n+0) {
+  animation : case6 2.2s infinite;
+  -webkit-animation : case6 2.2s infinite;
+}
+
+
+@-webkit-keyframes case6 {
+  0% {margin-top: -9%;}
+  50% {margin-top: 0;}
+  100% {margin-top: -9%;}
+}
+
+@keyframes case6 {
+  0% {margin-top: -9%;}
+  50% {margin-top: 0;}
+  100% {margin-top: -9%;}
+}
+/****FIN CASE 6****/
 
 
 html,body{
@@ -48,7 +211,7 @@ html,body{
     -moz-overflow-scrolling: touch; 
     -webkit-overflow-scrolling: touch; 
     -o-overflow-scrolling: touch;  
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 
@@ -56,6 +219,7 @@ html,body{
     width:100%;
     position: relative;
     display: inline-block;
+    float: left;
 }
 
 .page{
@@ -86,6 +250,14 @@ html,body{
     border: 2px #fff solid;
 }
 
+.video_con{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
 .video a{
     width: 100%;
     height: 100%;
@@ -93,13 +265,13 @@ html,body{
     left: 0;
     top: 0;
     background: url("/images/play.png") no-repeat center; 
-    background-size: 30% auto;
+    background-size: 20% auto;
 }
 
 .slogan{
-    width:70%;
+    width:60%;
     display: inline-block;
-    margin: 10% 0 0 0;
+    margin: 18% 0 0 0;
 }
 
 .footer{
@@ -109,8 +281,8 @@ html,body{
     bottom: 5%;
 }
 
-.search-btn,.do-btn,.btn{
-    width: 40%;
+.search-btn,.do-btn,.btn,.open-btn,.click_exchange_btn,.click_exchange_rule_btn,.exchange_btn,.confirm_submit_btn{
+    width: 50%;
     display: inline-block;
 }
 
@@ -282,7 +454,7 @@ html,body{
     height: 65%;
     overflow: auto;
     width: 100%;
-    margin: 27% 0 0 0;
+    margin: 25% 0 0 0;
 }
 
 .rule_footer{
@@ -312,7 +484,7 @@ html,body{
 .uploadCon{
     width: 70%;
     display: inline-block;
-    margin: 12% 0 0 0;
+    margin: 10% 0 0 0;
     height: 70%;
 }
 
@@ -321,21 +493,41 @@ html,body{
     display: inline-block;
     width: 100%;
     position: relative;
-    height: 73.6%;
     background: #333;
+}
+
+.place{
+    opacity: 0;
 }
 
 #showImg{
     width: 100%;
     height: 100%;
     overflow: hidden;
-    display: inline-block;
+    background: url("/images/placeholder.png") no-repeat center;
+    background-size: 100% auto;
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .upload_list{
     width: 100%;
     display: inline-block;
-    margin: 8% 0 0 0;
+    margin: 8% 0 2% 0;
 }
 
 .upload_list li{
@@ -344,6 +536,7 @@ html,body{
     display: inline-block;
     margin: 0 4% 0 0;
     position: relative;
+    background: rgba(255,255,255,0.35);
 }
 
 .upload_list li input{
@@ -365,6 +558,7 @@ html,body{
     left: 50%;
     bottom: -4%;
     margin: 0 0 0 -7%;
+    z-index: 2;
 }
 
 .photoImg{
@@ -374,11 +568,111 @@ html,body{
     left: 0;
     top: 0;
     overflow: hidden;
+    float: left;
+    background: #fff;
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.choseStyle_con{
+    width: 100%;
+    display: inline-block;
+    /*height: 50%;*/
+    margin: 14% 0 0 0;
+}
+
+.choseStyle_con .swiper-slide{
+    width: 60%;
+    background: #fff;
+    position: relative;
+}
+
+.choseStyle_con .swiper-slide.swiper-slide-active{
+    border: 1px #fff solid;
+    overflow: hidden;
+}
+
+.choseStyle_con .swiper-slide p{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 6% 0;
+    font-size: 12px;
+    color: #fff;
+    background: rgba(0,0,0,0.85);
+}
+
+.choseStyle_con .swiper-slide video{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.styleTitle{
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    margin: 14% 0;
+}
+
+.styleTitle img{
+    width: 22%;
+    display: inline-block;
+}
+
+.play_ico{
+    width: 100%;
+    height: 100%;
+    background: url("/images/play.png") center no-repeat;
+    background-size: 30% auto; 
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.fin_video .play_ico{
+    background: url("/images/play.png") center no-repeat;
+    background-size: 18% auto; 
+}
+
+.video-js{
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.fin_video{
+    width: 100%;
+    position: relative;
+}
+
+.skin_link{
+    position: absolute;
+    left: 1em;
+    bottom: 1em;
+    width: 20%;
+    z-index: 9;
 }
 
 
 /* info */
-#info{
+/*#info{
     width:100%;
     height:100%;
     background: url("/images/info/bg.jpg") no-repeat bottom;
@@ -388,7 +682,7 @@ html,body{
     left:0;
     text-align: center;
     overflow: hidden;
-}
+}*/
 .form{
     position: relative;
     margin: 20% 0 0 0;
@@ -406,7 +700,7 @@ html,body{
 .f_tel{
     width:25%;
 }
-input[type="text"],input[type="tel"]{
+input[type="text"],input[type="tel"],select{
     width:100%;
     height:2em;
     line-height: 1.8em;
@@ -416,6 +710,7 @@ input[type="text"],input[type="tel"]{
     text-align: center;
     font-size: 1.8em;
     text-transform: lowercase;
+    display: inline-block;
 }
 
 input::-ms-input-placeholder{
@@ -428,10 +723,10 @@ input::-webkit-input-placeholder{
     color:#5c5c5c;
     font-size: 0.8em;  
 } 
-.share_btn{
+.share_btn,.confirm_btn,.confirm_btn2{
     width:46%;
     position: relative;
-    margin: 5% 0 0 0;
+    margin: 10% 0 0 0;
 }
 .tips_txt{
     width:40%;
@@ -458,6 +753,227 @@ input::-webkit-input-placeholder{
     position: relative;
     margin: 50% 0 0 0;
 }
+
+
+.myVideo{
+    width: 56%;
+    display: inline-block;
+    position: relative;
+    border: 2px #fff solid;
+    margin: 6% 0 0 0;
+}
+
+.myVideo video{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.writeFooter{
+    color: #fff;
+    display: inline-block;
+    margin: 10% 0 0 0;
+}
+
+.writeFooter p{
+    line-height: 20px;
+    padding: 4% 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.writeFooter p img{
+    width: 34%;
+    display: inline-block;
+}
+
+#wechat_tips{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 10;
+    display: none;
+}
+
+#wechat_tips img{
+    width: 70%;
+    display: inline-block;
+    float: right;
+    margin: 4% 6% 0 0;
+}
+
+
+/* 点赞 */
+.resultFooter{
+    width: 100%;
+    float: left;
+    display: inline-block;
+}
+
+.heart{
+    width: 12%;
+    display: inline-block;
+}
+
+.heart img{
+    width: 100%;
+}
+
+.resultFooter p em{
+    padding: 0 3px;
+    display: inline-block;
+}
+
+
+
+
+/* 兑换页面 */
+.second_part .footer{
+    bottom: 9%;
+}
+
+.exchangeText{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: -76%;
+    color: #fff;
+    font-size: 16px;
+}
+
+.tips_txt2{
+    width: 40%;
+    position: relative;
+    margin: 6% 0 0 0;
+}
+
+.click_exchange_rule_btn{
+    margin: 0 0 12px 0;
+}
+
+.heartShow_con{
+    width: 60%;
+    display: inline-block;
+    font-size: 22px;
+    color: #fff;
+    margin: 24% 0 0 0;
+}
+
+.heartShow_con p{
+    padding: 6px 0;
+    width: 100%;
+    display: inline-block;
+}
+
+.heartShow_con span{
+    font-size: 40px;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+
+.heartShow_con span em{
+    color: #f21e69;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 6px;
+    font-family: "Arial";
+}
+
+.heartIcon{
+    width: 30%;
+    display: inline-block;
+    margin: 25% 0 0 0;
+}
+
+
+/* error */
+.error_con{
+    width: 70%;
+    display: inline-block;
+    margin: 18% 0 0 0;
+}
+
+#error-1 .heartShow_con{
+    margin: 9% 0 0 0;
+}
+
+
+#error-1 .heartIcon{
+    margin: 18% 0 0 0;
+}
+
+#error-2 .error_con{
+    margin: 25% 0 0 0;
+}
+
+.prizeCon{
+    display: inline-block;
+    width: 100%;
+    margin: 16% 0 0 0;
+}
+
+.prizetitle{
+    width: 50%;
+    display: inline-block;
+}
+
+.prizelist{
+    width: 100%;
+    display: inline-block;
+}
+
+.prizelist_con dl{
+    width: 70%;
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+    margin: 10% 0 0 0;
+}
+
+.prizelist_con dt{
+    display: inline-block;
+}
+
+.prizelist_con dd{
+    color: #fff;
+    padding: 12px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+
+#exchange_form_2 .form ul li{
+    float: left;
+    display: inline-block;
+}
+
+#exchange_form_2 .form ul li:nth-child(even){
+    background: url("/images/info/select_arr.png") no-repeat 90% center;
+    background-size: auto 12%;
+    border-bottom: 1px solid #fff;
+    text-align: left;
+}
+
+#exchange_form_2 select{
+    width: 78%;
+    font-size: 18px;
+    padding: 0;
+    border:none;
+    display: inline-block;
+    color: #ccc;
+    overflow: hidden;
+}
+
+#congratulations .rule_content img,#sorry .rule_content img{
+    margin: 30% 0 0 0;
+}
+
 
 /* swiper */
 .swiper-container {

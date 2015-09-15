@@ -146,52 +146,35 @@ class UserService
     }
 
     /** 
-    * updateUserDream
+    * userLoad
     *
-    * update user's dream
+    * load user info
     *
     * @access public
-    * @param mixed object [nickname,content] 
     * @since 1.0 
-    * @return $dream
+    * @return $user
     */
-    public function updateUserDream($data) 
+    public function ballotVideoById($id)
     {
-        if($user = $this->userLoad()) {
-            $dream = $user->getUserdream();
-            $dream->setNickname($data['nickname']);
-            $dream->setContent($data['content']);
-            $dream->setStatus('0');
-            $dream->setUpdated(time());
-            $this->save($dream);
-            return $dream;
-        }
-        return FALSE;
+        $video = $this->em->getRepository('GivenchyEyelipBundle:Video')
+            ->findOneBy(array('id' => $id));
+        $video->setBallot($video->getBallot() + 1);
+        $this->save($video);
+        return $video->getBallot();
     }
 
     /** 
-    * createInvitationLetter
+    * userLoad
     *
-    * create user's invitation
+    * load user info
     *
     * @access public
-    * @param mixed object [name,cellphone,imgurl] 
     * @since 1.0 
-    * @return $invitation
+    * @return $user
     */
-    public function createInvitationLetter($data)
+    public function checkMobile($mobile)
     {
-        if($user = $this->userLoad()) {
-            $invitation = new InvitationLetter();
-            $invitation->setName($data['name']);
-            $invitation->setCellphone($data['cellphone']);
-            $invitation->setImgurl($data['imgurl']);
-            $invitation->setCreated(time());
-            $invitation->setUser($user);
-            $this->save($invitation);
-            return $invitation;
-        }
-        return FALSE;
+        return $this->findUserByMobile($mobile);
     }
 
     /** 

@@ -58,3 +58,15 @@ givenchy_eyelip_api_ballot:
     path:     /api/ballot/id/{id}
     defaults: { _controller: GivenchyEyelipBundle:Api:ballot }
 
+givenchy_eyelip_api_info:
+    path:     /api/info
+    defaults: { _controller: GivenchyEyelipBundle:Api:info }
+
+givenchy_eyelip_api_lottery:
+    path:     /api/lottery
+    defaults: { _controller: GivenchyEyelipBundle:Api:lottery }
+
+givenchy_eyelip_api_store:
+    path:     /api/store
+    defaults: { _controller: GivenchyEyelipBundle:Api:store }
+

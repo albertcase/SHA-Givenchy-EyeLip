@@ -13,21 +13,18 @@
 {% block head_scripts %}
 {% javascripts output="js/main.js"
     '%kernel.root_dir%/Resources/public/js/jquery.js'
-    '%kernel.root_dir%/Resources/public/js/jweixin.js'
-    '%kernel.root_dir%/Resources/public/js/PxLoader.js'
     '%kernel.root_dir%/Resources/public/js/tweenMax.min.js'
-    '%kernel.root_dir%/Resources/public/js/loading.js'
-    '@GivenchyEyelipBundle/Resources/public/js/main.js'
     '@GivenchyEyelipBundle/Resources/public/js/swiper.min.js'
     '@GivenchyEyelipBundle/Resources/public/js/lrz.all.bundle.js'
-    '@GivenchyEyelipBundle/Resources/public/js/upload.js'
-    '@GivenchyEyelipBundle/Resources/public/js/video-js.js'
     '@GivenchyEyelipBundle/Resources/public/js/touch.js'
+    '@GivenchyEyelipBundle/Resources/public/js/wxmoment.min.js'
+    '@GivenchyEyelipBundle/Resources/public/js/connector.js'
+    '@GivenchyEyelipBundle/Resources/public/js/main.js'
+    '@GivenchyEyelipBundle/Resources/public/js/tvp.player_v2.js'
 %}
 
 <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}
-<script src="http://cdnjs.gtimg.com/cdnjs/libs/wxmoment/0.0.2-beta1/wxmoment.min.js"></script>
 <!-- 横屏代码 -->
 <div id="orientLayer" class="mod-orient-layer">
     <div class="mod-orient-layer__content">

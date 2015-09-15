@@ -80,7 +80,7 @@ class ApiController extends Controller
 
     public function ballotAction($id) {
         $user = $this->container->get('givenchy.user.service');
-        $video = $user->getVideoById($id); 
+        echo $ballot = $user->ballotVideoById($id); die;
         
     }
 

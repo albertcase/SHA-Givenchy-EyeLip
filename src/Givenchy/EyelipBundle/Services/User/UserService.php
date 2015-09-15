@@ -146,27 +146,21 @@ class UserService
     }
 
     /** 
-    * updateUserDream
+    * userLoad
     *
-    * update user's dream
+    * load user info
     *
     * @access public
-    * @param mixed object [nickname,content] 
     * @since 1.0 
-    * @return $dream
+    * @return $user
     */
-    public function updateUserDream($data) 
+    public function ballotVideoById($id)
     {
-        if($user = $this->userLoad()) {
-            $dream = $user->getUserdream();
-            $dream->setNickname($data['nickname']);
-            $dream->setContent($data['content']);
-            $dream->setStatus('0');
-            $dream->setUpdated(time());
-            $this->save($dream);
-            return $dream;
-        }
-        return FALSE;
+        $video = $this->em->getRepository('GivenchyEyelipBundle:Video')
+            ->findOneBy(array('id' => $id));
+        $video->setBallot($video->getBallot() + 1);
+        $this->save($video);
+        return $video->getBallot();
     }
 
     /** 

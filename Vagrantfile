@@ -3,7 +3,7 @@
 
 Vagrant.configure("2") do |config|
  
-  config.vm.box = "ubuntu12.04-symfony2-20150518"
+  config.vm.box = "ubuntu14.04-20150827"
 
   config.vm.hostname = "Givenchy-Eye-lip"
 

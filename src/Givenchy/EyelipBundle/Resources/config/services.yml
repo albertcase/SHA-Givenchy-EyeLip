@@ -1,4 +1,8 @@
 services:
-#    givenchy_eyelip.example:
-#        class: Givenchy\EyelipBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+   givenchy.image.service:
+       class: Givenchy\EyelipBundle\Services\Image\ImageService
+       arguments: [@service_container]
+
+   givenchy.user.service:
+        class: Givenchy\EyelipBundle\Services\User\UserService
+        arguments: [@doctrine.orm.entity_manager, @request_stack]

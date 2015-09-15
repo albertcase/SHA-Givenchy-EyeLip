@@ -5,7 +5,7 @@
 function uploadFun(unlockid){
 	$.ajax({
 	    type: "POST",
-	    url: {{ url('givenchy_eyelip_upload') }},
+	    url: {{ url('givenchy_eyelip_api_upload') }},
 	    data: {
             "image1": _image1,
             "image2": _image2,
@@ -31,7 +31,7 @@ function uploadFun(unlockid){
 function getVideoFun(_wid){
 	$.ajax({
 	    type: "GET",
-	    url: {{ url('givenchy_eyelip_upload') }} + _wid,
+	    url: {{ url('givenchy_eyelip_api_getvideo') }} + _wid,
 	    dataType:"json"
 	}).done(function(data){
 		//console.log(data);
@@ -42,10 +42,10 @@ function getVideoFun(_wid){
 }
 
 /* 投票 */
-function getImageFun(_wid){
+function ballotFun(_wid){
 	$.ajax({
 	    type: "GET",
-	    url: "/eyelip/api/ballot/" + _wid,
+	    url: {{ url('givenchy_eyelip_api_ballot') }} + _wid,
 	    dataType:"json"
 	}).done(function(data){
 		console.log(data);
@@ -58,7 +58,7 @@ function getImageFun(_wid){
 function infoFun(_name, _mobile){
 	$.ajax({
 	    type: "POST",
-	    url: "/api/info",
+	    url: {{ url('givenchy_eyelip_api_ballot') }},
 	    data: {
             "name": _name,
             "mobile": _mobile
@@ -80,7 +80,7 @@ function infoFun(_name, _mobile){
 function finishFun(_province, _city, _store){
 	$.ajax({
 	    type: "POST",
-	    url: "/api/finish",
+	    url: {{ url('givenchy_eyelip_api_ballot') }},
 	    data: {
             "province": _province,
             "city": _city,
@@ -105,7 +105,7 @@ function finishFun(_province, _city, _store){
 function lotteryFun(_lottery){
 	$.ajax({
 	    type: "POST",
-	    url: "/api/lottery",
+	    url: {{ url('givenchy_eyelip_api_ballot') }},
 	    data: {
             "lottery": _lottery
         },
@@ -125,7 +125,7 @@ function lotteryFun(_lottery){
 function lotterylistFun(){
 	$.ajax({
 	    type: "POST",
-	    url: "/api/lotterylist",
+	    url: {{ url('givenchy_eyelip_api_ballot') }},
 	    dataType:"json"
 	}).done(function(data){
 		//console.log(data);
@@ -138,7 +138,7 @@ function lotterylistFun(){
 function checkFun(_mobile){
 	$.ajax({
 	    type: "POST",
-	    url: "/api/check",
+	    url: {{ url('givenchy_eyelip_api_check') }},
 	    data: {
             "mobile": _mobile
         },

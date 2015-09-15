@@ -248,6 +248,7 @@ html,body{
     margin: 16% 0 0 0;
     position: relative;
     border: 2px #fff solid;
+    overflow: hidden;
 }
 
 .video_con{
@@ -974,6 +975,15 @@ input::-webkit-input-placeholder{
     margin: 30% 0 0 0;
 }
 
+
+.holder{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+}
 
 /* swiper */
 .swiper-container {

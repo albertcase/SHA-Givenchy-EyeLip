@@ -164,28 +164,17 @@ class UserService
     }
 
     /** 
-    * createInvitationLetter
+    * userLoad
     *
-    * create user's invitation
+    * load user info
     *
     * @access public
-    * @param mixed object [name,cellphone,imgurl] 
     * @since 1.0 
-    * @return $invitation
+    * @return $user
     */
-    public function createInvitationLetter($data)
+    public function checkMobile($mobile)
     {
-        if($user = $this->userLoad()) {
-            $invitation = new InvitationLetter();
-            $invitation->setName($data['name']);
-            $invitation->setCellphone($data['cellphone']);
-            $invitation->setImgurl($data['imgurl']);
-            $invitation->setCreated(time());
-            $invitation->setUser($user);
-            $this->save($invitation);
-            return $invitation;
-        }
-        return FALSE;
+        return $this->findUserByMobile($mobile);
     }
 
     /** 

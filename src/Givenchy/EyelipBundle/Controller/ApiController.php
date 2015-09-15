@@ -16,9 +16,18 @@ class ApiController extends Controller
 
     public function uploadAction() {
         $request = $this->getRequest()->request;
-        $image1 = $request->get('image1');
-        $image2 = $request->get('image2');
-        $image3 = $request->get('image3');
+        // $image1 = $request->get('image1');
+        // $image2 = $request->get('image2');
+        // $image3 = $request->get('image3');
+        $image = $request->get('image');
+        if (count($image) < 1) {
+            $response = new JsonResponse();
+            $response->setData(array('code' => 2, 'msg' => '请至少上传一张图片'));
+            return $response; 
+        }
+        $image1 = $image[0];
+        $image2 = isset($image[1]) ? $image[1] : $image[0];
+        $image3 = isset($image[2]) ? $image[2] : $image[0];
         $tpl_no = $request->get('style');
     	$image = $this->container->get('givenchy.image.service');
 

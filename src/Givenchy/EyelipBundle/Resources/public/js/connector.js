@@ -129,12 +129,7 @@ function lotterylistFun(){
 	    dataType:"json"
 	}).done(function(data){
 		//console.log(data);
-		$.map(data.msg,function(v,k){
-			if(v.num == 0){
-				$(".choseli li").eq(k).addClass("disabled");
-				$(".choseli li").eq(k).find("img").attr("src",$(".choseli li").eq(k).find("img").attr("data-defaultsrc"));
-			}
-		})
+		
 	})
 }
 

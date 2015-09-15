@@ -37,3 +37,24 @@ givenchy_eyelip_lottery:
 givenchy_eyelip_test:
     path:     /test
     defaults: { _controller: GivenchyEyelipBundle:Default:test }
+
+givenchy_eyelip_api_test:
+    path:     /api/islogin
+    defaults: { _controller: GivenchyEyelipBundle:Api:islogin }
+
+givenchy_eyelip_api_upload:
+    path:     /api/upload
+    defaults: { _controller: GivenchyEyelipBundle:Api:upload }
+
+givenchy_eyelip_api_getvideo:
+    path:     /api/getvideo/id/{id}
+    defaults: { _controller: GivenchyEyelipBundle:Api:getvideo }
+
+givenchy_eyelip_api_check:
+    path:     /api/check
+    defaults: { _controller: GivenchyEyelipBundle:Api:check }
+
+givenchy_eyelip_api_ballot:
+    path:     /api/ballot/id/{id}
+    defaults: { _controller: GivenchyEyelipBundle:Api:ballot }
+

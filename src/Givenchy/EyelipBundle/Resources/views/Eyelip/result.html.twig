@@ -7,7 +7,7 @@
 <article class="dreambox">
 	
 	<!-- 自己的 -->
-	<section class="page" id="myself">
+	<section class="page" id="myself" style="display:inline-block;">
 		<div class="con">
 			<a href="javascript:;" class="logo">
 				<img src="/images/logo.png" width="100%" />
@@ -26,6 +26,9 @@
 					<img src="/images/heart.png" />
 				</a>
 				<p>"<em>0</em>"</p>
+				<a href="javascript:;" class="btn result_share_btn">
+					<img src="/images/share_btn.png" width="100%" />
+				</a>
 			</div>
 
 		</div>
@@ -33,7 +36,7 @@
 	</section>
 
 	<!-- 朋友的 -->
-	<section class="page" id="friend" style="display:inline-block;">
+	<section class="page" id="friend">
 		<div class="con">
 			<a href="javascript:;" class="logo">
 				<img src="/images/logo.png" width="100%" />
@@ -71,6 +74,14 @@
 		alert("点赞成功");
 		$(this).addClass("disable");
 		$(".islike em").html(islikenum+1);
+	})
+
+	$(".result_share_btn").click(function(){
+		$("#wechat_tips").show();
+	})
+
+	$("#wechat_tips").click(function(){
+		$("#wechat_tips").hide();
 	})
 
 </script>

@@ -47,7 +47,7 @@ givenchy_eyelip_api_upload:
     defaults: { _controller: GivenchyEyelipBundle:Api:upload }
 
 givenchy_eyelip_api_getvideo:
-    path:     /api/getvideo/id/{id}
+    path:     /api/getvideo
     defaults: { _controller: GivenchyEyelipBundle:Api:getvideo }
 
 givenchy_eyelip_api_check:
@@ -55,7 +55,7 @@ givenchy_eyelip_api_check:
     defaults: { _controller: GivenchyEyelipBundle:Api:check }
 
 givenchy_eyelip_api_ballot:
-    path:     /api/ballot/id/{id}
+    path:     /api/ballot
     defaults: { _controller: GivenchyEyelipBundle:Api:ballot }
 
 givenchy_eyelip_api_info:

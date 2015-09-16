@@ -1,7 +1,7 @@
 
 
 /* 生成视频 */
-function uploadFun(_url, _image, _style){
+function uploadFun(_url, _image, _style, _tzlink){
 	$.ajax({
 	    type: "POST",
 	    url: _url,
@@ -11,9 +11,10 @@ function uploadFun(_url, _image, _style){
         },
 	    dataType:"json"
 	}).done(function(data){
+		$(".uploadloading").hide();
 		//console.log(data);
 		if(data.code == 1){
-
+			window.location.href = _tzlink + "/" + data.msg;
 		}else if(data.code == 2){
 			alert("参数错误");
 		}else if(data.code == 3){
@@ -58,7 +59,7 @@ function ballotFun(_url, _wid){
 
 
 /* 第一波留资料 */
-function infoFun(_url, _name, _mobile){
+function infoFun(_url, _name, _mobile, _finFun){
 	$.ajax({
 	    type: "POST",
 	    url: _url,
@@ -69,7 +70,9 @@ function infoFun(_url, _name, _mobile){
 	    dataType:"json"
 	}).done(function(data){
 		if(data.code == 1){
-			
+			if(_finFun){
+				_finFun();
+			}
 		}else if(data.code == 2){
 			alert("参数错误");
 		}else if(data.code == 3){
@@ -80,7 +83,7 @@ function infoFun(_url, _name, _mobile){
 
 
 /* 第二波留资料 */
-function finishFun(_url, _province, _city, _store){
+function storeFun(_url, _province, _city, _store){
 	$.ajax({
 	    type: "POST",
 	    url: _url,

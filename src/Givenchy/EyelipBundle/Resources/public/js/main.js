@@ -114,6 +114,8 @@ function _loading(){
 	    loader.addImage('/images/upload_place.png');
 	    loader.addImage('/images/wechat_tips.png');
 	    loader.addImage('/images/writeBtn.png');
+	    loader.addImage('/images/create_btn.png');
+	    loader.addImage('/images/share_btn.png');
 
 	    loader.addImage('/images/pro/p1/people.jpg');
 	    loader.addImage('/images/pro/p1/pro.png');

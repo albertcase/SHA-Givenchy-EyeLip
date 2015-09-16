@@ -1,5 +1,7 @@
 {% extends 'GivenchyEyelipBundle::index.html.twig' %} 
 {% block content %}
+<div class="uploadloading"></div>
+
 
 <article class="dreambox">
 
@@ -52,19 +54,19 @@
 				<!-- Swiper -->
 			    <div class="swiper-container">
 			        <div class="swiper-wrapper">
-			            <div class="swiper-slide" data-id="1">
+			            <div class="swiper-slide" data-id="one">
 			            	<a href="javascript:;" data-type="/video/s1.mp4" class="play_ico"></a>
 			            	<div class="stylevideo"></div>
 			            	<img src="/images/place.jpg" width="100%" />
 			            	<p>动人朱颜</p>
 			            </div>
-			            <div class="swiper-slide" data-id="2">
+			            <div class="swiper-slide" data-id="two">
 			            	<a href="javascript:;" data-type="/video/s2.mp4" class="play_ico"></a>
 			            	<div class="stylevideo"></div>
 							<img src="/images/place.jpg" width="100%" />
 							<p>眸间魅影</p>
 			            </div>
-			            <div class="swiper-slide" data-id="3">
+			            <div class="swiper-slide" data-id="three">
 			            	<a href="javascript:;" data-type="/video/s3.mp4" class="play_ico"></a>
 			            	<div class="stylevideo"></div>
 			            	<img src="/images/place.jpg" width="100%" />
@@ -96,11 +98,63 @@
 		</div>
 		<img src="/images/index_bg.jpg" width="100%" />
 	</section>
+	
+
+	<!-- 表单 -->
+	<section class="page" id="info">
+		<div class="con">
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+			<div class="form">
+				<ul>
+					<li>
+						<img src="/images/info/name.png" width="100%" class="f_name"/>
+					</li>
+					<li>
+						<input type="text" name="name" id="name" placeholder="(必填)" />
+					</li>	
+					<li>
+						<img src="/images/info/tel.png" width="100%" class="f_tel"/>
+					</li>
+					<li>
+						<input type="tel" name="tel" maxlength="11" id="tel" placeholder="(必填)"/>
+					</li>
+					<img src="/images/create_btn.png" width="100%" class="create_btn"/>	
+				</ul>
+
+				<img src="/images/info/tips.png" width="100%" class="tips_txt"/>
+			</div>
+
+			<div class="tipsMask">
+				<img src="/images/info/arrow.png" width="100%" class="tips_arr"/>
+				<img src="/images/info/share_title.png" width="100%" class="share_title"/>
+			</div>	
+		</div>	
+		<img src="/images/index_bg.jpg" width="100%" />
+	</section>
+
 
 
 </article>
 
 <script type="text/javascript">
+
+/* 生成视频 */
+var jklink = {
+	"upload" : "{{ url('givenchy_eyelip_api_upload') }}",
+	"getVideo" : "{{ url('givenchy_eyelip_api_getvideo') }}",
+	"ballot" : "{{ url('givenchy_eyelip_api_ballot') }}",
+	"info" : "{{ url('givenchy_eyelip_api_info') }}",
+	"store" : "{{ url('givenchy_eyelip_api_store') }}",
+	"lottery" : "{{ url('givenchy_eyelip_api_lottery') }}",
+	"check" : "{{ url('givenchy_eyelip_api_check') }}",
+	"tzlink" : "{{ url('givenchy_eyelip_result') }}"
+}
+
+
+
+
 
 $(".photoClose").click(function(){
 	if($("#showImg img").attr("src") == "")return false;
@@ -146,7 +200,7 @@ var links = document.querySelectorAll("input");
 
 // For each link element
 [].forEach.call(links, function(el) {
-
+  if(el.type!="file")return false;
   // Add event listener
   el.addEventListener("change", function(event) {
     event.preventDefault();
@@ -213,13 +267,17 @@ var swiper = new Swiper('.swiper-container', {
     }
 });
 
-var uploadImgs;
+var createInfo = {
+	"uploadImgs":"",
+	"selectStyle":""
+}
+
 
 $(".upload_btn").click(function(){
-	uploadImgs = [];
+	createInfo["uploadImgs"] = [];
 	$(".upload_list li").each(function(){
 		if($(this).hasClass("hasimg")){
-			uploadImgs.push($(this).find(".photoImg img").attr("src").replace("data:image/jpeg;base64,", ""));
+			createInfo["uploadImgs"].push($(this).find(".photoImg img").attr("src").replace("data:image/jpeg;base64,", ""));
 		}	
 	})
 
@@ -255,15 +313,34 @@ $(".play_ico").click(function(){
 })
 
 $(".chose_btn").click(function(){
-	var selectStyle = $(".swiper-slide-active").attr("data-id");
-	var connectLink = "{{ url('givenchy_eyelip_api_upload') }}";
-	console.log(connectLink);
-	uploadFun(connectLink, uploadImgs, selectStyle);
-
+	createInfo["selectStyle"] = $(".swiper-slide-active").attr("data-id");
+	changePage("info");
 	// {{ url('givenchy_eyelip_finish') }}
 })
 
+function checkForm(){
+	var name=$("#name").val();
+	var tel=$("#tel").val();
 
+	if(name==""){
+		alert("请填写姓名，姓名为必填项！");
+		return false;
+	}else if(!tel.match(/13[0-9]{9}|14[0-9]{9}|15[0-9]{9}|18[0-9]{9}/)){
+		alert("请输入您的电话，电话为必填项！");
+		return false;
+	}else{
+
+		infoFun(jklink["info"], name, tel, uploadFun(jklink["upload"], createInfo["uploadImgs"], createInfo["selectStyle"], jklink["tzlink"]));
+		$(".uploadloading").show();
+		
+		//$("#wechat_tips").fadeIn();
+	}
+}
+
+
+$(".create_btn").on("click",function(){
+	checkForm();
+});
 
 
 

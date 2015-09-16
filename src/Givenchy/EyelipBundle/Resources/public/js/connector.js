@@ -134,7 +134,7 @@ function checkFun(_url, _name, _mobile){
         },
 	    dataType:"json"
 	}).done(function(data){
-		//console.log(data);
+		console.log(data);
 		if(data.code == 1){
 			changePage('heartShow');
 			//$("#verification").pupOpen();

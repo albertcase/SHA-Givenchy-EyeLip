@@ -110,7 +110,7 @@ class ImageService
     */
     public function createVideo($data)
     {
-        $uri = 'http://127.0.0.1:8080/index.php';
+        $uri = $this->_container->getParameter('video_make_url');
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $uri);

@@ -1,5 +1,5 @@
 givenchy_eyelip_homepage:
-    path:     /index
+    path:     /
     defaults: { _controller: GivenchyEyelipBundle:Page:index }
 
 givenchy_eyelip_photolist:

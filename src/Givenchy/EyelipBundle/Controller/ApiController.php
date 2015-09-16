@@ -103,19 +103,23 @@ class ApiController extends Controller
         $request = $this->getRequest()->request;
         $user = $this->container->get('givenchy.user.service');
         $mobile = $request->get('mobile');
+        //$mobile='15121038676';
         if (!$info = $user->checkMobile($mobile)) {
             $response = new JsonResponse();
             $response->setData(array('code' => 0, 'msg' => '您未参加上一波活动'));
             return $response;
         }
+        $count = $user->getUserBallot($info);
+        $canballot = $user->checkStatus($mobile);
         $this->getRequest()->getSession()->set('user', $info->getId());
         $response = new JsonResponse();
-        $response->setData(array('code' => 1, 'msg' => '验证通过'));
+        $response->setData(array('code' => 1, 'msg' => '验证通过', 'ballot'=> $count, 'canballot'=> $canballot));
         return $response;
         
     }
 
     public function lotteryAction() {
+        exit;
         $request = $this->getRequest()->request;
         $lottery = $request->get('lottery');
         $user = $this->container->get('givenchy.user.service');

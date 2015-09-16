@@ -186,6 +186,43 @@ class UserService
     * @since 1.0 
     * @return $user
     */
+    public function checkStatus($mobile)
+    {
+        $offline = $this->em->getRepository('GivenchyEyelipBundle:Offline')->findOneBy(array('mobile' => $mobile));
+        if($offline)
+            return 1;
+        return 0;
+    }
+
+    /** 
+    * userLoad
+    *
+    * load user info
+    *
+    * @access public
+    * @since 1.0 
+    * @return $user
+    */
+    public function getUserBallot($info)
+    {
+        $rs = $this->em->getRepository('GivenchyEyelipBundle:Video')->findAll(array('info' => $info));
+        $count = 0;
+        foreach ($rs as $key => $value) {
+            $count += $value->getBallot();
+        }
+        return $count;
+        //return $this->findUserByMobile($mobile);
+    }
+
+    /** 
+    * userLoad
+    *
+    * load user info
+    *
+    * @access public
+    * @since 1.0 
+    * @return $user
+    */
     public function lottery($lottery)
     {
         if($info = $this->userLoad()) {

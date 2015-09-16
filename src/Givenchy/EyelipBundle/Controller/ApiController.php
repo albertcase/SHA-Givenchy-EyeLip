@@ -68,8 +68,10 @@ class ApiController extends Controller
         return $response;    
     }
 
-    public function getvideoAction($id) {
+    public function getvideoAction() {
         $user = $this->container->get('givenchy.user.service');
+        $request = $this->getRequest()->request;
+        $id = $request->get('id');
         $video = $user->getVideoById($id);
         $session_id = $this->getRequest()->getSession()->get('user');
         if($video->getInfo()->getId() == $session_id) {
@@ -87,8 +89,10 @@ class ApiController extends Controller
         return $response;  
     }
 
-    public function ballotAction($id) {
+    public function ballotAction() {
         $user = $this->container->get('givenchy.user.service');
+        $request = $this->getRequest()->request;
+        $id = $request->get('id');
         $ballot = $user->ballotVideoById($id);
         $response = new JsonResponse();
         $response->setData(array('code' => 1, 'msg' => $ballot));

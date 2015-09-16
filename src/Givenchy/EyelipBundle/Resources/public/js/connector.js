@@ -1,15 +1,12 @@
 
 
-
 /* 生成视频 */
-function uploadFun(unlockid){
+function uploadFun(_url, _image, _style){
 	$.ajax({
 	    type: "POST",
-	    url: {{ url('givenchy_eyelip_upload') }},
+	    url: _url,
 	    data: {
-            "image1": _image1,
-            "image2": _image2,
-            "image3": _image3,
+            "image": _image,
             "style": _style
         },
 	    dataType:"json"
@@ -28,10 +25,13 @@ function uploadFun(unlockid){
 
 
 /* 获取作品 */
-function getVideoFun(_wid){
+function getVideoFun(_url, _wid){
 	$.ajax({
 	    type: "GET",
-	    url: {{ url('givenchy_eyelip_upload') }} + _wid,
+	    url: _url,
+	    data: {
+            "id": _wid
+        },
 	    dataType:"json"
 	}).done(function(data){
 		//console.log(data);
@@ -42,10 +42,13 @@ function getVideoFun(_wid){
 }
 
 /* 投票 */
-function getImageFun(_wid){
+function ballotFun(_url, _wid){
 	$.ajax({
-	    type: "GET",
-	    url: "/eyelip/api/ballot/" + _wid,
+	    type: "POST",
+	    url: _url,
+	    data: {
+            "id": _wid
+        },
 	    dataType:"json"
 	}).done(function(data){
 		console.log(data);
@@ -55,10 +58,10 @@ function getImageFun(_wid){
 
 
 /* 第一波留资料 */
-function infoFun(_name, _mobile){
+function infoFun(_url, _name, _mobile){
 	$.ajax({
 	    type: "POST",
-	    url: "/api/info",
+	    url: _url,
 	    data: {
             "name": _name,
             "mobile": _mobile
@@ -77,10 +80,10 @@ function infoFun(_name, _mobile){
 
 
 /* 第二波留资料 */
-function finishFun(_province, _city, _store){
+function finishFun(_url, _province, _city, _store){
 	$.ajax({
 	    type: "POST",
-	    url: "/api/finish",
+	    url: _url,
 	    data: {
             "province": _province,
             "city": _city,
@@ -102,10 +105,10 @@ function finishFun(_province, _city, _store){
 
 
 /* 兑换奖品 */
-function lotteryFun(_lottery){
+function lotteryFun(_url, _lottery){
 	$.ajax({
 	    type: "POST",
-	    url: "/api/lottery",
+	    url: _url,
 	    data: {
             "lottery": _lottery
         },
@@ -121,25 +124,14 @@ function lotteryFun(_lottery){
 	})
 }
 
-/* 奖品是否兑换完 */
-function lotterylistFun(){
-	$.ajax({
-	    type: "POST",
-	    url: "/api/lotterylist",
-	    dataType:"json"
-	}).done(function(data){
-		//console.log(data);
-		
-	})
-}
-
 
 /* 验证信息 */
-function checkFun(_mobile){
+function checkFun(_url, _name, _mobile){
 	$.ajax({
 	    type: "POST",
-	    url: "/api/check",
+	    url: _url,
 	    data: {
+	    	"name": _name,
             "mobile": _mobile
         },
 	    dataType:"json"

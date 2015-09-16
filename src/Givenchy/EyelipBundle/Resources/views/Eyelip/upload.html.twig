@@ -52,29 +52,23 @@
 				<!-- Swiper -->
 			    <div class="swiper-container">
 			        <div class="swiper-wrapper">
-			            <div class="swiper-slide">
-			            	<a href="javascript:;" id="play" class="play_ico"></a>
-			            	<video src="http://ossweb-img.qq.com/images/wefire/act/a20150826kris/wb.mp4">
-								您的浏览器不支持 video 标签。
-							</video>
+			            <div class="swiper-slide" data-id="1">
+			            	<a href="javascript:;" data-type="/video/s1.mp4" class="play_ico"></a>
+			            	<div class="stylevideo"></div>
 			            	<img src="/images/place.jpg" width="100%" />
-			            	<p>魅影</p>
+			            	<p>动人朱颜</p>
 			            </div>
-			            <div class="swiper-slide">
-			            	<a href="javascript:;" id="play" class="play_ico"></a>
-			            	<video src="http://ossweb-img.qq.com/images/wefire/act/a20150826kris/wb.mp4">
-								您的浏览器不支持 video 标签。
-							</video>
+			            <div class="swiper-slide" data-id="2">
+			            	<a href="javascript:;" data-type="/video/s2.mp4" class="play_ico"></a>
+			            	<div class="stylevideo"></div>
 							<img src="/images/place.jpg" width="100%" />
-							<p>小清新</p>
+							<p>眸间魅影</p>
 			            </div>
-			            <div class="swiper-slide">
-			            	<a href="javascript:;" id="play" class="play_ico"></a>
-			            	<video src="http://ossweb-img.qq.com/images/wefire/act/a20150826kris/wb.mp4">
-								您的浏览器不支持 video 标签。
-							</video>
+			            <div class="swiper-slide" data-id="3">
+			            	<a href="javascript:;" data-type="/video/s3.mp4" class="play_ico"></a>
+			            	<div class="stylevideo"></div>
 			            	<img src="/images/place.jpg" width="100%" />
-			            	<p>温馨</p>
+			            	<p>娇唇炫色</p>
 			            </div>
 			        </div>
 			        <!-- Add Arrows -->
@@ -94,7 +88,7 @@
 			</div>	
 
 			<div class="footer">
-				<a href="{{ url('givenchy_eyelip_finish') }}" class="btn chose_btn">
+				<a href="javascript:;" class="btn chose_btn">
 					<img src="/images/commission_btn.png" width="100%" />
 				</a>
 			</div>
@@ -212,17 +206,64 @@ var swiper = new Swiper('.swiper-container', {
         depth: 30,
         modifier: 1,
         slideShadows : false
+    },
+    onTouchStart: function(){
+      $(".stylevideo").html("");
+      $(".play_ico").show();
     }
 });
 
+var uploadImgs;
+
 $(".upload_btn").click(function(){
+	uploadImgs = [];
+	$(".upload_list li").each(function(){
+		if($(this).hasClass("hasimg")){
+			uploadImgs.push($(this).find(".photoImg img").attr("src").replace("data:image/jpeg;base64,", ""));
+		}	
+	})
+
 	var plength = $(".photoImg").length;
 	if(plength > 0){
 		changePage("choseStyle");
+		swiper.update();
 	}else{
 		alert("点击上传1-3你的照片");
 	}
 })
+
+
+
+$(".play_ico").click(function(){
+	$(".stylevideo").html("");
+	$(".play_ico").show();
+
+	var tType = $(this).attr("data-type");
+	var myVideo = document.createElement("video"); 
+	myVideo.src = tType;
+
+	$(this).siblings(".stylevideo").html(myVideo);
+	$(this).hide();
+	myVideo.play();
+
+	eventTester = function(e){  
+	      myVideo.addEventListener(e,function(){  
+	           $(".stylevideo").html("");
+	      });  
+	}  
+
+})
+
+$(".chose_btn").click(function(){
+	var selectStyle = $(".swiper-slide-active").attr("data-id");
+	var connectLink = "{{ url('givenchy_eyelip_api_upload') }}";
+	console.log(connectLink);
+	uploadFun(connectLink, uploadImgs, selectStyle);
+
+	// {{ url('givenchy_eyelip_finish') }}
+})
+
+
 
 
 

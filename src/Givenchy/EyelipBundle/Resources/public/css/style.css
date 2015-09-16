@@ -621,7 +621,6 @@ html,body{
     position: absolute;
     left: 0;
     top: 0;
-    opacity: 0;
 }
 
 .styleTitle{
@@ -644,6 +643,7 @@ html,body{
     position: absolute;
     left: 0;
     top: 0;
+    z-index: 2;
 }
 
 .fin_video .play_ico{
@@ -671,6 +671,13 @@ html,body{
     z-index: 9;
 }
 
+.stylevideo{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 
 /* info */
 /*#info{

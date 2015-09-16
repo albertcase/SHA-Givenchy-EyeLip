@@ -14,7 +14,7 @@ function uploadFun(_url, _image, _style, _tzlink){
 		$(".uploadloading").hide();
 		//console.log(data);
 		if(data.code == 1){
-			window.location.href = _tzlink + "/" + data.msg;
+			window.location.href = _tzlink + "?id=" + data.msg;
 		}else if(data.code == 2){
 			alert("参数错误");
 		}else if(data.code == 3){
@@ -26,9 +26,9 @@ function uploadFun(_url, _image, _style, _tzlink){
 
 
 /* 获取作品 */
-function getVideoFun(_url, _wid){
+function getVideoFun(_url, _wid, _finFun){
 	$.ajax({
-	    type: "GET",
+	    type: "POST",
 	    url: _url,
 	    data: {
             "id": _wid
@@ -37,7 +37,16 @@ function getVideoFun(_url, _wid){
 	}).done(function(data){
 		//console.log(data);
 		if(data.code == 1){
-			
+			if(_finFun){
+				_finFun(data.msg.url);
+				$("#ballotNum em").html(data.msg.ballot);
+				if(data.msg.ismy == 1){
+					$(".result_share_btn").css("display","inline-block");
+				}else{
+					$(".heart").removeClass("disabled");
+					$(".enjoy_btn").css("display","inline-block");
+				}
+			}
 		}
 	})
 }
@@ -53,6 +62,12 @@ function ballotFun(_url, _wid){
 	    dataType:"json"
 	}).done(function(data){
 		console.log(data);
+		if(data.code == 1){
+			$(".heart img").attr("src","/images/heart-red.png");
+			var islikenum = parseInt($("#ballotNum em").html());
+			$("#ballotNum em").html(islikenum+1);
+			alert("点赞成功");
+		}
 	})
 }
 
@@ -141,7 +156,8 @@ function checkFun(_url, _name, _mobile){
 	}).done(function(data){
 		//console.log(data);
 		if(data.code == 1){
-			$("#verification").pupOpen();
+			changePage('heartShow');
+			//$("#verification").pupOpen();
 		}else if(data.code == 2){
 			alert("参数错误");
 		}else if(data.code == 3){

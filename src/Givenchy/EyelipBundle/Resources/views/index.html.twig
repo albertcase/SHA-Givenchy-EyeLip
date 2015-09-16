@@ -34,7 +34,21 @@
 </div>
 
 <script type="text/javascript">
-    
+    /* 生成视频 */
+    var jklink = {
+        "upload" : "{{ url('givenchy_eyelip_api_upload') }}",
+        "getvideo" : "{{ url('givenchy_eyelip_api_getvideo') }}",
+        "ballot" : "{{ url('givenchy_eyelip_api_ballot') }}",
+        "info" : "{{ url('givenchy_eyelip_api_info') }}",
+        "store" : "{{ url('givenchy_eyelip_api_store') }}",
+        "lottery" : "{{ url('givenchy_eyelip_api_lottery') }}",
+        "check" : "{{ url('givenchy_eyelip_api_check') }}",
+        "tzlink" : "{{ url('givenchy_eyelip_result') }}"
+    }
+
+
+
+
     $.fn.extend({          
         pupOpen:function() {  
             $(".pupcon").hide();        

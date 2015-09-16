@@ -103,7 +103,6 @@ class ApiController extends Controller
         $request = $this->getRequest()->request;
         $user = $this->container->get('givenchy.user.service');
         $mobile = $request->get('mobile');
-        $mobile = '15121038676';
         if (!$info = $user->checkMobile($mobile)) {
             $response = new JsonResponse();
             $response->setData(array('code' => 0, 'msg' => '您未参加上一波活动'));

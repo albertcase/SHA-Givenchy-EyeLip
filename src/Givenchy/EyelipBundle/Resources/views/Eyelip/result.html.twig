@@ -1,88 +1,177 @@
 {% extends 'GivenchyEyelipBundle::index.html.twig' %} 
 {% block content %}
 <div id="wechat_tips">
-	<img src="/images/wechat_tips.png" />
+    <img src="/images/wechat_tips.png" />
 </div>
 
 <article class="dreambox">
-	
-	<!-- 自己的 -->
-	<section class="page" id="myself" style="display:inline-block;">
-		<div class="con">
-			<a href="javascript:;" class="logo">
-				<img src="/images/logo.png" width="100%" />
-			</a>
+    
+    <!-- 自己的 -->
+    <section class="page" id="myself" style="display:inline-block;">
+        <div class="con">
+            <a href="javascript:;" class="logo">
+                <img src="/images/logo.png" width="100%" />
+            </a>
 
-			<div class="myVideo">
-				<a href="javascript:;" id="play" class="play_ico"></a>
-	        	<video src="http://ossweb-img.qq.com/images/wefire/act/a20150826kris/wb.mp4">
-					您的浏览器不支持 video 标签。
-				</video>
-	        	<img src="/images/f5.jpg" width="100%" />
-			</div>
+            <div class="myVideo">
+                <a href="javascript:;" id="play" class="play_ico"></a>
+                <div class="myVideo_con"></div>
+                <img src="/images/f5.jpg" width="100%" />
+            </div>
 
-			<div class="writeFooter resultFooter">
-				<a href="javascript:;" class="heart disable">
-					<img src="/images/heart.png" />
-				</a>
-				<p>"<em>0</em>"</p>
-				<a href="javascript:;" class="btn result_share_btn">
-					<img src="/images/share_btn.png" width="100%" />
-				</a>
-			</div>
+            <div class="writeFooter resultFooter">
+                <a href="javascript:;" class="heart disabled">
+                    <img src="/images/heart.png" />
+                </a>
+                <p id="ballotNum">"<em>0</em>"</p>
+                <a href="javascript:;" class="btn video_btn result_share_btn">
+                    <img src="/images/share_btn.png" width="100%" />
+                </a>
 
-		</div>
-		<img src="/images/index_bg.jpg" width="100%" />
-	</section>
+                <a href="{{ url('givenchy_eyelip_homepage') }}" class="btn video_btn enjoy_btn">
+                    <img src="/images/enjoy_btn.png" width="100%" />
+                </a>
 
-	<!-- 朋友的 -->
-	<section class="page" id="friend">
-		<div class="con">
-			<a href="javascript:;" class="logo">
-				<img src="/images/logo.png" width="100%" />
-			</a>
+            </div>
 
-			<div class="myVideo">
-				<a href="javascript:;" id="play" class="play_ico"></a>
-	        	<video src="http://ossweb-img.qq.com/images/wefire/act/a20150826kris/wb.mp4">
-					您的浏览器不支持 video 标签。
-				</video>
-	        	<img src="/images/f5.jpg" width="100%" />
-			</div>
 
-			<div class="writeFooter resultFooter">
-				<a href="javascript:;" class="heart">
-					<img src="/images/heart.png" />
-				</a>
-				<p class="islike">"<em>0</em>"</p>
-				<a href="javascript:;" class="btn enjoy_btn">
-					<img src="/images/enjoy_btn.png" width="100%" />
-				</a>
-			</div>
 
-		</div>
-		<img src="/images/index_bg.jpg" width="100%" />
-	</section>
+        </div>
+        <img src="/images/index_bg.jpg" width="100%" />
+    </section>
+
 
 </article>
 
 <script type="text/javascript">
-	
-	$(".heart").click(function(){
-		if($(this).hasClass("disable"))return false;
-		var islikenum = parseInt($(".islike em").html());
-		alert("点赞成功");
-		$(this).addClass("disable");
-		$(".islike em").html(islikenum+1);
-	})
+/*
+* 智能机浏览器版本信息:
+*
+*/
+var browser = {
+versions: function() {
+    var u = navigator.userAgent, app = navigator.appVersion;
+    return {//移动终端浏览器版本信息 
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
+        iPad: u.indexOf('iPad') > -1, //是否iPad
+        webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+    };
+}(),
+language: (navigator.browserLanguage || navigator.language).toLowerCase()
+}
+ 
 
-	$(".result_share_btn").click(function(){
-		$("#wechat_tips").show();
-	})
+ 
 
-	$("#wechat_tips").click(function(){
-		$("#wechat_tips").hide();
-	})
+
+
+    $(".result_share_btn").click(function(){
+        $("#wechat_tips").show();
+    })
+
+    $("#wechat_tips").click(function(){
+        $("#wechat_tips").hide();
+    })
+
+    function GetQueryString(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return unescape(r[2]); return null;
+    }
+
+    var curvideoid = GetQueryString("id");
+    getVideoFun(jklink["getvideo"], curvideoid, _finfunc);
+
+    function _finfunc(e){
+        gv(e);
+    }
+
+
+
+
+function gv(_videourl){
+
+  
+
+    var _w = function(selector,context){return(context||document).querySelector(selector)};
+                
+                var video  = $("video"),
+                    domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+
+
+                var myVideo = document.createElement("video"); 
+                myVideo.src = '/'+_videourl;
+
+                $(".myVideo_con").html(myVideo);
+
+
+                eventTester = function(e){  
+                      myVideo.addEventListener(e,function(){  
+                            myVideo[fullscreenvideo]();
+                            //myVideo.play();
+                      });  
+                }  
+
+                if (browser.versions.ios || browser.versions.iPhone || browser.versions.iPad) {
+                    
+                }else if (browser.versions.android) {
+                    eventTester("play");
+                }
+                
+                    
+                var fullscreen = function(elem) {
+                    var prefix;
+                    // Mozilla and webkit intialise fullscreen slightly differently
+                    for ( var i = -1, len = domPrefixes.length; ++i < len; ) {
+                      prefix = domPrefixes[i].toLowerCase();
+                      
+                      if ( elem[prefix + 'EnterFullScreen'] ) {
+                        // Webkit uses EnterFullScreen for video
+                        return prefix + 'EnterFullScreen';
+                        break;
+                      } else if( elem[prefix + 'RequestFullScreen'] ) {
+                        // Mozilla uses RequestFullScreen for all elements and webkit uses it for non video elements
+                        return prefix + 'RequestFullScreen';
+                        break;
+                      }
+                    }
+            
+                    return false;
+                };
+                
+                // Will return fullscreen method as a string if supported e.g. "mozRequestFullScreen" || false;
+                var fullscreenvideo = fullscreen(document.createElement("video"));
+                
+                if(!fullscreen) {
+                    alert("Fullscreen won't work, please make sure you're using a browser that supports it and you have enabled the feature");
+                    return;
+                }
+
+                _w("#play").addEventListener("click", function(){
+                    // The test returns a string so we can easily call it on a click event
+                    //myVideo[fullscreenvideo]();
+                    myVideo.play();
+                }, false);
+
+}
+
+
+
+$(".heart").click(function(){
+    if($(this).hasClass("disabled"))return false;
+    ballotFun(jklink["ballot"], curvideoid);
+})
+
+
+
+
 
 </script>
 

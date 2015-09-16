@@ -1,6 +1,6 @@
 givenchy_eyelip:
     resource: "@GivenchyEyelipBundle/Resources/config/routing.yml"
-    prefix:   /eyelip
+    prefix:   
 
 app:
     resource: "@AppBundle/Controller/"

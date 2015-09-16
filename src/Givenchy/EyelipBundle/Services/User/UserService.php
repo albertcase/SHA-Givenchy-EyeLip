@@ -178,6 +178,84 @@ class UserService
     }
 
     /** 
+    * userLoad
+    *
+    * load user info
+    *
+    * @access public
+    * @since 1.0 
+    * @return $user
+    */
+    public function checkStatus($mobile)
+    {
+        $offline = $this->em->getRepository('GivenchyEyelipBundle:Offline')->findOneBy(array('mobile' => $mobile));
+        if($offline)
+            return 1;
+        return 0;
+    }
+
+    /** 
+    * userLoad
+    *
+    * load user info
+    *
+    * @access public
+    * @since 1.0 
+    * @return $user
+    */
+    public function getUserBallot($info)
+    {
+        $rs = $this->em->getRepository('GivenchyEyelipBundle:Video')->findAll(array('info' => $info));
+        $count = 0;
+        foreach ($rs as $key => $value) {
+            $count += $value->getBallot();
+        }
+        return $count;
+        //return $this->findUserByMobile($mobile);
+    }
+
+    /** 
+    * userLoad
+    *
+    * load user info
+    *
+    * @access public
+    * @since 1.0 
+    * @return $user
+    */
+    public function lottery($lottery)
+    {
+        if($info = $this->userLoad()) {
+            $info->setLottery($lottery);
+            $this->save($info);
+            return $info;
+        }
+        return FALSE;
+    }
+    
+    /** 
+    * userLoad
+    *
+    * load user info
+    *
+    * @access public
+    * @since 1.0 
+    * @return $user
+    */
+    public function chooseStore($lottery, $province, $city, $address)
+    {
+        if($info = $this->userLoad()) {
+            $info->setLottery($lottery);
+            $info->setProvince($province);
+            $info->setCity($city);
+            $info->setAddress($address);
+            $this->save($info);
+            return $info;
+        }
+        return FALSE;
+    }
+
+    /** 
     * dreamLike
     *
     * ballot user's dream

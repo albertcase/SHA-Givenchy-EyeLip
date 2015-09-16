@@ -103,7 +103,6 @@ class ApiController extends Controller
         $request = $this->getRequest()->request;
         $user = $this->container->get('givenchy.user.service');
         $mobile = $request->get('mobile');
-        $mobile = '15121038676';
         if (!$info = $user->checkMobile($mobile)) {
             $response = new JsonResponse();
             $response->setData(array('code' => 0, 'msg' => '您未参加上一波活动'));
@@ -128,11 +127,12 @@ class ApiController extends Controller
 
     public function storeAction() {
         $request = $this->getRequest()->request;
+        $lottery = $request->get('lottery');
         $province = $request->get('province');
         $city = $request->get('city');
         $address = $request->get('address');
         $user = $this->container->get('givenchy.user.service');
-        $user->chooseStore($province, $city, $address);
+        $user->chooseStore($lottery, $province, $city, $address);
         $response = new JsonResponse();
         $response->setData(array('code' => 1, 'msg' => $ballot));
         return $response;

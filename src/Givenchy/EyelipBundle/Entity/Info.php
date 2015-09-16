@@ -38,6 +38,13 @@ class Info
     /**
      * @var string
      *
+     * @ORM\Column(name="lottery", type="string", length=50)
+     */
+    private $lottery;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="province", type="string", length=20)
      */
     private $province;
@@ -258,5 +265,28 @@ class Info
     public function getVideos()
     {
         return $this->videos;
+    }
+
+    /**
+     * Set lottery
+     *
+     * @param string $lottery
+     * @return Info
+     */
+    public function setLottery($lottery)
+    {
+        $this->lottery = $lottery;
+
+        return $this;
+    }
+
+    /**
+     * Get lottery
+     *
+     * @return string 
+     */
+    public function getLottery()
+    {
+        return $this->lottery;
     }
 }

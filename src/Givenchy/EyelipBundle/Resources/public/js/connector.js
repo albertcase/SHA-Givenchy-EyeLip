@@ -98,46 +98,26 @@ function infoFun(_url, _name, _mobile, _finFun){
 
 
 /* 第二波留资料 */
-function storeFun(_url, _province, _city, _store){
+function storeFun(_url, _province, _city, _store, _lottery){
 	$.ajax({
 	    type: "POST",
 	    url: _url,
 	    data: {
             "province": _province,
             "city": _city,
-            "store": _store
+            "store": _store,
+            "lottery":_lottery
         },
 	    dataType:"json"
 	}).done(function(data){
 		if(data.code == 1){
-			
+			$("#congratulations").pupOpen(); 
 		}else if(data.code == 2){
 			alert("参数错误");
 		}else if(data.code == 3){
 			alert("未参加上一波活动");
 		}else{
 			alert("已经兑换过奖品了");
-		}
-	})
-}
-
-
-/* 兑换奖品 */
-function lotteryFun(_url, _lottery){
-	$.ajax({
-	    type: "POST",
-	    url: _url,
-	    data: {
-            "lottery": _lottery
-        },
-	    dataType:"json"
-	}).done(function(data){
-		if(data.code == 1){
-			
-		}else if(data.code == 2){
-			alert("参数错误");
-		}else if(data.code == 3){
-			alert("非法提交");
 		}
 	})
 }

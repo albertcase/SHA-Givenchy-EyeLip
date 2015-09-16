@@ -206,7 +206,7 @@
 
 			<div class="heartShow_con">
 				<p>您一共获得了</p>
-				<span><em>202</em>颗</span>
+				<span class="finHeart"><em>202</em>颗</span>
 
 				<a href="javascript:;" class="heartIcon">
 					<img src="/images/heart-red.png" width="100%" />
@@ -239,7 +239,7 @@
 
 			<div class="heartShow_con">
 				<p>您一共获得了</p>
-				<span><em>202</em>颗</span>
+				<span class="finHeart"><em>202</em>颗</span>
 
 				<a href="javascript:;" class="heartIcon">
 					<img src="/images/heart.png" width="100%" />
@@ -263,7 +263,7 @@
 
 			<div class="heartShow_con">
 				<p>您一共获得了</p>
-				<span><em>202</em>颗</span>
+				<span class="finHeart"><em>202</em>颗</span>
 
 				<a href="javascript:;" class="heartIcon">
 					<img src="/images/heart.png" width="100%" />
@@ -309,10 +309,14 @@ var submitInfo = {
 	})
 
 	$(".exchange_btn").click(function(){
-		//changePage('error-1');
 
-		changePage('prize');
-		prizelistFun(3);
+		if($(this).attr("data-type") == 0){
+			changePage('error-1');
+		}else{
+			changePage('prize');
+			prizelistFun(3);
+		}
+		
 	})
 
 	$(".confirm_submit_btn").click(function(){

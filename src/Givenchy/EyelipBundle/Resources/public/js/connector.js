@@ -136,7 +136,11 @@ function checkFun(_url, _name, _mobile){
 	}).done(function(data){
 		console.log(data);
 		if(data.code == 1){
+			console.log(data.ballot);
+			$(".finHeart em").html(data.ballot);
+			$(".exchange_btn").attr("data-type", data.canballot);
 			changePage('heartShow');
+
 			//$("#verification").pupOpen();
 		}else if(data.code == 2){
 			alert("参数错误");

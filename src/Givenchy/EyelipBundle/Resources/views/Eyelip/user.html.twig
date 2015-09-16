@@ -279,6 +279,10 @@
 
 
 <script type="text/javascript">
+var submitInfo = {
+	"lottery":"",
+}
+
 	changePage('exchangeA');
 
 	$(".click_exchange_btn").click(function(){
@@ -305,11 +309,14 @@
 	})
 
 	$(".exchange_btn").click(function(){
+		//changePage('error-1');
+
 		changePage('prize');
 		prizelistFun(3);
 	})
 
 	$(".confirm_submit_btn").click(function(){
+		submitInfo["lottery"] = $(".swiper-slide-active").attr("data-name");
 		changePage('exchange_form_2');
 	})
 
@@ -443,7 +450,7 @@
 	function prizelistFun(prizeGrade){
 		var prizelistHtml = $.map(prizeData,function(v,k){
 				if(k <= prizeGrade){
-					return '<div class="swiper-slide" data-id="'+k+'"><dl><dt><img src="'+v.pimg+'" width="100%" /></dt><dd>'+v.pname+'</dd></dl></div>';
+					return '<div class="swiper-slide" data-name="'+v.pname+'" data-id="'+k+'"><dl><dt><img src="'+v.pimg+'" width="100%" /></dt><dd>'+v.pname+'</dd></dl></div>';
 				}
 			})
 
@@ -515,6 +522,8 @@
 
 
 
+
+
 	$(".confirm_btn2").click(function(){
 		var province_val = $("select[name=province]").val();
 		var city_val = $("select[name=city]").val();
@@ -526,7 +535,7 @@
 		}else if(store_val == "(必填)"){
 			alert("请选择您所在城市的专柜");
 		}else{
-			$("#congratulations").pupOpen(); 
+			storeFun(jklink["store"], province_val, city_val, store_val, submitInfo["lottery"]);
 		};
 	})
 

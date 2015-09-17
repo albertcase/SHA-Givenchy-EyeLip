@@ -61,7 +61,7 @@ function ballotFun(_url, _wid){
         },
 	    dataType:"json"
 	}).done(function(data){
-		console.log(data);
+		//console.log(data);
 		if(data.code == 1){
 			$(".heart img").attr("src","/images/heart-red.png");
 			var islikenum = parseInt($("#ballotNum em").html());
@@ -110,6 +110,7 @@ function storeFun(_url, _province, _city, _store, _lottery){
         },
 	    dataType:"json"
 	}).done(function(data){
+		$(".uploadloading").hide();
 		if(data.code == 1){
 			$("#congratulations").pupOpen(); 
 		}else if(data.code == 2){
@@ -119,6 +120,9 @@ function storeFun(_url, _province, _city, _store, _lottery){
 		}else{
 			alert("已经兑换过奖品了");
 		}
+	}).fail(function(){
+		$(".uploadloading").hide();
+		alert("加载出错！");
 	})
 }
 
@@ -134,21 +138,20 @@ function checkFun(_url, _name, _mobile){
         },
 	    dataType:"json"
 	}).done(function(data){
-		console.log(data);
+		//console.log(data);
+		$(".uploadloading").hide();
 		if(data.code == 1){
-			console.log(data.ballot);
 			$(".finHeart em").html(data.ballot);
 			$(".exchange_btn").attr("data-type", data.canballot);
 			changePage('heartShow');
 
 			//$("#verification").pupOpen();
-		}else if(data.code == 2){
-			alert("参数错误");
-		}else if(data.code == 3){
-			$("#not-participate").pupOpen();
-		}else if(data.code == 4){
-			$("#has-received").pupOpen();
+		}else{
+			alert(data.msg)
 		}
+	}).fail(function(){
+		$(".uploadloading").hide();
+		alert("加载出错！");
 	})
 }
 

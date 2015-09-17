@@ -300,6 +300,7 @@ var submitInfo = {
 		}else if(!test.test(_tel)){
 			alert("手机号码输入有误");
 		}else{
+			$(".uploadloading").show();
 			checkFun(jklink["check"], _name, _tel);
 		}
 	})
@@ -539,6 +540,7 @@ var submitInfo = {
 		}else if(store_val == "(必填)"){
 			alert("请选择您所在城市的专柜");
 		}else{
+			$(".uploadloading").show();
 			storeFun(jklink["store"], province_val, city_val, store_val, submitInfo["lottery"]);
 		};
 	})

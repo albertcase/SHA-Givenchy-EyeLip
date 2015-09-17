@@ -1,7 +1,8 @@
 {% extends 'GivenchyEyelipBundle::index.html.twig' %} 
 {% block content %}
 <img src="/images/share.jpg" class="share" width="100%" />
-    
+
+
 <div id="wechat_tips">
     <img src="/images/wechat_tips.png" />
 </div>
@@ -18,21 +19,36 @@
             <div class="myVideo">
                 <a href="javascript:;" id="play" class="play_ico"></a>
                 <div class="myVideo_con"></div>
-                <img src="/images/f5.jpg" id="videoposter" width="100%" />
+                <img src="/images/poster-{{video.style}}.jpg" id="videoposter" width="100%" />
             </div>
 
             <div class="writeFooter resultFooter">
-                <a href="javascript:;" class="heart disabled">
+                
+                
+                {% if ismy == 0 %}
+
+                <a href="javascript:;" class="heart">
                     <img src="/images/heart.png" />
                 </a>
-                <p id="ballotNum">"<em>0</em>"</p>
+                <p id="ballotNum">"<em>{{video.ballot}}</em>"</p>
                 <a href="javascript:;" class="btn video_btn result_share_btn">
                     <img src="/images/share_btn.png" width="100%" />
                 </a>
 
+                {% else %}
+
+                <a href="javascript:;" class="heart disabled">
+                    <img src="/images/heart.png" />
+                </a>
+                <p id="ballotNum">"<em>{{video.ballot}}</em>"</p>
                 <a href="{{ url('givenchy_eyelip_homepage') }}" class="btn video_btn enjoy_btn">
                     <img src="/images/enjoy_btn.png" width="100%" />
                 </a>
+
+                {% endif %}
+                
+
+                
 
             </div>
 
@@ -82,23 +98,19 @@ language: (navigator.browserLanguage || navigator.language).toLowerCase()
         $("#wechat_tips").hide();
     })
 
-    function GetQueryString(name){
-        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if(r!=null)return unescape(r[2]); return null;
-    }
+    // function GetQueryString(name){
+    //     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    //     var r = window.location.search.substr(1).match(reg);
+    //     if(r!=null)return unescape(r[2]); return null;
+    // }
 
-    var curvideoid = GetQueryString("id");
-    getVideoFun(jklink["getvideo"], curvideoid, _finfunc);
-
-    function _finfunc(e){
-        gv(e);
-    }
+    // var curvideoid = GetQueryString("id");
+    //getVideoFun(jklink["getvideo"], curvideoid, _finfunc);
 
 
+gv();
 
-
-function gv(_videourl){
+function gv(){
 
   
 
@@ -109,7 +121,7 @@ function gv(_videourl){
 
 
                 var myVideo = document.createElement("video"); 
-                myVideo.src = '/'+_videourl;
+                myVideo.src = '/'+{{video.url}};
 
                 $(".myVideo_con").html(myVideo);
 

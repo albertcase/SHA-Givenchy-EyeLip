@@ -23,7 +23,23 @@ class PageController extends Controller
 
     public function resultAction()
     {
-        return $this->render('GivenchyEyelipBundle:Eyelip:result.html.twig');
+        $user = $this->container->get('givenchy.user.service');
+        $request = $this->getRequest()->query;
+        $id = $request->get('id');
+        $video = $user->getVideoById(intval($id));
+        $session_id = $this->getRequest()->getSession()->get('user');
+        if($video->getInfo()->getId() == $session_id) {
+            $ismy = 1;
+        } else {
+            $ismy = 0;
+        }
+        // $data = array(
+        //     'url' => $video->getUrl(),
+        //     'ballot' => $video->getBallot(),
+        //     'style' => $video->getStyle(),
+        //     'ismy' => $ismy
+        // );
+        return $this->render('GivenchyEyelipBundle:Eyelip:result.html.twig', array('video'=>$video, 'ismy'=>$ismy));
     }
 
     public function infoAction()

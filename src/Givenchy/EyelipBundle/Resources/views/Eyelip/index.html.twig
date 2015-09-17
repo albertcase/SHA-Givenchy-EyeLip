@@ -13,7 +13,7 @@
 		</div>
 
 		<div class="footer">
-			<a href="{{ url('givenchy_eyelip_upload') }}" class="do-btn">
+			<a href="{{ url('givenchy_eyelip_upload') }}" onclick="_hmt.push(['_trackEvent', 'btn', '制定高定大片按钮']);" class="do-btn">
 				<img src="/images/do_btn.png" width="100%" />
 			</a>
 		</div>
@@ -219,6 +219,7 @@
 		$(".prolist dt").click(function(){
 			$("#proInfo").pupOpen(); 
 			$(this).find("img").pupInfo("#proUrl");
+			_hmt.push(['_trackEvent', '产品列表', $(this).find("p").html()]);
 		})
 	}
 
@@ -230,10 +231,11 @@
 
 	$(".open-btn").click(function(){
 		changePage('transition');
+		_hmt.push(['_trackEvent', 'btn', '开启高度之旅按钮']);
 	})
 	
 	touch.on('.transition_con', 'swiperight', function(ev){
-
+		_hmt.push(['_trackEvent', 'btn', '滑动开启高定之旅']);
 	    TweenMax.fromTo(document.querySelector('.lipstick_mask'), 2, {
 	        x:0,
 	        blurFilter:{blurX:50, blurY:10},

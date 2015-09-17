@@ -17,7 +17,7 @@
             </a>
 
             <div class="myVideo">
-                <a href="javascript:;" id="play" class="play_ico"></a>
+                <a href="javascript:_hmt.push(['_trackEvent', 'btn', '完成的作品播放按钮']);" id="play" class="play_ico"></a>
                 <div class="myVideo_con"></div>
                 <img src="/images/poster-{{video.style}}.jpg" id="videoposter" width="100%" />
             </div>
@@ -25,9 +25,9 @@
             <div class="writeFooter resultFooter">
                 
                 
-                {% if ismy == 0 %}
+                {% if ismy == 1 %}
 
-                <a href="javascript:;" class="heart">
+                <a href="javascript:;" class="heart disabled">
                     <img src="/images/heart.png" />
                 </a>
                 <p id="ballotNum">"<em>{{video.ballot}}</em>"</p>
@@ -37,11 +37,11 @@
 
                 {% else %}
 
-                <a href="javascript:;" class="heart disabled">
+                <a href="javascript:;" class="heart">
                     <img src="/images/heart.png" />
                 </a>
                 <p id="ballotNum">"<em>{{video.ballot}}</em>"</p>
-                <a href="{{ url('givenchy_eyelip_homepage') }}" class="btn video_btn enjoy_btn">
+                <a href="{{ url('givenchy_eyelip_homepage') }}" onclick="_hmt.push(['_trackEvent', 'btn', '我也要享受高级定制按钮'])" class="btn video_btn enjoy_btn">
                     <img src="/images/enjoy_btn.png" width="100%" />
                 </a>
 
@@ -91,6 +91,7 @@ language: (navigator.browserLanguage || navigator.language).toLowerCase()
 
 
     $(".result_share_btn").click(function(){
+        _hmt.push(['_trackEvent', 'btn', '分享至朋友圈按钮']);
         $("#wechat_tips").show();
     })
 
@@ -180,6 +181,7 @@ function gv(){
 
 $(".heart").click(function(){
     if($(this).hasClass("disabled"))return false;
+    _hmt.push(['_trackEvent', 'btn', '点赞按钮']);
     ballotFun(jklink["ballot"], curvideoid);
 })
 

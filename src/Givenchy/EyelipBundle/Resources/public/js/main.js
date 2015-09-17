@@ -195,6 +195,7 @@ function _loading(){
 				$(".holder").hide();
 				player.enterFullScreen();
 				player.play();
+				_hmt.push(['_trackEvent', 'btn', '视频播放按钮']);
 			})
 
 			// $(".logo").click(function(){
@@ -207,6 +208,7 @@ function _loading(){
 		videoFun("0");
 
         $(".search-btn").click(function(){
+        	_hmt.push(['_trackEvent', 'btn', '探索妆容按钮']);
         	videoFun("0");
 			changePage('product', productlist);
 		})

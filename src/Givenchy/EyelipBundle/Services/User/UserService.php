@@ -116,11 +116,15 @@ class UserService
     * @since 1.0 
     * @return $user
     */
-    public function saveVideo($url)
+    public function saveVideo($image1, $image2, $image3, $style, $url)
     {
         if($info = $this->userLoad()) {
             $video = new Video();
             $video->setInfo($info);
+            $video->setImage1($image1);
+            $video->setImage2($image2);
+            $video->setImage3($image3);
+            $video->setStyle($style);
             $video->setUrl($url);
             $video->setBallot(0);
             $video->setCreated(time());

@@ -53,6 +53,11 @@ class ApiController extends Controller
         $url = $image->saveVideoToHost($video);
         $user = $this->container->get('givenchy.user.service');
         $video_id = $user->saveVideo($image1, $image2, $image3, $tpl_no, $url);
+        if (!$video_id) {
+            $response = new JsonResponse();
+            $response->setData(array('code' => 3, 'msg' => '生成视频失败，请重新生成'));
+            return $response;  
+        }
         $response = new JsonResponse();
         $response->setData(array('code' => 1, 'msg' => $video_id));
         return $response; 

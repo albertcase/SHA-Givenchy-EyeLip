@@ -238,14 +238,21 @@ function toFixed2 (num) {
 var swiper = new Swiper('.swiper-container', {
 	nextButton: '.swiper-button-next',
 	prevButton: '.swiper-button-prev',
+    effect: 'coverflow',
+    centeredSlides: true,
     slidesPerView: "auto",
-    spaceBetween:20,
+    initialSlide :1,
+    coverflow: {
+        rotate: 30,
+        stretch: -6,
+        depth: 30,
+        modifier: 1,
+        slideShadows : false
+    },
     onTouchStart: function(){
       $(".stylevideo").html("");
       $(".play_ico").show();
-    },
-    slidesPerView : 2,
-    centeredSlides : true
+    }
 });
 
 var createInfo = {
@@ -268,7 +275,7 @@ $(".upload_btn").click(function(){
 	var plength = $(".photoImg").length;
 	if(plength > 0){
 		changePage("choseStyle");
-		swiper.update();
+		swiper.update(true);
 	}else{
 		alert("点击上传1-3你的照片");
 	}

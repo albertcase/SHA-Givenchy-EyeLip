@@ -1,6 +1,7 @@
 {% extends 'GivenchyEyelipBundle::index.html.twig' %} 
 {% block content %}
 
+<img src="/images/share.jpg" class="share" width="100%" />
 
 <article class="dreambox">
 
@@ -234,9 +235,8 @@ function toFixed2 (num) {
 var swiper = new Swiper('.swiper-container', {
     pagination: '.swiper-pagination',
     effect: 'coverflow',
-    grabCursor: true,
     centeredSlides: true,
-    slidesPerView: 'auto',
+    slidesPerView: "auto",
     initialSlide :1,
     coverflow: {
         rotate: 30,
@@ -284,7 +284,7 @@ $(".play_ico").click(function(){
 	var myVideo = document.createElement("video");
 	var _ts = $(this);  
 	myVideo.src = tType;
-	$(this).siblings("img").css("opacity",0);
+	$(this).siblings("img").css("opacity",1);
 
 	$(this).siblings(".stylevideo").html(myVideo);
 	$(this).hide();
@@ -321,6 +321,7 @@ function checkForm(){
 		return false;
 	}else{
 
+		// infoFun(jklink["info"], name, tel, uploadFun(jklink["upload"], createInfo["uploadImgs"], createInfo["selectStyle"], jklink["tzlink"]));
 		infoFun(jklink["info"], name, tel, uploadFun(jklink["upload"], createInfo["uploadImgs"], createInfo["selectStyle"], jklink["tzlink"]));
 		$(".uploadloading").show();
 		

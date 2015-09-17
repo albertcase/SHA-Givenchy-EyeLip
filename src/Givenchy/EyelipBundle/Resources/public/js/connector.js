@@ -41,6 +41,7 @@ function getVideoFun(_url, _wid, _finFun){
 			if(_finFun){
 				_finFun(data.msg.url);
 				$("#ballotNum em").html(data.msg.ballot);
+				$("#videoposter").attr("src","/images/poster-"+data.msg.style+".jpg");
 				if(data.msg.ismy == 1){
 					$(".result_share_btn").css("display","inline-block");
 				}else{

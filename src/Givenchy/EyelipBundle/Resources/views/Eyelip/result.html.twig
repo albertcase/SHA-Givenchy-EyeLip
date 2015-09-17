@@ -18,7 +18,7 @@
             <div class="myVideo">
                 <a href="javascript:;" id="play" class="play_ico"></a>
                 <div class="myVideo_con"></div>
-                <img src="/images/f5.jpg" width="100%" />
+                <img src="/images/f5.jpg" id="videoposter" width="100%" />
             </div>
 
             <div class="writeFooter resultFooter">
@@ -116,7 +116,7 @@ function gv(_videourl){
 
                 eventTester = function(e){  
                       myVideo.addEventListener(e,function(){  
-                            myVideo[fullscreenvideo]();
+                                myVideo[fullscreenvideo]();
                             //myVideo.play();
                       });  
                 }  

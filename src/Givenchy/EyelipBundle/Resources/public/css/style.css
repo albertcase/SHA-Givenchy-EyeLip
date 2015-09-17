@@ -1018,7 +1018,9 @@ input::-webkit-input-placeholder{
 }
 
 
-
+.myVideo_con{
+    opacity: 0;
+}
 
 
 

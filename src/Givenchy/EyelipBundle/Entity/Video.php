@@ -45,9 +45,9 @@ class Video
     /**
      * @var string
      *
-     * @ORM\Column(name="sytle", type="string", length=255)
+     * @ORM\Column(name="style", type="string", length=255)
      */
-    private $sytle;
+    private $style;
 
     /**
      * @var string

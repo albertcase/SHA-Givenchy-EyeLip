@@ -28,7 +28,11 @@
                 {% if ismy == 1 %}
 
                 <a href="javascript:;" class="heart disabled">
+                    {% if ismy == 0 %}
                     <img src="/images/heart.png" />
+                    {% else %}
+                    <img src="/images/heart-red.png" />
+                    {% endif %}
                 </a>
                 <p id="ballotNum">"<em>{{video.ballot}}</em>"</p>
                 <a href="javascript:;" class="btn video_btn result_share_btn">
@@ -182,6 +186,7 @@ function gv(){
 $(".heart").click(function(){
     if($(this).hasClass("disabled"))return false;
     _hmt.push(['_trackEvent', 'btn', '点赞按钮']);
+    $(this).addClass("disabled");
     ballotFun(jklink["ballot"], curvideoid);
 })
 

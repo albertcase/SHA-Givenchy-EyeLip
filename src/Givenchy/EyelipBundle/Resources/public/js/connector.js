@@ -18,7 +18,7 @@ function uploadFun(_url, _image, _style, _tzlink){
 		}else if(data.code == 2){
 			alert("参数错误");
 		}else if(data.code == 3){
-			alert("请上传图片");
+			alert("生成失败，请重新生成");
 		}
 	})
 }

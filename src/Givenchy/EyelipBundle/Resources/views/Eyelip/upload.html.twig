@@ -238,22 +238,14 @@ function toFixed2 (num) {
 var swiper = new Swiper('.swiper-container', {
 	nextButton: '.swiper-button-next',
 	prevButton: '.swiper-button-prev',
-    pagination: '.swiper-pagination',
-    effect: 'coverflow',
-    centeredSlides: true,
     slidesPerView: "auto",
-    initialSlide :1,
-    coverflow: {
-        rotate: 30,
-        stretch: -6,
-        depth: 30,
-        modifier: 1,
-        slideShadows : false
-    },
+    spaceBetween:20,
     onTouchStart: function(){
       $(".stylevideo").html("");
       $(".play_ico").show();
-    }
+    },
+    slidesPerView : 2,
+    centeredSlides : true
 });
 
 var createInfo = {

@@ -98,6 +98,7 @@ class UserService
         $user->setName($name);
         $user->setMobile($mobile);
         $user->setCreated(time());
+        $user->setLottery('');
         $user->setProvince('');
         $user->setCity('');
         $user->setStore('');

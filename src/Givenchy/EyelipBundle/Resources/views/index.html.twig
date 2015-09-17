@@ -24,6 +24,17 @@
 %}
 
 <script type="text/javascript" src="{{ asset_url }}"></script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?d68a69f71bbcd749661249fef712e987";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>    
+
 {% endjavascripts %}
 <div class="uploadloading"></div>
 <!-- 横屏代码 -->
@@ -99,6 +110,7 @@
         orientationChange();
         window.onorientationchange = orientationChange;
     });
+
 
 </script>
 

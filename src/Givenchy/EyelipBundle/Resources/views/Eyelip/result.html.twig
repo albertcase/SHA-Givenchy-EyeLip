@@ -99,13 +99,13 @@ language: (navigator.browserLanguage || navigator.language).toLowerCase()
         $("#wechat_tips").hide();
     })
 
-    // function GetQueryString(name){
-    //     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-    //     var r = window.location.search.substr(1).match(reg);
-    //     if(r!=null)return unescape(r[2]); return null;
-    // }
+    function GetQueryString(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return unescape(r[2]); return null;
+    }
 
-    // var curvideoid = GetQueryString("id");
+    var curvideoid = GetQueryString("id");
     //getVideoFun(jklink["getvideo"], curvideoid, _finfunc);
 
 

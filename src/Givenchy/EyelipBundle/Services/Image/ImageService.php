@@ -94,7 +94,7 @@ class ImageService
         //相框合成到背景
         imagecopyresized($bg,$bgtpl,0,0,0,0,$widthbg,$heightbg,$widthtpl,$heighttpl); 
 
-        $image=imagecreatetruecolor($w, $h);
+        $image=imagecreatetruecolor(448, 720);
         imagecopyresized($image,$bg,0,0,0,0,448,720,$widthbg,$heightbg); 
         //生成图片
         $fs = new Filesystem();

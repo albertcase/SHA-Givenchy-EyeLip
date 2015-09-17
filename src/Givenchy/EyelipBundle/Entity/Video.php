@@ -45,9 +45,9 @@ class Video
     /**
      * @var string
      *
-     * @ORM\Column(name="sytle", type="string", length=255)
+     * @ORM\Column(name="style", type="string", length=255)
      */
-    private $sytle;
+    private $style;
 
     /**
      * @var string
@@ -248,25 +248,25 @@ class Video
     }
 
     /**
-     * Set sytle
+     * Set style
      *
-     * @param string $sytle
+     * @param string $style
      * @return Video
      */
-    public function setSytle($sytle)
+    public function setStyle($style)
     {
-        $this->sytle = $sytle;
+        $this->style = $style;
 
         return $this;
     }
 
     /**
-     * Get sytle
+     * Get style
      *
      * @return string 
      */
-    public function getSytle()
+    public function getStyle()
     {
-        return $this->sytle;
+        return $this->style;
     }
 }

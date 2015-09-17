@@ -116,6 +116,7 @@ function _loading(){
 	    loader.addImage('/images/writeBtn.png');
 	    loader.addImage('/images/create_btn.png');
 	    loader.addImage('/images/share_btn.png');
+	    loader.addImage('/images/share.jpg');
 
 	    loader.addImage('/images/pro/p1/people.jpg');
 	    loader.addImage('/images/pro/p1/pro.png');
@@ -192,6 +193,7 @@ function _loading(){
 
 			$(".holder").click(function(){
 				$(".holder").hide();
+				player.enterFullScreen();
 				player.play();
 			})
 

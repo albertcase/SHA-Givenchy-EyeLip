@@ -228,6 +228,11 @@ html,body{
     /*overflow: hidden;*/
 }
 
+.share{
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
 
 .dreambox,.page{
     width:100%;
@@ -608,7 +613,7 @@ html,body{
 }
 
 .choseStyle_con .swiper-slide{
-    width: 60%;
+    width: 50%;
     background: #000;
     position: relative;
 }

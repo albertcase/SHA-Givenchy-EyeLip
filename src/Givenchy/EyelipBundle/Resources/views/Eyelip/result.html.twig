@@ -1,7 +1,8 @@
 {% extends 'GivenchyEyelipBundle::index.html.twig' %} 
 {% block content %}
 <img src="/images/share.jpg" class="share" width="100%" />
-    
+
+
 <div id="wechat_tips">
     <img src="/images/wechat_tips.png" />
 </div>
@@ -16,23 +17,42 @@
             </a>
 
             <div class="myVideo">
-                <a href="javascript:;" id="play" class="play_ico"></a>
+                <a href="javascript:_hmt.push(['_trackEvent', 'btn', '完成的作品播放按钮']);" id="play" class="play_ico"></a>
                 <div class="myVideo_con"></div>
-                <img src="/images/f5.jpg" id="videoposter" width="100%" />
+                <img src="/images/poster-{{video.style}}.jpg" id="videoposter" width="100%" />
             </div>
 
             <div class="writeFooter resultFooter">
+                
+                
+                {% if ismy == 1 %}
+
                 <a href="javascript:;" class="heart disabled">
+                    {% if video.ballot == 0 %}
                     <img src="/images/heart.png" />
+                    {% else %}
+                    <img src="/images/heart-red.png" />
+                    {% endif %}
                 </a>
-                <p id="ballotNum">"<em>0</em>"</p>
+                <p id="ballotNum">"<em>{{video.ballot}}</em>"</p>
                 <a href="javascript:;" class="btn video_btn result_share_btn">
                     <img src="/images/share_btn.png" width="100%" />
                 </a>
 
-                <a href="{{ url('givenchy_eyelip_homepage') }}" class="btn video_btn enjoy_btn">
+                {% else %}
+
+                <a href="javascript:;" class="heart">
+                    <img src="/images/heart.png" />
+                </a>
+                <p id="ballotNum">"<em>{{video.ballot}}</em>"</p>
+                <a href="{{ url('givenchy_eyelip_homepage') }}" onclick="_hmt.push(['_trackEvent', 'btn', '我也要享受高级定制按钮'])" class="btn video_btn enjoy_btn">
                     <img src="/images/enjoy_btn.png" width="100%" />
                 </a>
+
+                {% endif %}
+                
+
+                
 
             </div>
 
@@ -75,6 +95,7 @@ language: (navigator.browserLanguage || navigator.language).toLowerCase()
 
 
     $(".result_share_btn").click(function(){
+        _hmt.push(['_trackEvent', 'btn', '分享至朋友圈按钮']);
         $("#wechat_tips").show();
     })
 
@@ -89,16 +110,12 @@ language: (navigator.browserLanguage || navigator.language).toLowerCase()
     }
 
     var curvideoid = GetQueryString("id");
-    getVideoFun(jklink["getvideo"], curvideoid, _finfunc);
-
-    function _finfunc(e){
-        gv(e);
-    }
+    //getVideoFun(jklink["getvideo"], curvideoid, _finfunc);
 
 
+gv();
 
-
-function gv(_videourl){
+function gv(){
 
   
 
@@ -109,7 +126,7 @@ function gv(_videourl){
 
 
                 var myVideo = document.createElement("video"); 
-                myVideo.src = '/'+_videourl;
+                myVideo.src = '/{{video.url}}';
 
                 $(".myVideo_con").html(myVideo);
 
@@ -168,6 +185,8 @@ function gv(_videourl){
 
 $(".heart").click(function(){
     if($(this).hasClass("disabled"))return false;
+    _hmt.push(['_trackEvent', 'btn', '点赞按钮']);
+    $(this).addClass("disabled");
     ballotFun(jklink["ballot"], curvideoid);
 })
 

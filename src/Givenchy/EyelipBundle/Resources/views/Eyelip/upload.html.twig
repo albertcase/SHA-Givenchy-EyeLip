@@ -57,19 +57,19 @@
 			            <div class="swiper-slide" data-id="one">
 			            	<a href="javascript:;" data-type="/video/s1.mp4" class="play_ico"></a>
 			            	<div class="stylevideo"></div>
-			            	<img src="/images/poster-1.jpg" width="100%" />
+			            	<img src="/images/poster-one.jpg" width="100%" />
 			            	<p>动人朱颜</p>
 			            </div>
 			            <div class="swiper-slide" data-id="two">
 			            	<a href="javascript:;" data-type="/video/s2.mp4" class="play_ico"></a>
 			            	<div class="stylevideo"></div>
-							<img src="/images/poster-2.jpg" width="100%" />
+							<img src="/images/poster-two.jpg" width="100%" />
 							<p>眸间魅影</p>
 			            </div>
 			            <div class="swiper-slide" data-id="three">
 			            	<a href="javascript:;" data-type="/video/s3.mp4" class="play_ico"></a>
 			            	<div class="stylevideo"></div>
-			            	<img src="/images/poster-3.jpg" width="100%" />
+			            	<img src="/images/poster-three.jpg" width="100%" />
 			            	<p>娇唇炫色</p>
 			            </div>
 			        </div>
@@ -142,6 +142,8 @@
 
 
 $(".photoClose").click(function(){
+	_hmt.push(['_trackEvent', 'btn', '上传file关闭按钮']);
+
 	if($("#showImg img").attr("src") == "")return false;
 	$("#showImg img").attr("src","").hide();
 	$(".upload_list li.hover").find(".photoImg").remove();
@@ -150,6 +152,7 @@ $(".photoClose").click(function(){
 })
 
 $(".upload_list li").click(function(event){
+	_hmt.push(['_trackEvent', '上传file', '上传file-'+$(this).index()]);
 
 	if($(this).hasClass("hover") && !$(this).hasClass("hasimg")) return false;
 	var curUrl = $(this).find(".photoImg img").attr("src");
@@ -233,6 +236,8 @@ function toFixed2 (num) {
 
 /* 选择风格 */
 var swiper = new Swiper('.swiper-container', {
+	nextButton: '.swiper-button-next',
+	prevButton: '.swiper-button-prev',
     pagination: '.swiper-pagination',
     effect: 'coverflow',
     centeredSlides: true,
@@ -258,6 +263,9 @@ var createInfo = {
 
 
 $(".upload_btn").click(function(){
+
+	_hmt.push(['_trackEvent', 'btn', '确认上传按钮']);
+
 	createInfo["uploadImgs"] = [];
 	$(".upload_list li").each(function(){
 		if($(this).hasClass("hasimg")){
@@ -277,6 +285,8 @@ $(".upload_btn").click(function(){
 
 
 $(".play_ico").click(function(){
+	_hmt.push(['_trackEvent', 'btn', '选择风格播放按钮-'+$(this).index()])
+
 	$(".stylevideo").html("");
 	$(".play_ico").show();
 
@@ -304,6 +314,7 @@ $(".play_ico").click(function(){
 })
 
 $(".chose_btn").click(function(){
+	_hmt.push(['_trackEvent', 'btn', '定制我的高定大片按钮']);
 	createInfo["selectStyle"] = $(".swiper-slide-active").attr("data-id");
 	changePage("info");
 	// {{ url('givenchy_eyelip_finish') }}
@@ -331,6 +342,7 @@ function checkForm(){
 
 
 $(".create_btn").on("click",function(){
+	_hmt.push(['_trackEvent', 'btn', '生成我的高定大片按钮']);
 	checkForm();
 });
 

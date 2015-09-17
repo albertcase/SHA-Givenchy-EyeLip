@@ -52,7 +52,7 @@ class ApiController extends Controller
         $video = $video_json['src'];
         $url = $image->saveVideoToHost($video);
         $user = $this->container->get('givenchy.user.service');
-        $video_id = $user->saveVideo($url);
+        $video_id = $user->saveVideo($image1, $image2, $image3, $tpl_no, $url);
         $response = new JsonResponse();
         $response->setData(array('code' => 1, 'msg' => $video_id));
         return $response; 
@@ -82,6 +82,7 @@ class ApiController extends Controller
         $data = array(
             'url' => $video->getUrl(),
             'ballot' => $video->getBallot(),
+            'style' => $video->getStyle(),
             'ismy' => $ismy
         );
         $response = new JsonResponse();

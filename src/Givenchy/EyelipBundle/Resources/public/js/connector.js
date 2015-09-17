@@ -13,7 +13,6 @@ function uploadFun(_url, _image, _style, _tzlink){
 	}).done(function(data){
 		$(".uploadloading").hide();
 
-		//console.log(data);
 		if(data.code == 1){
 			window.location.href = _tzlink + "?id=" + data.msg;
 		}else if(data.code == 2){

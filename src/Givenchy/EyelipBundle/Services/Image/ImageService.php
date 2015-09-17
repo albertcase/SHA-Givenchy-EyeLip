@@ -67,22 +67,28 @@ class ImageService
         $bg=ImageCreateFromJpeg("images/video/white.jpg");
         list($widthbg,$heightbg)=getimagesize("images/video/white.jpg");
 
-
-        //原图合成到背景
-        if ($tpl_no == 'one' && $pic_no == 1) {
-            imagecopyresized($bg, $img1, 0, 0, 0, 0, $widthbg/2, $heightbg/2, $width, $height); 
-            imagecopyresized($bg, $img1, $widthbg/2, 0, 0, 0, $widthbg/2, $heightbg/2, $width, $height); 
-            imagecopyresized($bg, $img1, 0, $heightbg/2, 0, 0, $widthbg/2, $heightbg/2, $width, $height); 
-            imagecopyresized($bg, $img1, $widthbg/2, $heightbg/2, 0, 0, $widthbg/2, $heightbg/2, $width, $height); 
-        } else {
-            imagecopyresized($bg, $img1, 0, 0, 0, 0, $widthbg, $heightbg, $width, $height); 
-        }
-        
-
         //相框
         $tpl = "images/video/" . $tpl_no . "/" . $pic_no . ".png";
         $bgtpl = ImageCreateFromPng($tpl);
         list($widthtpl,$heighttpl)=getimagesize($tpl);
+
+        // echo "<br>";
+        // echo $height*($heighttpl/$widthtpl)."-".$heighttpl;
+        // echo "<br>";
+        // echo $widthtpl/$heighttpl;die;
+        //原图合成到背景
+        if ($tpl_no == 'one' && $pic_no == 1) {
+            imagecopyresized($bg, $img1, 0, 0, 0, 0, $widthtpl/2, $heighttpl/2, $height*($widthtpl/$heighttpl), $height); 
+            imagecopyresized($bg, $img1, $widthbg/2, 0, 0, 0, $widthtpl/2, $heighttpl/2,$height*($widthtpl/$heighttpl), $height); 
+            imagecopyresized($bg, $img1, 0, $heightbg/2, 0, 0, $widthtpl/2, $heighttpl/2, $height*($widthtpl/$heighttpl), $height); 
+            imagecopyresized($bg, $img1, $widthbg/2, $heightbg/2, 0, 0, $widthtpl/2, $heighttpl/2, $height*($widthtpl/$heighttpl), $height); 
+        } else {
+            //imagecopyresized($bg, $img1, 0, 0, 0, 0, $widthtpl, $heighttpl,$width,ceil($width*($heighttpl/$widthtpl))); 
+            imagecopyresized($bg, $img1, 0, 0, 0, 0, $widthtpl, $heighttpl,$height*($widthtpl/$heighttpl),$height); 
+        }
+        
+
+        
 
 
         //相框合成到背景
@@ -152,6 +158,16 @@ class ImageService
         fwrite($file,$return);//写入  
         fclose($file);//关闭  
         return $hechengImg;
+    }
+
+    private function cutImage(){
+        $scale = max($width / $image->info['width'], $height / $image->info['height']);
+        $x = ($image->info['width'] * $scale - $width) / 2;
+        $y = ($image->info['height'] * $scale - $height) / 2;
+
+        if (image_resize($image, $image->info['width'] * $scale, $image->info['height'] * $scale)) {
+        return image_crop($image, $x, $y, $width, $height);
+        }
     }
 
 }

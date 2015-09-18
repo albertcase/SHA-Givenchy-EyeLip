@@ -35,7 +35,7 @@
                     {% endif %}
                 </a>
                 <p id="ballotNum">"<em>{{video.ballot}}</em>"</p>
-                <a href="javascript:;" class="btn video_btn result_share_btn">
+                <a href="{{ url('givenchy_eyelip_homepage') }}" onclick="_hmt.push(['_trackEvent', 'btn', '再玩一次']);" class="btn video_btn result_share_btn">
                     <img src="/images/share_btn.png" width="100%" />
                 </a>
 
@@ -91,13 +91,7 @@ language: (navigator.browserLanguage || navigator.language).toLowerCase()
  
 
  
-
-
-
-    $(".result_share_btn").click(function(){
-        _hmt.push(['_trackEvent', 'btn', '分享至朋友圈按钮']);
-        $("#wechat_tips").show();
-    })
+    setTimeout('$("#wechat_tips").show()',2000);
 
     $("#wechat_tips").click(function(){
         $("#wechat_tips").hide();

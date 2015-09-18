@@ -1024,11 +1024,15 @@ input::-webkit-input-placeholder{
     width: 18%;
     position:fixed;
     left: 3%;
-    bottom: 9%;
+    bottom: 6%;
     display: none;
     height: 30px;
     line-height: 30px;
     z-index: 99;
+}
+
+.back-1-btn.back-2-btn{
+    bottom: 9%;
 }
 
 

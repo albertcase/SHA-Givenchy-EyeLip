@@ -619,7 +619,7 @@ html,body{
 }
 
 .choseStyle_con .swiper-slide.swiper-slide-active{
-    border: 6px #fff solid;
+    border: 3px #fff solid;
     overflow: hidden;
 }
 

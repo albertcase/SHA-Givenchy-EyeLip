@@ -145,6 +145,12 @@
 
 
 			<div class="footer">
+				<div class="hand_animate list_animate">
+	                <img src="/images/handbg.png" width="100%" class="handbg" />
+	                <span>
+	                     <img src="/images/handicon.png" width="100%" />
+	                </span>
+	            </div>
 				<a href="javascript:;" class="open-btn">
 					<img src="/images/open_btn.png" width="100%" />
 				</a>
@@ -209,7 +215,7 @@
 
 	function productlist(){
 		var plHtml = $.map(pro_data,function(v,k){
-			return '<div class="swiper-slide"><dl class="prolist"><dt><img src="/images/pro/p'+parseInt(k+1)+'/people.jpg" data-pro="/images/pro/p'+parseInt(k+1)+'/pro.png" width="100%" /><p>发现妆容秘籍</p></dt><dd><h2>'+v.title+'</h2><p>'+v.info+'</p></dd></dl></div>';
+			return '<div class="swiper-slide"><dl class="prolist"><dt><img src="/images/pro/p'+parseInt(k+1)+'/people.jpg" data-pro="/images/pro/p'+parseInt(k+1)+'/pro.png" width="100%" /><p><strong>点击发现妆容秘籍</strong></p></dt><dd><h2>'+v.title+'</h2><p>'+v.info+'</p></dd></dl></div>';
 		})
 		$(".swiper-wrapper").html(plHtml);
 

@@ -210,6 +210,7 @@ function _loading(){
         $(".search-btn").click(function(){
         	_hmt.push(['_trackEvent', 'btn', '探索妆容按钮']);
         	videoFun("0");
+        	$(".back-1-btn").attr("data-prev","index").show();;
 			changePage('product', productlist);
 		})
 

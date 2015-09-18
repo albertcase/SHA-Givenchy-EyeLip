@@ -135,11 +135,21 @@
 	</section>
 
 
-
+<a href="javascript:;" data-prev="transition" class="back-1-btn">
+	<img src="/images/back-1.png" width="100%" />
+</a>
 </article>
 
 <script type="text/javascript">
+$(".back-1-btn").show();
 
+$(".back-1-btn").click(function(){
+	if($(this).attr("data-prev") == "transition"){
+		window.location.href = "{{ url('givenchy_eyelip_homepage') }}?back="+$(this).attr("data-prev");
+	}else{
+		changePage($(this).attr("data-prev"));
+	}
+})
 
 $(".photoClose").click(function(){
 	_hmt.push(['_trackEvent', 'btn', '上传file关闭按钮']);
@@ -279,6 +289,8 @@ $(".upload_btn").click(function(){
 	}else{
 		alert("点击上传1-3张照片");
 	}
+
+	$(".back-1-btn").attr({"data-prev":"upload"});
 })
 
 
@@ -317,6 +329,7 @@ $(".chose_btn").click(function(){
 	createInfo["selectStyle"] = $(".swiper-slide-active").attr("data-id");
 	changePage("info");
 	// {{ url('givenchy_eyelip_finish') }}
+	$(".back-1-btn").attr({"data-prev":"choseStyle"});
 })
 
 function checkForm(){

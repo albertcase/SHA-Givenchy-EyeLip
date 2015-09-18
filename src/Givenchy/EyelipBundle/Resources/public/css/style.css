@@ -298,7 +298,11 @@ html,body{
     width:100%;
     position: absolute;
     left: 0;
-    bottom: 5%;
+    bottom: 9%;
+}
+
+#upload .footer{
+    bottom: 6%;
 }
 
 .search-btn,.do-btn,.btn,.open-btn,.click_exchange_btn,.click_exchange_rule_btn,.exchange_btn,.confirm_submit_btn{
@@ -1016,7 +1020,13 @@ input::-webkit-input-placeholder{
     opacity: 0;
 }
 
-
+.back-1-btn{
+    width: 18%;
+    position:fixed;
+    left: 3%;
+    bottom: 6%;
+    display: none;
+}
 
 
 /* swiper */

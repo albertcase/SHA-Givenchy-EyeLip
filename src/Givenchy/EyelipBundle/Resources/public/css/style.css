@@ -305,6 +305,10 @@ html,body{
     bottom: 6%;
 }
 
+#choseStyle .footer{
+    bottom: 6%;
+}
+
 .search-btn,.do-btn,.btn,.open-btn,.click_exchange_btn,.click_exchange_rule_btn,.exchange_btn,.confirm_submit_btn{
     width: 50%;
     display: inline-block;

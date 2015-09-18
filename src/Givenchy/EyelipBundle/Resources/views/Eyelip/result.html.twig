@@ -90,8 +90,11 @@ language: (navigator.browserLanguage || navigator.language).toLowerCase()
 }
  
 
- 
-    setTimeout('$("#wechat_tips").show()',2000);
+    if({{ismy}} == 1){
+        setTimeout('$("#wechat_tips").show()',1000);
+    }
+    
+
 
     $("#wechat_tips").click(function(){
         $("#wechat_tips").hide();

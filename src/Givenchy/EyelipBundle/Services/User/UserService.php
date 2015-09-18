@@ -161,6 +161,21 @@ class UserService
     */
     public function ballotVideoById($id)
     {
+        if (!isset($_COOKIE['eyelip_uuid'])) {
+            $uuid = md5(time());
+            setcookie("eyelip_uuid", $uuid, time()+3600*24*7*30);
+            $_COOKIE['eyelip_uuid'] = $uuid;
+        }
+        $log = $this->em->getRepository('GivenchyEyelipBundle:Likelog')
+            ->findOneBy(array('uuid' => $_COOKIE['eyelip_uuid'], 'video_id' => $id));
+        if ($log) {
+            return -1;
+        }
+        $likelog = new Likelog();
+        $likelog->setUuid($_COOKIE['uuid']);
+        $likelog->setVideoId($id);
+        $likelog->created(time());
+        $this->save($likelog);
         $video = $this->em->getRepository('GivenchyEyelipBundle:Video')
             ->findOneBy(array('id' => $id));
         $video->setBallot($video->getBallot() + 1);

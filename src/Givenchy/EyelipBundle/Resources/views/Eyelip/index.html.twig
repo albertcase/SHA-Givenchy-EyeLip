@@ -133,6 +133,12 @@
 			        	<!-- product_list -->
 
 			        </div>
+			        <div class="hand_animate list_animate">
+		                <img src="/images/handbg.png" width="100%" class="handbg" />
+		                <span>
+		                     <img src="/images/handicon.png" width="100%" />
+		                </span>
+		            </div>
 			        <!-- Add Arrows -->
 			        <div class="swiper-button-next">
 			        	<img src="/images/arr-r.png" width="100%" />
@@ -145,12 +151,6 @@
 
 
 			<div class="footer">
-				<div class="hand_animate list_animate">
-	                <img src="/images/handbg.png" width="100%" class="handbg" />
-	                <span>
-	                     <img src="/images/handicon.png" width="100%" />
-	                </span>
-	            </div>
 				<a href="javascript:;" class="open-btn">
 					<img src="/images/open_btn.png" width="100%" />
 				</a>
@@ -200,6 +200,10 @@
 </article>
 
 <script type="text/javascript">
+	$(".product").mouseover(function(){
+		$(".hand_animate").hide();
+	})
+
 	function GetQueryString(name){
         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);

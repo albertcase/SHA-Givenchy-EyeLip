@@ -1026,6 +1026,8 @@ input::-webkit-input-placeholder{
     left: 3%;
     bottom: 6%;
     display: none;
+    height: 30px;
+    line-height: 30px;
 }
 
 

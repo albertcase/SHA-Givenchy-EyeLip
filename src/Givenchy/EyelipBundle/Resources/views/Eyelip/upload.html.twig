@@ -148,6 +148,7 @@ $(".back-1-btn").click(function(){
 		window.location.href = "{{ url('givenchy_eyelip_homepage') }}?back="+$(this).attr("data-prev");
 	}else{
 		changePage($(this).attr("data-prev"));
+		$(this).attr("data-prev","transition");
 	}
 })
 

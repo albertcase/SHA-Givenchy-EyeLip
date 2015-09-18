@@ -200,9 +200,6 @@
 </article>
 
 <script type="text/javascript">
-	$(".product").mouseover(function(){
-		$(".hand_animate").hide();
-	})
 
 	function GetQueryString(name){
         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -235,7 +232,10 @@
 	            depth: 20,
 	            modifier: 1,
 	            slideShadows : false
-	        }
+	        },
+	        onTouchStart: function(swiper,even){
+		      	$(".hand_animate").hide();
+		    }
 		});
 
 		$(".prolist dt").click(function(){

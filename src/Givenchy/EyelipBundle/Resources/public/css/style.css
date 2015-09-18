@@ -1140,7 +1140,13 @@ input::-webkit-input-placeholder{
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
 	
-	
+	.hand_animate{
+      width: 15%;
+      position: absolute;
+      left: 60%;
+      bottom: 12%;
+      z-index: 3;
+    }
 
 }
 

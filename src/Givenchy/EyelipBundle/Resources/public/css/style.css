@@ -619,7 +619,7 @@ html,body{
 }
 
 .choseStyle_con .swiper-slide.swiper-slide-active{
-    border: 1px #fff solid;
+    border: 6px #fff solid;
     overflow: hidden;
 }
 
@@ -646,7 +646,7 @@ html,body{
     width: 100%;
     text-align: center;
     display: inline-block;
-    margin: 14% 0;
+    margin: 10% 0 18% 0;
 }
 
 .styleTitle img{

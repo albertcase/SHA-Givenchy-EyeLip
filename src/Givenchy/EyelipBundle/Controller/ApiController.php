@@ -100,6 +100,11 @@ class ApiController extends Controller
         $request = $this->getRequest()->request;
         $id = $request->get('id');
         $ballot = $user->ballotVideoById($id);
+        if ($ballot < 0) {
+            $response = new JsonResponse();
+            $response->setData(array('code' => 2, 'msg' => '您已经投过票了'));
+            return $response;
+        }
         $response = new JsonResponse();
         $response->setData(array('code' => 1, 'msg' => $ballot));
         return $response;

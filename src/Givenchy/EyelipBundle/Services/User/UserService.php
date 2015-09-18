@@ -4,6 +4,7 @@ namespace Givenchy\EyelipBundle\Services\User;
 
 use Givenchy\EyelipBundle\Entity\Info;
 use Givenchy\EyelipBundle\Entity\Video;
+use Givenchy\EyelipBundle\Entity\Likelog;
 
 class UserService
 {
@@ -161,6 +162,21 @@ class UserService
     */
     public function ballotVideoById($id)
     {
+        if (!isset($_COOKIE['eyelip_uuid'])) {
+            $uuid = md5(time());
+            setcookie("eyelip_uuid", $uuid, time()+3600*24*7*30);
+            $_COOKIE['eyelip_uuid'] = $uuid;
+        }
+        $log = $this->em->getRepository('GivenchyEyelipBundle:Likelog')
+            ->findOneBy(array('uuid' => $_COOKIE['eyelip_uuid'], 'videoId' => $id));
+        if ($log) {
+            return -1;
+        }
+        $likelog = new Likelog();
+        $likelog->setUuid($_COOKIE['eyelip_uuid']);
+        $likelog->setVideoId($id);
+        $likelog->setCreated(time());
+        $this->save($likelog);
         $video = $this->em->getRepository('GivenchyEyelipBundle:Video')
             ->findOneBy(array('id' => $id));
         $video->setBallot($video->getBallot() + 1);

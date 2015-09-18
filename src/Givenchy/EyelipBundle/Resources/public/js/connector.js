@@ -20,6 +20,8 @@ function uploadFun(_url, _image, _style, _tzlink){
 		}else if(data.code == 3){
 			alert("生成失败，请重新生成");
 		}
+	}).fail(function(){
+		alert("加载出错！请重新加载。");
 	})
 }
 
@@ -48,7 +50,12 @@ function getVideoFun(_url, _wid, _finFun){
 					$(".enjoy_btn").css("display","inline-block");
 				}
 			}
+		}else{
+			alert(data.msg);
 		}
+
+	}).fail(function(){
+		alert("加载出错！请重新加载。");
 	})
 }
 
@@ -68,7 +75,11 @@ function ballotFun(_url, _wid){
 			var islikenum = parseInt($("#ballotNum em").html());
 			$("#ballotNum em").html(islikenum+1);
 			alert("点赞成功");
+		}else{
+			alert(data.msg);
 		}
+	}).fail(function(){
+		alert("加载出错！请重新加载。");
 	})
 }
 
@@ -94,6 +105,8 @@ function infoFun(_url, _name, _mobile, _finFun){
 		}else if(data.code == 3){
 			alert("已经留过资料了");
 		}
+	}).fail(function(){
+		alert("加载出错！请重新加载。");
 	})
 }
 
@@ -123,7 +136,7 @@ function storeFun(_url, _province, _city, _store, _lottery){
 		}
 	}).fail(function(){
 		$(".uploadloading").hide();
-		alert("加载出错！");
+		alert("加载出错！请重新加载。");
 	})
 }
 
@@ -152,7 +165,7 @@ function checkFun(_url, _name, _mobile){
 		}
 	}).fail(function(){
 		$(".uploadloading").hide();
-		alert("加载出错！");
+		alert("加载出错！请重新加载。");
 	})
 }
 

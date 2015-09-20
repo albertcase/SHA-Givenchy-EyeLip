@@ -1028,7 +1028,7 @@ input::-webkit-input-placeholder{
     width: 18%;
     position:fixed;
     left: 3%;
-    bottom: 6%;
+    bottom: 3%;
     display: none;
     height: 30px;
     line-height: 30px;
@@ -1036,7 +1036,7 @@ input::-webkit-input-placeholder{
 }
 
 .back-1-btn.back-2-btn{
-    bottom: 9%;
+    bottom: 6%;
 }
 
 
@@ -1148,19 +1148,18 @@ input::-webkit-input-placeholder{
       z-index: 3;
     }
     
-    .back-1-btn.back-2-btn{
-        bottom: 9%;
+    .back-1-btn{
+        bottom: 6%;
     }
 
     .back-1-btn.back-2-btn{
-        bottom: 12%;
+        bottom: 9%;
     }
 
 }
 
 /* 6 */
 @media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
-	
 
 
 }

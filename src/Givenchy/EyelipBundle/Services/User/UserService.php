@@ -168,14 +168,15 @@ class UserService
             $_COOKIE['eyelip_uuid'] = $uuid;
         }
         $log = $this->em->getRepository('GivenchyEyelipBundle:Likelog')
-            ->findOneBy(array('uuid' => $_COOKIE['eyelip_uuid'], 'videoId' => $id));
+            ->findOneBy(array('uuid' => $_COOKIE['eyelip_uuid'], 'videoId' => $id, 'created' => date('Ymd')));
         if ($log) {
             return -1;
         }
+
         $likelog = new Likelog();
         $likelog->setUuid($_COOKIE['eyelip_uuid']);
         $likelog->setVideoId($id);
-        $likelog->setCreated(time());
+        $likelog->setCreated(date("Ymd"));
         $this->save($likelog);
         $video = $this->em->getRepository('GivenchyEyelipBundle:Video')
             ->findOneBy(array('id' => $id));

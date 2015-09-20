@@ -11,7 +11,7 @@
 <article class="dreambox">
     
     <!-- 自己的 -->
-    <section class="page" id="myself" style="display:inline-block;">
+    <section class="page" id="myself">
         <div class="con">
             <a href="javascript:;" class="logo">
                 <img src="/images/logo.png" width="100%" />
@@ -92,7 +92,7 @@ language: (navigator.browserLanguage || navigator.language).toLowerCase()
  
 
     if({{ismy}} == 1){
-        setTimeout('$("#wechat_tips").show()',1000);
+        setTimeout('$("#wechat_tips").show();',1000);
     }
     
 
@@ -114,8 +114,6 @@ language: (navigator.browserLanguage || navigator.language).toLowerCase()
 gv();
 
 function gv(){
-
-  
 
     var _w = function(selector,context){return(context||document).querySelector(selector)};
                 
@@ -176,6 +174,11 @@ function gv(){
                     //myVideo[fullscreenvideo]();
                     myVideo.play();
                 }, false);
+
+
+                myVideo.play();
+                setTimeout('$("#myself").show();',1000);
+                
 
 }
 

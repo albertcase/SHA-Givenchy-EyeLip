@@ -92,7 +92,7 @@ language: (navigator.browserLanguage || navigator.language).toLowerCase()
  
 
     if({{ismy}} == 1){
-        setTimeout('$("#wechat_tips").show();$("#myself").show();',1000);
+        setTimeout('$("#wechat_tips").show();',1000);
     }
     
 
@@ -177,6 +177,7 @@ function gv(){
 
 
                 myVideo.play();
+                $("#myself").show();
 
 }
 

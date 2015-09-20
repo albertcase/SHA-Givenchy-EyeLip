@@ -27,6 +27,9 @@ class PageController extends Controller
         $request = $this->getRequest()->query;
         $id = $request->get('id');
         $video = $user->getVideoById(intval($id));
+        if (!$video) {
+            return $this->redirect('/');
+        }
         $session_id = $this->getRequest()->getSession()->get('user');
         if($video->getInfo()->getId() == $session_id) {
             $ismy = 1;

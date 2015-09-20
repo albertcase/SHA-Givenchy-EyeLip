@@ -159,7 +159,7 @@ function _loading(){
 
     	_loading();
 
-        var vidArr = ["y0017r6gqnw"];
+        var vidArr = ["m0018qv0vlz"];
         var vPic = ["/images/poster.jpg"]
 
 		var player;

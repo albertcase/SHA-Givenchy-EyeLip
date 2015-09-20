@@ -78,6 +78,11 @@ class ApiController extends Controller
         $request = $this->getRequest()->request;
         $id = $request->get('id');
         $video = $user->getVideoById($id);
+        if (!$video) {
+            $response = new JsonResponse();
+            $response->setData(array('code' => 2, 'msg' => '视频不存在或已被删除'));
+            return $response;
+        }
         $session_id = $this->getRequest()->getSession()->get('user');
         if($video->getInfo()->getId() == $session_id) {
             $ismy = 1;

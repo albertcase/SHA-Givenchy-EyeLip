@@ -11,7 +11,7 @@
 <article class="dreambox">
     
     <!-- 自己的 -->
-    <section class="page" id="myself" style="display:inline-block;">
+    <section class="page" id="myself">
         <div class="con">
             <a href="javascript:;" class="logo">
                 <img src="/images/logo.png" width="100%" />
@@ -92,7 +92,7 @@ language: (navigator.browserLanguage || navigator.language).toLowerCase()
  
 
     if({{ismy}} == 1){
-        setTimeout('$("#wechat_tips").show()',1000);
+        setTimeout('$("#wechat_tips").show();$("#myself").show();',1600);
     }
     
 

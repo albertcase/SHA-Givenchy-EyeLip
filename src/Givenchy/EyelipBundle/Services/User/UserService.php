@@ -226,7 +226,7 @@ class UserService
     */
     public function getUserBallot($info)
     {
-        $rs = $this->em->getRepository('GivenchyEyelipBundle:Video')->findAll(array('info' => $info));
+        $rs = $this->em->getRepository('GivenchyEyelipBundle:Video')->find(array('info' => $info));
         $count = 0;
         foreach ($rs as $key => $value) {
             $count += $value->getBallot();

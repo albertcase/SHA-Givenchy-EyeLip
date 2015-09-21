@@ -127,6 +127,9 @@ class ApiController extends Controller
         }
         $count = $user->getUserBallot($info);
         $canballot = $user->checkStatus($mobile);
+        if ($count<20) {
+            $canballot = 0;
+        }
         $this->getRequest()->getSession()->set('user', $info->getId());
         $response = new JsonResponse();
         $response->setData(array('code' => 1, 'msg' => '验证通过', 'ballot'=> $count, 'canballot'=> $canballot));
@@ -150,11 +153,11 @@ class ApiController extends Controller
         $lottery = $request->get('lottery');
         $province = $request->get('province');
         $city = $request->get('city');
-        $address = $request->get('address');
+        $store = $request->get('store');
         $user = $this->container->get('givenchy.user.service');
-        $user->chooseStore($lottery, $province, $city, $address);
+        $user->chooseStore($lottery, $province, $city, $store);
         $response = new JsonResponse();
-        $response->setData(array('code' => 1, 'msg' => $ballot));
+        $response->setData(array('code' => 1, 'msg' => '提交成功'));
         return $response;
     }
 

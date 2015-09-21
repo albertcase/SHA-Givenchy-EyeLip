@@ -264,13 +264,13 @@ class UserService
     * @since 1.0 
     * @return $user
     */
-    public function chooseStore($lottery, $province, $city, $address)
+    public function chooseStore($lottery, $province, $city, $store)
     {
         if($info = $this->userLoad()) {
             $info->setLottery($lottery);
             $info->setProvince($province);
             $info->setCity($city);
-            $info->setAddress($address);
+            $info->setStore($store);
             $this->save($info);
             return $info;
         }

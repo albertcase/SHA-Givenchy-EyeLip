@@ -137,7 +137,9 @@ class ApiController extends Controller
         $user = $this->container->get('givenchy.user.service');
         $info = $user->userLoad();
         if (!$info) {
-            return $this->redirect('/user');
+            $response = new JsonResponse();
+            $response->setData(array('code' => 0, 'msg'=> '未验证'));
+            return $response;
         }
         $count = $user->getUserBallot($info);
         $canballot = $user->checkStatus($mobile);

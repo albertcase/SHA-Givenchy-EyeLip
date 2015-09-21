@@ -125,20 +125,31 @@ class ApiController extends Controller
             $response->setData(array('code' => 0, 'msg' => '您未参加上一波活动'));
             return $response;
         }
+        
+        $this->getRequest()->getSession()->set('user', $info->getId());
+        $response = new JsonResponse();
+        $response->setData(array('code' => 1, 'msg' => '验证通过'));
+        return $response;
+        
+    }
+
+    public function loadinfoAction() {
+        $user = $this->container->get('givenchy.user.service');
+        $info = $user->userLoad();
+        if (!$info) {
+            return $this->redirect('/user');
+        }
         $count = $user->getUserBallot($info);
         $canballot = $user->checkStatus($mobile);
         if ($count<20) {
             $canballot = 0;
         }
-        $this->getRequest()->getSession()->set('user', $info->getId());
         $response = new JsonResponse();
-        $response->setData(array('code' => 1, 'msg' => '验证通过', 'ballot'=> $count, 'canballot'=> $canballot));
+        $response->setData(array('code' => 1, 'ballot'=> $count, 'canballot'=> $canballot));
         return $response;
-        
     }
 
     public function lotteryAction() {
-        exit;
         $request = $this->getRequest()->request;
         $lottery = $request->get('lottery');
         $user = $this->container->get('givenchy.user.service');
@@ -150,12 +161,12 @@ class ApiController extends Controller
 
     public function storeAction() {
         $request = $this->getRequest()->request;
-        $lottery = $request->get('lottery');
+        //$lottery = $request->get('lottery');
         $province = $request->get('province');
         $city = $request->get('city');
         $store = $request->get('store');
         $user = $this->container->get('givenchy.user.service');
-        $user->chooseStore($lottery, $province, $city, $store);
+        $user->chooseStore($province, $city, $store);
         $response = new JsonResponse();
         $response->setData(array('code' => 1, 'msg' => '提交成功'));
         return $response;

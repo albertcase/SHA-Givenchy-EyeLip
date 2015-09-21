@@ -157,7 +157,7 @@ class ApiController extends Controller
         $user = $this->container->get('givenchy.user.service');
         $user->chooseStore($lottery, $province, $city, $store);
         $response = new JsonResponse();
-        $response->setData(array('code' => 1, 'msg' => $ballot));
+        $response->setData(array('code' => 1, 'msg' => '提交成功'));
         return $response;
     }
 

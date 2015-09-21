@@ -70,6 +70,20 @@ class PageController extends Controller
         return $this->render('GivenchyEyelipBundle:Eyelip:lottery.html.twig');
     }
 
+    public function heartshowAction()
+    {
+        return $this->render('GivenchyEyelipBundle:Eyelip:heartshow.html.twig');
+    }
+
+    public function prizeAction()
+    {
+        return $this->render('GivenchyEyelipBundle:Eyelip:prize.html.twig');
+    }
+
+    public function formAction()
+    {
+        return $this->render('GivenchyEyelipBundle:Eyelip:form.html.twig');
+    }
     
 
     

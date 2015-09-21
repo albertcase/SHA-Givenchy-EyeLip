@@ -74,6 +74,10 @@ givenchy_eyelip_api_info:
     path:     /api/info
     defaults: { _controller: GivenchyEyelipBundle:Api:info }
 
+givenchy_eyelip_api_loadinfo:
+    path:     /api/loadinfo
+    defaults: { _controller: GivenchyEyelipBundle:Api:loadinfo }
+
 givenchy_eyelip_api_lottery:
     path:     /api/lottery
     defaults: { _controller: GivenchyEyelipBundle:Api:lottery }

@@ -280,14 +280,15 @@
 
 
 <script type="text/javascript">
-var submitInfo = {
-	"lottery":"",
-}
+	var submitInfo = {
+		"lottery":"",
+	}
 
 	changePage('exchangeA');
 
 	$(".click_exchange_btn").click(function(){
-		changePage('exchange_form_1');
+		window.location.href = "{{ url('givenchy_eyelip_check') }}";
+		//changePage('exchange_form_1');
 	})
 
 	var test = /^1[3|4|5|7|8][0-9]\d{8}$/;

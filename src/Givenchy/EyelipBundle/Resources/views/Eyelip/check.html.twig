@@ -1,1 +1,71 @@
-check
+{% extends 'GivenchyEyelipBundle::index.html.twig' %} 
+{% block content %}
+<img src="/images/share.jpg" class="share" width="100%" />
+
+<article class="dreambox second_part">
+
+
+	<!-- b -->
+	<section class="page" id="exchange_form_1">
+		<div class="con">
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+			<div class="form">
+				<ul>
+					<li>
+						<img src="/images/info/name.png" width="100%" class="f_name"/>
+					</li>
+					<li>
+						<input type="text" name="name" id="name" placeholder="(必填)" />
+					</li>	
+					<li>
+						<img src="/images/info/tel.png" width="100%" class="f_tel"/>
+					</li>
+					<li>
+						<input type="tel" name="tel" maxlength="11" id="tel" placeholder="(必填)"/>
+					</li>
+					<img src="/images/confirm_btn.png" onclick="_hmt.push(['_trackEvent', '第二波btn', '确认提交比对资料按钮'])" class="confirm_btn"/>	
+				</ul>
+
+				<img src="/images/ft-1.png" width="100%" class="tips_txt2"/>
+			</div>
+
+			<div class="tipsMask">
+				<img src="/images/info/arrow.png" width="100%" class="tips_arr"/>
+				<img src="/images/info/share_title.png" width="100%" class="share_title"/>
+			</div>	
+		</div>	
+		<img src="/images/index_bg.jpg" width="100%" />
+	</section>
+
+</article>
+
+
+
+<script type="text/javascript">
+
+	changePage('exchange_form_1');
+
+	var test = /^1[3|4|5|7|8][0-9]\d{8}$/;
+
+	$(".confirm_btn").click(function(){
+		var _name = $("input[name=name]").val();
+		var _tel = $("input[name=tel]").val();
+
+		if(_name == ""){
+			alert("请输入您的姓名");
+		}else if(!test.test(_tel)){
+			alert("手机号码输入有误");
+		}else{
+			$(".uploadloading").show();
+			checkFun(jklink["check"], _name, _tel);
+		}
+	})
+
+
+</script>
+
+
+
+{% endblock %}

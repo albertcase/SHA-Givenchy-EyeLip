@@ -1,0 +1,112 @@
+{% extends 'GivenchyEyelipBundle::index.html.twig' %} 
+{% block content %}
+<img src="/images/share.jpg" class="share" width="100%" />
+
+<article class="dreambox second_part">
+
+
+	<!-- heartShow -->
+	<section class="page" id="heartShow">
+		<div class="con">
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+
+			<div class="heartShow_con">
+				<p>您一共获得了</p>
+				<span class="finHeart"><em>0</em>颗</span>
+
+				<a href="javascript:;" class="heartIcon">
+					<img src="/images/heart-red.png" width="100%" />
+				</a>
+			</div>
+
+			<div class="footer">
+				<a href="javascript:_hmt.push(['_trackEvent', '第二波btn', '兑换规则按钮']);" class="click_exchange_rule_btn">
+					<img src="/images/exchange_rule.png" width="100%" />
+				</a>
+
+				<a href="javascript:_hmt.push(['_trackEvent', '第二波btn', '我要兑换按钮']);" class="exchange_btn">
+					<img src="/images/exchange_btn.png" width="100%" />
+				</a>
+			</div>
+		</div>
+		<img src="/images/index_bg.jpg" width="100%" />
+	</section>
+
+
+</article>
+
+
+
+<script type="text/javascript">
+
+	changePage('heartShow');
+
+	if($(this).attr("data-type") == 0){
+		changePage('error-1');
+	}else{
+		changePage('prize');
+
+		if($("#heartShow .finHeart em").html() < 20){
+
+		}else if($("#heartShow .finHeart em").html() >= 20 && $("#heartShow .finHeart em").html() < 40){
+			prizelistFun(0); 
+		}else if($("#heartShow .finHeart em").html() >= 40 && $("#heartShow .finHeart em").html() < 60){
+			prizelistFun(1);
+		}else{
+			prizelistFun(2);
+		}
+		
+	}
+
+
+
+	var prizeData = [
+		{
+			"pimg":"/images/prize-1.jpg",
+			"pname":"高定恒颜遮瑕修颜笔"
+		},
+		{
+			"pimg":"/images/prize-2.jpg",
+			"pname":"高定香榭丝缎唇膏"
+		},
+		{
+			"pimg":"/images/prize-3.jpg",
+			"pname":"高定魅彩四色眼影"
+		}
+	]
+
+
+
+	function prizelistFun(prizeGrade){
+		var prizelistHtml = $.map(prizeData,function(v,k){
+				if(k <= prizeGrade){
+					return '<div class="swiper-slide" data-name="'+v.pname+'" data-id="'+k+'"><dl><dt><img src="'+v.pimg+'" width="100%" /></dt><dd>'+v.pname+'</dd></dl></div>';
+				}
+			})
+
+			$(".swiper-wrapper").html(prizelistHtml);
+
+			var swiper = new Swiper('.swiper-container', {
+			    nextButton: '.swiper-button-next',
+			    prevButton: '.swiper-button-prev',
+			    effect : 'coverflow',
+			    slidesPerView: 1,
+				centeredSlides: true,
+			    coverflow: {
+		            rotate: 100,
+		            stretch: 30,
+		            depth: 20,
+		            modifier: 1,
+		            slideShadows : false
+		        }
+			});
+	}
+
+
+</script>
+
+
+
+{% endblock %}

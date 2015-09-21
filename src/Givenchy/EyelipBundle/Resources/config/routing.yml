@@ -26,6 +26,18 @@ givenchy_eyelip_check:
     path:     /check
     defaults: { _controller: GivenchyEyelipBundle:Page:check }
 
+givenchy_eyelip_heartshow:
+    path:     /heartshow
+    defaults: { _controller: GivenchyEyelipBundle:Page:heartshow }
+
+givenchy_eyelip_prize:
+    path:     /prize
+    defaults: { _controller: GivenchyEyelipBundle:Page:prize }
+
+givenchy_eyelip_form:
+    path:     /form
+    defaults: { _controller: GivenchyEyelipBundle:Page:form }
+
 givenchy_eyelip_user:
     path:     /user
     defaults: { _controller: GivenchyEyelipBundle:Page:user }

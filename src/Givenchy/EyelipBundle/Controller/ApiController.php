@@ -150,9 +150,9 @@ class ApiController extends Controller
         $lottery = $request->get('lottery');
         $province = $request->get('province');
         $city = $request->get('city');
-        $address = $request->get('address');
+        $store = $request->get('store');
         $user = $this->container->get('givenchy.user.service');
-        $user->chooseStore($lottery, $province, $city, $address);
+        $user->chooseStore($lottery, $province, $city, $store);
         $response = new JsonResponse();
         $response->setData(array('code' => 1, 'msg' => $ballot));
         return $response;

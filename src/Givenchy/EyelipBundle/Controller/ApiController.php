@@ -127,6 +127,9 @@ class ApiController extends Controller
         }
         $count = $user->getUserBallot($info);
         $canballot = $user->checkStatus($mobile);
+        if ($count<20) {
+            $canballot = 0;
+        }
         $this->getRequest()->getSession()->set('user', $info->getId());
         $response = new JsonResponse();
         $response->setData(array('code' => 1, 'msg' => '验证通过', 'ballot'=> $count, 'canballot'=> $canballot));

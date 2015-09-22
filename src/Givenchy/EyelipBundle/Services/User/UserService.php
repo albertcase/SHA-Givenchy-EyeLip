@@ -168,8 +168,8 @@ class UserService
             $_COOKIE['eyelip_uuid'] = $uuid;
         }
         $log = $this->em->getRepository('GivenchyEyelipBundle:Likelog')
-            ->findOneBy(array('uuid' => $_COOKIE['eyelip_uuid'], 'videoId' => $id, 'created' => date('Ymd')));
-        if ($log) {
+            ->findBy(array('uuid' => $_COOKIE['eyelip_uuid'], 'videoId' => $id, 'created' => date('Ymd')));
+        if (count($log) >= 3) {
             return -1;
         }
 

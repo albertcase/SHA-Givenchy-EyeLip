@@ -59,7 +59,6 @@
 	    url: jklink["heartshow"],
 	    dataType:"json"
 	}).done(function(data){
-		console.log(data);
 		if(data.code == 1){
 			writeProlistHtml(data.ballot);
 		}else{
@@ -106,7 +105,7 @@
 	function prizelistFun(prizeGrade){
 		var prizelistHtml = $.map(prizeData,function(v,k){
 				if(k <= prizeGrade){
-					return '<div class="swiper-slide" data-name="'+v.pname+'" data-id="'+k+'"><dl><dt><img src="'+v.pimg+'" width="100%" /></dt><dd>'+v.pname+'<em>（具体产品以实物为准）</em></dd></dl></div>';
+					return '<div class="swiper-slide" data-name="'+v.pname+'" data-id="'+k+'"><dl><dt><img src="'+v.pimg+'" width="100%" /></dt><dd>'+v.pname+'<em>（指定色号，产品以实物为准）</em></dd></dl></div>';
 				}
 			})
 

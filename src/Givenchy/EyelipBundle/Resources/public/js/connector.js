@@ -191,6 +191,7 @@ function getHeartNum(_url, _prize){
 			}	
 			// changePage('heartShow');
 		}else{
+			window.location.href = "/user"
 			alert(data.msg);
 		}
 	}).fail(function(){

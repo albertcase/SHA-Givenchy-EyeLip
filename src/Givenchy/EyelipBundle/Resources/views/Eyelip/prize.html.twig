@@ -59,7 +59,6 @@
 	    url: jklink["heartshow"],
 	    dataType:"json"
 	}).done(function(data){
-		console.log(data);
 		if(data.code == 1){
 			writeProlistHtml(data.ballot);
 		}else{

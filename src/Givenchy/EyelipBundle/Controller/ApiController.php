@@ -146,8 +146,9 @@ class ApiController extends Controller
         if ($count<20) {
             $canballot = 0;
         }
+        $isballot = $user->checkLottery();
         $response = new JsonResponse();
-        $response->setData(array('code' => 1, 'ballot'=> $count, 'canballot'=> $canballot));
+        $response->setData(array('code' => 1, 'ballot'=> $count, 'canballot'=> $canballot, 'isballot' => $isballot));
         return $response;
     }
 

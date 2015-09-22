@@ -199,7 +199,7 @@
 
 
 
-		var provinceHtml = $.map(cityData.province,function(v){
+	var provinceHtml = $.map(cityData.province,function(v){
 		return '<option value="'+v+'">'+v+'</option>';
 	});
 
@@ -212,23 +212,26 @@
 			return '<option value="'+v+'">'+v+'</option>';
 		});
 
-		$("select[name=city]").append(cityHtml);
+		$("select[name=city]").html(cityHtml);
+		var cpcity = $("select[name=city]").val();
+		getStore(cpcity);
 	}
 
 	function getStore(curestore){
 		var storeVal = cityData.store;
+	
 		var storeHtml = $.map(storeVal[curestore],function(v){
 			return '<option value="'+v+'">'+v+'</option>';
 		});
 
-		$("select[name=store]").append(storeHtml);
+		$("select[name=store]").html(storeHtml);
 	}
 
 	
 
 	$("select[name=province]").change(function(){
 		var cprovince = $("select[name=province]").val();
-		$("select[name=city]").removeAttr("disabled");
+		$("select[name=city], select[name=store]").removeAttr("disabled");
 		getCityHtml(cprovince);
 	})
 
@@ -240,7 +243,8 @@
 
 
 	$(".close").click(function(){
-        $(document).pupClose(); 
+        //$(document).pupClose();
+        window.location.href = "{{ url('givenchy_eyelip_heartshow') }}";
     })
 
     $(".confirm_btn2").click(function(){
@@ -255,7 +259,7 @@
 			alert("请选择您所在城市的专柜");
 		}else{
 			$(".uploadloading").show();
-			storeFun(jklink["store"], province_val, city_val, store_val, submitInfo["lottery"]);
+			storeFun(jklink["store"], province_val, city_val, store_val);
 		};
 	})
 

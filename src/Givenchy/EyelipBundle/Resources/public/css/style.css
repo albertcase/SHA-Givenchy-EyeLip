@@ -984,6 +984,14 @@ input::-webkit-input-placeholder{
     font-size: 14px;
 }
 
+.prizelist_con dd em{
+    width: 100%;
+    font-size: 10px;
+    text-align: center;
+    display: inline-block;
+    padding: 6px 0;
+}
+
 #exchange_form_2 .form ul li{
     float: left;
     display: inline-block;
@@ -1097,6 +1105,18 @@ input::-webkit-input-placeholder{
   z-index: 2;
 }
 
+#myself .hand_animate{
+    bottom: 19%;
+    left: 55%;
+}
+
+#myself .hand_animate em{
+    width: 100px;
+    position: absolute;
+    left: 80%;
+    bottom: -18%;
+    font-size: 10px;
+}
 
 /* 手势 */
 /*给这个按钮创建一个动名名称：buttonLight，然后在每个时间段设置不同的background,color来达到变色效果，改变box-shadow来达到发光效果*/

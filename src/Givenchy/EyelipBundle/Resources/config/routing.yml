@@ -14,6 +14,10 @@ givenchy_eyelip_result:
     path:     /result
     defaults: { _controller: GivenchyEyelipBundle:Page:result }
 
+givenchy_eyelip_errortips:
+    path:     /errortips
+    defaults: { _controller: GivenchyEyelipBundle:Page:errortips }
+
 givenchy_eyelip_info:
     path:     /info
     defaults: { _controller: GivenchyEyelipBundle:Page:info }
@@ -78,7 +82,7 @@ givenchy_eyelip_api_loadinfo:
     path:     /api/loadinfo
     defaults: { _controller: GivenchyEyelipBundle:Api:loadinfo }
 
-givenchy_eyelip_api_lottery:
+givenchy_eyelip_api_lottery: 
     path:     /api/lottery
     defaults: { _controller: GivenchyEyelipBundle:Api:lottery }
 

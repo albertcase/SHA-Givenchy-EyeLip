@@ -84,6 +84,11 @@ class PageController extends Controller
     {
         return $this->render('GivenchyEyelipBundle:Eyelip:form.html.twig');
     }
+
+    public function errortipsAction()
+    {
+        return $this->render('GivenchyEyelipBundle:Eyelip:errortips.html.twig');
+    }
     
 
     

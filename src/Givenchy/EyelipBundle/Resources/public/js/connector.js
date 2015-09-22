@@ -112,21 +112,21 @@ function infoFun(_url, _name, _mobile, _finFun){
 
 
 /* 第二波留资料 */
-function storeFun(_url, _province, _city, _store, _lottery){
+function storeFun(_url, _province, _city, _store){
 	$.ajax({
 	    type: "POST",
 	    url: _url,
 	    data: {
             "province": _province,
             "city": _city,
-            "store": _store,
-            "lottery":_lottery
+            "store": _store
         },
 	    dataType:"json"
 	}).done(function(data){
-		$(".uploadloading").hide();
+		
 		if(data.code == 1){
 			$("#congratulations").pupOpen(); 
+			$(".uploadloading").hide();
 		}else if(data.code == 2){
 			alert("参数错误");
 		}else if(data.code == 3){
@@ -142,7 +142,7 @@ function storeFun(_url, _province, _city, _store, _lottery){
 
 
 /* 验证信息 */
-function checkFun(_url, _name, _mobile){
+function checkFun(_url, _name, _mobile, _checkStepUrl){
 	$.ajax({
 	    type: "POST",
 	    url: _url,
@@ -152,21 +152,96 @@ function checkFun(_url, _name, _mobile){
         },
 	    dataType:"json"
 	}).done(function(data){
-		//console.log(data);
-		$(".uploadloading").hide();
+		console.log(data);
+		
 		if(data.code == 1){
-			$(".finHeart em").html(data.ballot);
-			$(".exchange_btn").attr("data-type", data.canballot);
-			changePage('heartShow');
+			// $(".finHeart em").html(data.ballot);
+			// $(".exchange_btn").attr("data-type", data.canballot);
+			window.location.href = _checkStepUrl;
+			$(".uploadloading").hide();
+			//changePage('heartShow');
 
 			//$("#verification").pupOpen();
 		}else{
-			alert(data.msg)
+			alert(data.msg);
+			$(".uploadloading").hide();
 		}
 	}).fail(function(){
 		$(".uploadloading").hide();
 		alert("加载出错！请重新加载。");
 	})
 }
+
+
+
+/* 获取点赞数 */
+function getHeartNum(_url, _prize){
+	$.ajax({
+	    type: "POST",
+	    url: _url,
+	    dataType:"json"
+	}).done(function(data){
+		console.log(data);
+		if(data.code == 1){
+			if(_prize){
+				$("#prize").attr("data-id", data.ballot);
+			}else{
+				$(".finHeart em").html(data.ballot);
+				$(".exchange_btn").attr("data-type", data.canballot);
+			}	
+			// changePage('heartShow');
+		}else{
+			alert(data.msg);
+		}
+	}).fail(function(){
+		alert("加载出错！请重新加载。");
+	})
+}
+
+
+
+
+/* 提交奖品参数 */
+function lotteryFun(_url, _lottery, _lotteryUrl){
+	$.ajax({
+	    type: "POST",
+	    url: _url,
+	    data: {
+	    	"lottery": _lottery
+        },
+	    dataType:"json"
+	}).done(function(data){
+		console.log(data);
+		
+		if(data.code == 1){
+			window.location.href = _lotteryUrl;
+			$(".uploadloading").hide();
+		}else{
+			alert(data.msg);
+			$(".uploadloading").hide();
+		}
+
+	}).fail(function(){
+		$(".uploadloading").hide();
+		alert("加载出错！请重新加载。");
+	})
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

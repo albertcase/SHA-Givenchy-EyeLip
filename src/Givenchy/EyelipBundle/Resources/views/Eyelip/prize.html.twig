@@ -53,23 +53,36 @@
 
 <script type="text/javascript">
 	changePage('prize');
-	
-	if($(this).attr("data-type") == 0){
-		changePage('error-1');
-	}else{
-		
 
-		if($("#heartShow .finHeart em").html() < 20){
+	$.ajax({
+	    type: "POST",
+	    url: jklink["heartshow"],
+	    dataType:"json"
+	}).done(function(data){
+		console.log(data);
+		if(data.code == 1){
+			writeProlistHtml(data.ballot);
+		}else{
+			alert(data.msg);
+		}
+	}).fail(function(){
+		alert("加载出错！请重新加载。");
+	})
 
-		}else if($("#heartShow .finHeart em").html() >= 20 && $("#heartShow .finHeart em").html() < 40){
+
+
+	function writeProlistHtml(heartNumber){
+		if(heartNumber < 20){
+
+		}else if(heartNumber >= 20 && heartNumber < 40){
 			prizelistFun(0); 
-		}else if($("#heartShow .finHeart em").html() >= 40 && $("#heartShow .finHeart em").html() < 60){
+		}else if(heartNumber >= 40 && heartNumber < 60){
 			prizelistFun(1);
 		}else{
 			prizelistFun(2);
 		}
-		
 	}
+	
 
 
 
@@ -93,7 +106,7 @@
 	function prizelistFun(prizeGrade){
 		var prizelistHtml = $.map(prizeData,function(v,k){
 				if(k <= prizeGrade){
-					return '<div class="swiper-slide" data-name="'+v.pname+'" data-id="'+k+'"><dl><dt><img src="'+v.pimg+'" width="100%" /></dt><dd>'+v.pname+'</dd></dl></div>';
+					return '<div class="swiper-slide" data-name="'+v.pname+'" data-id="'+k+'"><dl><dt><img src="'+v.pimg+'" width="100%" /></dt><dd>'+v.pname+'<em>（具体产品以实物为准）</em></dd></dl></div>';
 				}
 			})
 
@@ -114,6 +127,15 @@
 		        }
 			});
 	}
+
+
+
+
+	$(".confirm_submit_btn").click(function(){
+		var selectpro_name = $(".swiper-slide-active").attr("data-name");
+		var stepUrl = "{{ url('givenchy_eyelip_form') }}";
+		lotteryFun(jklink["lottery"], selectpro_name, stepUrl);
+	})
 
 
 </script>

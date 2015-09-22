@@ -2,6 +2,29 @@
 {% block content %}
 <img src="/images/share.jpg" class="share" width="100%" />
 
+<div id="pupbg">
+	
+<!-- rule -->
+<div class="pupcon" id="rule">
+	<div class="rule_con">
+		<div class="rule_content single">
+			<img src="/images/secondrule.png" width="100%" />
+		</div>
+
+		<div class="rule_footer">
+			<a href="javascript:;" class="close">
+				<img src="/images/close.png" width="100%" />
+			</a>
+		</div>
+
+	</div>
+</div>
+
+
+</div>
+
+
+
 <article class="dreambox second_part">
 
 
@@ -14,7 +37,7 @@
 
 			<div class="heartShow_con">
 				<p>您一共获得了</p>
-				<span class="finHeart"><em>0</em>颗</span>
+				<span class="finHeart"><em></em>颗</span>
 
 				<a href="javascript:;" class="heartIcon">
 					<img src="/images/heart-red.png" width="100%" />
@@ -40,69 +63,28 @@
 
 
 <script type="text/javascript">
-
+	
 	changePage('heartShow');
 
-	if($(this).attr("data-type") == 0){
-		changePage('error-1');
-	}else{
-		changePage('prize');
-
-		if($("#heartShow .finHeart em").html() < 20){
-
-		}else if($("#heartShow .finHeart em").html() >= 20 && $("#heartShow .finHeart em").html() < 40){
-			prizelistFun(0); 
-		}else if($("#heartShow .finHeart em").html() >= 40 && $("#heartShow .finHeart em").html() < 60){
-			prizelistFun(1);
-		}else{
-			prizelistFun(2);
-		}
-		
-	}
+	getHeartNum(jklink["heartshow"]);
 
 
+	$(".click_exchange_rule_btn").click(function(){
+		$("#rule").pupOpen(); 
+	})
 
-	var prizeData = [
-		{
-			"pimg":"/images/prize-1.jpg",
-			"pname":"高定恒颜遮瑕修颜笔"
-		},
-		{
-			"pimg":"/images/prize-2.jpg",
-			"pname":"高定香榭丝缎唇膏"
-		},
-		{
-			"pimg":"/images/prize-3.jpg",
-			"pname":"高定魅彩四色眼影"
-		}
-	]
+	$(".close").click(function(){
+        $(document).pupClose(); 
+    })
 
 
-
-	function prizelistFun(prizeGrade){
-		var prizelistHtml = $.map(prizeData,function(v,k){
-				if(k <= prizeGrade){
-					return '<div class="swiper-slide" data-name="'+v.pname+'" data-id="'+k+'"><dl><dt><img src="'+v.pimg+'" width="100%" /></dt><dd>'+v.pname+'</dd></dl></div>';
-				}
-			})
-
-			$(".swiper-wrapper").html(prizelistHtml);
-
-			var swiper = new Swiper('.swiper-container', {
-			    nextButton: '.swiper-button-next',
-			    prevButton: '.swiper-button-prev',
-			    effect : 'coverflow',
-			    slidesPerView: 1,
-				centeredSlides: true,
-			    coverflow: {
-		            rotate: 100,
-		            stretch: 30,
-		            depth: 20,
-		            modifier: 1,
-		            slideShadows : false
-		        }
-			});
-	}
+    $(".exchange_btn").click(function(){
+    	if($(this).attr("data-type") == 0){
+    		window.location.href = "{{ url('givenchy_eyelip_errortips') }}";
+    	}else{
+    		window.location.href = "{{ url('givenchy_eyelip_prize') }}";
+    	}		
+	})
 
 
 </script>

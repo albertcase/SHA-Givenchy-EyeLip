@@ -142,7 +142,7 @@ class ApiController extends Controller
             return $response;
         }
         $count = $user->getUserBallot($info);
-        $canballot = $user->checkStatus($mobile);
+        $canballot = $user->checkStatus($info->getMobile());
         if ($count<20) {
             $canballot = 0;
         }

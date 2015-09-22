@@ -1,0 +1,61 @@
+{% extends 'GivenchyEyelipBundle::index.html.twig' %} 
+{% block content %}
+<img src="/images/share.jpg" class="share" width="100%" />
+
+<article class="dreambox second_part">
+
+
+	<!-- 报错－1 -->
+	<section class="page" id="error-1">
+		<div class="con">
+			<a href="javascript:;" class="logo">
+				<img src="/images/logo.png" width="100%" />
+			</a>
+			
+			<div class="error_con">
+				<img src="/images/error-1-text.png" width="100%" />
+			</div>
+
+			<div class="heartShow_con">
+				<p>您一共获得了</p>
+				<span class="finHeart"><em>0</em>颗</span>
+
+				<a href="javascript:;" class="heartIcon">
+					<img src="/images/heart.png" width="100%" />
+				</a>
+			</div>
+
+		</div>
+		<img src="/images/index_bg.jpg" width="100%" />
+	</section>
+
+</article>
+
+
+
+<script type="text/javascript">
+
+	changePage('error-1');
+
+	$.ajax({
+	    type: "POST",
+	    url: jklink["heartshow"],
+	    dataType:"json"
+	}).done(function(data){
+		console.log(data);
+		if(data.code == 1){
+			$(".finHeart em").html(data.ballot);
+		}else{
+			alert(data.msg);
+		}
+	}).fail(function(){
+		alert("加载出错！请重新加载。");
+	})
+
+
+
+</script>
+
+
+
+{% endblock %}

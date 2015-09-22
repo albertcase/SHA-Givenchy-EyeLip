@@ -152,7 +152,7 @@ function checkFun(_url, _name, _mobile, _checkStepUrl){
         },
 	    dataType:"json"
 	}).done(function(data){
-		console.log(data);
+		//console.log(data);
 		
 		if(data.code == 1){
 			// $(".finHeart em").html(data.ballot);
@@ -181,7 +181,7 @@ function getHeartNum(_url, _prize){
 	    url: _url,
 	    dataType:"json"
 	}).done(function(data){
-		console.log(data);
+		//console.log(data);
 		if(data.code == 1){
 			if(_prize){
 				$("#prize").attr("data-id", data.ballot);
@@ -211,7 +211,7 @@ function lotteryFun(_url, _lottery, _lotteryUrl){
         },
 	    dataType:"json"
 	}).done(function(data){
-		console.log(data);
+		//console.log(data);
 		
 		if(data.code == 1){
 			window.location.href = _lotteryUrl;

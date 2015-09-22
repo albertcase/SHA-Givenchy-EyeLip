@@ -200,7 +200,7 @@ function gv(){
 $(".heart").click(function(){
     if($(this).hasClass("disabled"))return false;
     _hmt.push(['_trackEvent', 'btn', '点赞按钮']);
-    $(this).addClass("disabled");
+    //$(this).addClass("disabled");
     ballotFun(jklink["ballot"], curvideoid);
 })
 

@@ -245,6 +245,26 @@ class UserService
     * @since 1.0 
     * @return $user
     */
+    public function checkLottery()
+    {
+        if($info = $this->userLoad()) {
+            if ($info->getLottery() != '') {
+                return 1;
+            }
+            return 0;
+        }
+        return FALSE;
+    }
+
+    /** 
+    * userLoad
+    *
+    * load user info
+    *
+    * @access public
+    * @since 1.0 
+    * @return $user
+    */
     public function lottery($lottery)
     {
         if($info = $this->userLoad()) {

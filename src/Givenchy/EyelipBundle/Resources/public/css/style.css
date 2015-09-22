@@ -990,7 +990,6 @@ input::-webkit-input-placeholder{
     text-align: center;
     display: inline-block;
     padding: 6px 0;
-    float: left;
 }
 
 #exchange_form_2 .form ul li{
@@ -1109,11 +1108,10 @@ input::-webkit-input-placeholder{
 #myself .hand_animate{
     bottom: 19%;
     left: 55%;
-    overflow: hidden;
 }
 
 #myself .hand_animate em{
-    width: 200px;
+    width: 100px;
     position: absolute;
     left: 80%;
     bottom: -18%;

@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 {% block title %}你的纪梵希高定大片{% endblock %}
 {% block head_style %}
-{% stylesheets filter='cssrewrite' output="css/main.css?092201"
+{% stylesheets filter='cssrewrite' output="css/main.css"
 	'%kernel.root_dir%/Resources/public/css/reset.css'
     '@GivenchyEyelipBundle/Resources/public/css/swiper.min.css'
     '@GivenchyEyelipBundle/Resources/public/css/style.css'
@@ -11,7 +11,7 @@
 {% endstylesheets %}
 {% endblock %}
 {% block head_scripts %}
-{% javascripts output="js/main.js?092201"
+{% javascripts output="js/main.js"
     '%kernel.root_dir%/Resources/public/js/jquery.js'
     '%kernel.root_dir%/Resources/public/js/tweenMax.min.js'
     '@GivenchyEyelipBundle/Resources/public/js/swiper.min.js'

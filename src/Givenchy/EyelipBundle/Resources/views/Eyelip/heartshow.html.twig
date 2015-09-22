@@ -21,6 +21,23 @@
 </div>
 
 
+<!-- redeemed -->
+<div class="pupcon" id="redeemed">
+	<div class="rule_con">
+		<div class="rule_content single">
+			<img src="/images/redeemed.png" width="72%" />
+		</div>
+
+		<div class="rule_footer">
+			<a href="javascript:;" class="close">
+				<img src="/images/close.png" width="100%" />
+			</a>
+		</div>
+
+	</div>
+</div>
+
+
 </div>
 
 
@@ -79,11 +96,16 @@
 
 
     $(".exchange_btn").click(function(){
-    	if($(this).attr("data-type") == 0){
-    		window.location.href = "{{ url('givenchy_eyelip_errortips') }}";
+    	if($(this).attr("data-status") == 1){
+    		$("#redeemed").pupOpen(); 
     	}else{
-    		window.location.href = "{{ url('givenchy_eyelip_prize') }}";
-    	}		
+    		if($(this).attr("data-type") == 0){
+	    		window.location.href = "{{ url('givenchy_eyelip_errortips') }}";
+	    	}else{
+	    		window.location.href = "{{ url('givenchy_eyelip_prize') }}";
+	    	}	
+    	}
+    		
 	})
 
 

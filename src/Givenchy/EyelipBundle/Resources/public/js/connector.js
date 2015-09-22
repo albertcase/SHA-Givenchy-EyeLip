@@ -187,7 +187,7 @@ function getHeartNum(_url, _prize){
 				$("#prize").attr("data-id", data.ballot);
 			}else{
 				$(".finHeart em").html(data.ballot);
-				$(".exchange_btn").attr("data-type", data.canballot);
+				$(".exchange_btn").attr({"data-type": data.canballot, "data-status":data.isballot});  //isballot 1 已兑换
 			}	
 			// changePage('heartShow');
 		}else{

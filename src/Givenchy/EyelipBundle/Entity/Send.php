@@ -42,6 +42,19 @@ class Send
      */
     private $mobile;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="integer")
+     */
+    private $status;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="result", type="string", length=255)
+     */
+    private $result;
 
     /**
      * Get id
@@ -120,5 +133,51 @@ class Send
     public function getMobile()
     {
         return $this->mobile;
+    }
+
+    /**
+     * Set status
+     *
+     * @param integer $status
+     * @return Send
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return integer 
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set result
+     *
+     * @param string $result
+     * @return Send
+     */
+    public function setResult($result)
+    {
+        $this->result = $result;
+
+        return $this;
+    }
+
+    /**
+     * Get result
+     *
+     * @return string 
+     */
+    public function getResult()
+    {
+        return $this->result;
     }
 }

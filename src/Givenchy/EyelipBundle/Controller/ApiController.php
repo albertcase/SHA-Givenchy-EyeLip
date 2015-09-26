@@ -101,6 +101,9 @@ class ApiController extends Controller
     }
 
     public function ballotAction() {
+        $response = new JsonResponse();
+        $response->setData(array('code' => 2, 'msg' => '活动已经结束'));
+        return $response;
         $user = $this->container->get('givenchy.user.service');
         $request = $this->getRequest()->request;
         $id = $request->get('id');

@@ -28,7 +28,7 @@ class DefaultController extends Controller
 			}
 			$total++;
 			$offline = new Offline();
-			$offline->setMobile($line);
+			$offline->setMobile(trim($line));
 			$offline->setStatus(0);
 			$offline->setCreated(date('Ymd'));
 			$doctrine->persist($offline);

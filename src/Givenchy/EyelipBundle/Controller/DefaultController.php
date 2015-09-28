@@ -20,6 +20,7 @@ class DefaultController extends Controller
 		$handle = fopen($csv,"r");
 		$total=0;
 		$ok=0;
+		$doctrine = $this->getDoctrine()->getManager();
 		while(!feof($handle)){
 			$line = fgets($handle,4096);
 			if($line==''){
@@ -30,6 +31,8 @@ class DefaultController extends Controller
 			$offline->setMobile($line);
 			$offline->setStatus(0);
 			$offline->setCreated(date('Ymd'));
+			$doctrine->persist($offline);
+            $doctrine->flush();
 			$ok++;
 		}
 		fclose($handle);

@@ -27,8 +27,11 @@ class DefaultController extends Controller
 				continue;
 			}
 			$total++;
+			$line = str_replace("\r\n","", $line);
+			$line = str_replace("\r","", $line);
+			$line = str_replace("\n","", $line);
 			$offline = new Offline();
-			$offline->setMobile(trim($line));
+			$offline->setMobile($line);
 			$offline->setStatus(0);
 			$offline->setCreated(date('Ymd'));
 			$doctrine->persist($offline);

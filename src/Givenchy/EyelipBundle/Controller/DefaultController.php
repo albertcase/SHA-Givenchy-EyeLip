@@ -16,6 +16,7 @@ class DefaultController extends Controller
     public function testAction()
     {
   		//检查
+  		echo 1;die;
   		$csv = 'files/mobile.csv';
 		$handle = fopen($csv,"r");
 		$total=0;
@@ -30,6 +31,7 @@ class DefaultController extends Controller
 			$line = str_replace("\r\n","", $line);
 			$line = str_replace("\r","", $line);
 			$line = str_replace("\n","", $line);
+			echo $line;exit;
 			$offline = new Offline();
 			$offline->setMobile($line);
 			$offline->setStatus(0);

@@ -100,6 +100,10 @@
     		$("#redeemed").pupOpen(); 
     	}else{
     		if($(this).attr("data-type") == 0){
+    			if(jklink["heartshow"]<20){
+    				alert('抱歉，您的爱心数未符合兑换条件');
+    				return false;
+    			}
 	    		window.location.href = "{{ url('givenchy_eyelip_errortips') }}";
 	    	}else{
 	    		window.location.href = "{{ url('givenchy_eyelip_prize') }}";

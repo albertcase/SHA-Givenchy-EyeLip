@@ -100,7 +100,7 @@
     		$("#redeemed").pupOpen(); 
     	}else{
     		if($(this).attr("data-type") == 0){
-    			if(jklink["heartshow"]<20){
+    			if($(".finHeart em").html()<20){
     				alert('抱歉，您的爱心数未符合兑换条件');
     				return false;
     			}

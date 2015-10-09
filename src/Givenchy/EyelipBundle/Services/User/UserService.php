@@ -248,7 +248,7 @@ class UserService
     public function checkLottery()
     {
         if($info = $this->userLoad()) {
-            if ($info->getLottery() != '') {
+            if ($info->getProvince() != '') {
                 return 1;
             }
             return 0;

@@ -22,7 +22,7 @@ class DefaultController extends Controller
 		$ok=0;
 		$doctrine = $this->getDoctrine()->getManager();
 		while(!feof($handle)){
-			$line = fgets($handle,4096);
+			$line = fgets($handle,13);
 			if($line==''){
 				continue;
 			}

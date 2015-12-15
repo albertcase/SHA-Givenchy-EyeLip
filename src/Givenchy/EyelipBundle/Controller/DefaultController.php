@@ -32,7 +32,7 @@ class DefaultController extends Controller
 			$line = str_replace("\n","", $line);
 			$offline = new Offline();
 			$offline->setMobile($line);
-			$offline->setStatus(0);
+			$offline->setStatus(5);
 			$offline->setCreated(date('Ymd'));
 			$doctrine->persist($offline);
             $doctrine->flush();
